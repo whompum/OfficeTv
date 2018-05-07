@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="RTV">
+        <attr name="FONT" format="enum">
+            <enum name="THIN" value="0"/>
+            <enum name="LIGHT" value="1"/>
+            <enum name="REGULAR" value="2"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="RentalView">
+        <attr name="rentalIcon" format="reference"/>
+        <attr name="rentalPrice" format="string|reference"/>
+        <attr name="rentalTitle" format="string|reference"/>
+    </declare-styleable>
+
+</resources>

@@ -1,8 +1,10 @@
 <resources>
-    <color name="background_gradient_start">#000000</color>
-    <color name="background_gradient_end">#DDDDDD</color>
-    <color name="fastlane_background">#0096a6</color>
-    <color name="search_opaque">#ffaa3f</color>
-    <color name="selected_background">#ffaa3f</color>
-    <color name="default_background">#3d3d3d</color>
+
+    <color name="color_main">#3dddff</color>
+    <color name="color_secondary">#17e1c1</color>
+    <color name="color_tertiary">#ffb380</color>
+    <color name="color_special">#ff80e5</color>
+    <color name="color_light">#f9f9f9</color>
+    <color name="color_dark">#999999</color>
+    <color name="color_milk">#f2f2f2</color>
 </resources>

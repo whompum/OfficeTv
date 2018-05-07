@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--TEXT SIZES-->
+    <dimen name="size_text_micro">8sp</dimen>
+    <dimen name="size_text_tiny">12sp</dimen>
+    <dimen name="size_text_small">14sp</dimen>
+    <dimen name="size_text_normal">16sp</dimen>
+    <dimen name="size_text_medium">18sp</dimen>
+    <dimen name="size_text_hulk">38sp</dimen>
+
+
+    <dimen name="size_rental_view_width">48dp</dimen>
+
+
+    <!--PADDING / MARGIN-->
+    <dimen name="size_padding_hor">16dp</dimen>
+    <dimen name="size_padding_hor_small">8dp</dimen>
+    <dimen name="size_padding_hor_large">24dp</dimen>
+    <dimen name="size_padding_ver">12dp</dimen>
+    <dimen name="size_padding_ver_small">6dp</dimen>
+    <dimen name="size_padding_ver_large">18dp</dimen>
+</resources>

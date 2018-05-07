@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- IS A RELATIVE LAYOUT -->
+
+    <com.californiadreamshostel.officetv.RTV
+        android:id="@id/id_rental_price"
+        android:textColor="@color/color_tertiary"
+        android:textSize="@dimen/size_text_micro"
+        android:layout_gravity="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@id/id_rental_icon"
+        android:tint="@color/color_tertiary"
+        android:padding="2dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="2dp"
+        android:scaleType="fitCenter"
+        android:layout_width="26dp"
+        android:layout_height="26dp"/>
+
+    <com.californiadreamshostel.officetv.RTV
+        app:FONT="LIGHT"
+        android:id="@id/id_rental_title"
+        android:textColor="@color/color_dark"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/size_text_micro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</merge>

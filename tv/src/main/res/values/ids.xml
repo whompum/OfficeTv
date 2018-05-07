@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="id_shelf_container" type="id"/>
+    <item name="id_shelf_root" type="id"/>
+    <item name="id_contact_container" type="id"/>
+
+    <item name="id_location_display" type="id"/>
+    <item name="id_phone_number_display" type="id"/>
+    <item name="id_email_display" type="id"/>
+
+    <item name="id_rental_icon" type="id"/>
+    <item name="id_rental_price" type="id"/>
+    <item name="id_rental_title" type="id"/>
+
+    <!--WEATHER INFO-->
+    <item name="id_weather_container" type="id"/>
+    <item name="id_today_weather_value" type="id"/>
+    <item name="id_tomorrow_weather_label" type="id"/>
+    <item name="id_tomorrow_weather_value" type="id"/>
+    <item name="id_tomorrow_tomorrow_weather_label" type="id"/>
+    <item name="id_tomorrow_tomorrow_weather_value" type="id"/>
+    <item name="id_tomorrow_tomorrow_tomorrow_weather_label" type="id"/>
+    <item name="id_tomorrow_tomorrow_tomorrow_weather_value" type="id"/>
+
+    <item name="id_slides_container" type="id"/>
+
+</resources>

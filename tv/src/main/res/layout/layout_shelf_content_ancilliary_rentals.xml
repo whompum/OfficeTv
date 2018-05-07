@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="fff0000"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:paddingTop="@dimen/size_padding_ver_small"
+        android:paddingBottom="@dimen/size_padding_ver_small"
+        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/size_padding_ver_small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <com.californiadreamshostel.officetv.RTV
+        android:text="@string/string_rentals"
+        android:textSize="@dimen/size_text_micro"
+        android:textColor="@color/color_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/size_padding_ver_small"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.californiadreamshostel.officetv.RentalView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:rentalIcon="@drawable/locks"
+            app:rentalPrice="$3"
+            app:rentalTitle="Locks" />
+
+        <com.californiadreamshostel.officetv.RentalView
+            app:rentalIcon="@drawable/laundry"
+            app:rentalPrice="$5"
+            app:rentalTitle="Laundry"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/size_padding_hor_small"
+            android:layout_marginEnd="@dimen/size_padding_hor_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.californiadreamshostel.officetv.RentalView
+            app:rentalIcon="@drawable/towels"
+            app:rentalPrice="$2"
+            app:rentalTitle="Towels"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+</merge>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="@dimen/size_padding_ver_small"
+    android:paddingBottom="@dimen/size_padding_ver_small"
+    tools:background="@android:color/white"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.californiadreamshostel.officetv.RTV
+        app:FONT="LIGHT"
+        android:text="@string/string_breakfast"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/size_text_micro"
+        android:textColor="@color/color_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:layout_marginTop="2dp"
+        android:layout_gravity="center_horizontal"
+        android:tint="@color/color_main"
+        android:src="@drawable/ic_forkknife"
+        android:layout_width="22dp"
+        android:layout_height="22dp" />
+
+
+    <com.californiadreamshostel.officetv.RTV
+        android:layout_marginTop="@dimen/size_padding_ver"
+        app:FONT="LIGHT"
+        android:text="8:30 AM -"
+        android:textColor="@color/color_main"
+        android:textSize="@dimen/size_text_micro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <com.californiadreamshostel.officetv.RTV
+        app:FONT="LIGHT"
+        android:text="9:30 AM"
+        android:textColor="@color/color_main"
+        android:textSize="@dimen/size_text_micro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:weightSum="10"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <FrameLayout
+        android:padding="@dimen/size_padding_ver_small"
+        android:background="@drawable/bg_rounded_rect"
+        android:layout_weight="6.5 "
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/layout_shelf_content_ancilliary_rentals"/>
+
+    </FrameLayout>
+    <Space
+        android:layout_weight=".5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+    <FrameLayout
+        android:layout_weight="3"
+        android:background="@drawable/bg_rounded_rect"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/layout_shelf_content_ancilliary_breakfast"/>
+
+    </FrameLayout>
+
+</LinearLayout>

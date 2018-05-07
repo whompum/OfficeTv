@@ -1,24 +1,56 @@
 <resources>
     <string name="app_name">OfficeTv</string>
-    <string name="title_activity_main">Leanback MainActivity Title</string>
-    <string name="browse_title"><![CDATA[Videos by Your Company]]></string>
-    <string name="related_movies">Related Videos</string>
-    <string name="grid_view">Grid View</string>
-    <string name="error_fragment">Error Fragment</string>
-    <string name="personal_settings">Personal Settings</string>
-    <string name="watch_trailer_1">Watch trailer</string>
-    <string name="watch_trailer_2">FREE</string>
-    <string name="rent_1">Rent By Day</string>
-    <string name="rent_2">From $1.99</string>
-    <string name="buy_1">Buy and Own</string>
-    <string name="buy_2">AT $9.99</string>
-    <string name="movie">Movie</string>
-    <string name="should_start">shouldStart</string>
+    <string name="title_activity_main">CaliforniaDreamsHostel</string>
 
-    <!-- Error messages -->
-    <string name="video_error_media_load_timeout">Media loading timed out</string>
-    <string name="video_error_server_inaccessible">Media server was not reachable</string>
-    <string name="video_error_unknown_error">Failed to load video</string>
-    <string name="error_fragment_message">An error occurred</string>
-    <string name="dismiss_error">Dismiss</string>
+    <!--INFORMATION-->
+    <string name="string_breakfast">Breakfast</string>
+
+    <string name="string_breakfast_time_start">8:30 AM -</string>
+    <string name="string_breakfast_time_end">9:30 AM</string>
+
+
+    <string name="string_checkin">Check In</string>
+    <string name="string_checkin_time">2 PM</string>
+    <string name="string_checkout">Check Out</string>
+    <string name="string_checkout_time">11 AM</string>
+
+    <!--RENTALS-->
+    <string name="string_rentals">Rentals</string>
+    <string name="string_lock">Locks</string>
+    <string name="string_laundry">Laundry</string>
+    <string name="string_towel">Bath Towel</string>
+
+    <!--SURF-->
+    <string name="string_wave_height">Wave Height</string>
+    <string name="string_water_temperature">Water Temp</string>
+    <string name="string_high_tide">High Tide</string>
+    <string name="string_wind_speed">Wind</string>
+    
+    <!--
+      -ABOUT
+      -NOTE: These values shouldn't be hardcoded. They should come from a server
+    -->
+    <string name="string_location">743 Emerald st, San Diego, 92109</string>
+    <string name="string_phone_number">+1 (619) 832 1127</string>
+    <string name="string_email">support@californiadreamshostel.com</string>
+    <string name="string_instagram">\@CaliforniaDreamsHostel</string>
+    <string name="string_facebook">\@Cali.Dreams</string>
+    <string name="string_facebook_group">\@CaliDreamsAlumni</string>
+
+    <!--UNITS-->
+    <string name="string_farenheit">\u2109</string>
+    <string name="string_celsius">"\u00b0"</string>
+
+    <!--DATES-->
+    <string name="string_tomorrow">Tomorrow</string>
+    <string name="string_monday">Monday</string>
+    <string name="string_tuesday">Tuesday</string>
+    <string name="string_wednesday">Wednesday</string>
+    <string name="string_thursday">Thursday</string>
+    <string name="string_friday">Friday</string>
+    <string name="string_saturday">Saturday</string>
+    <string name="string_sunday">Sunday</string>
+
+    <!--MISC-->
+    <string name="string_in_development">Still In Development</string>
 </resources>

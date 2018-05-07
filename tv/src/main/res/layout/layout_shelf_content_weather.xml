@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_rounded_rect"
+    android:backgroundTint="@color/color_milk"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="wrap_content">
+
+
+<!--WEATHER INFORMATION-->
+<RelativeLayout
+        android:id="@id/id_weather_container"
+        android:paddingStart="@dimen/size_padding_hor_large"
+        android:paddingEnd="@dimen/size_padding_hor_large"
+        android:paddingTop="@dimen/size_padding_ver_large"
+        android:paddingBottom="@dimen/size_padding_ver_large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <com.californiadreamshostel.officetv.RTV
+        app:FONT="REGULAR"
+        android:id="@+id/one"
+        android:text="68 F"
+        android:layout_marginTop="-6dp"
+        android:layout_marginEnd="@dimen/size_padding_hor"
+        android:layout_marginBottom="@dimen/size_padding_ver_small"
+        android:textSize="@dimen/size_text_hulk"
+        android:textColor="@color/color_tertiary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
+    <com.californiadreamshostel.officetv.RTV
+        style="@style/StyleWeatherDayTextAppearance"
+        android:id="@id/id_tomorrow_weather_label"
+        android:layout_toEndOf="@id/one" />
+    <com.californiadreamshostel.officetv.RTV
+        style="@style/StyleWeatherValueTextAppearance"
+        android:id="@id/id_tomorrow_weather_value"
+        android:layout_alignStart="@id/id_tomorrow_weather_label"
+        android:layout_below="@id/id_tomorrow_weather_label"/>
+
+
+
+    <com.californiadreamshostel.officetv.RTV
+        style="@style/StyleWeatherDayTextAppearance"
+        android:id="@id/id_tomorrow_tomorrow_weather_label"
+        android:layout_below="@id/one"/>
+    <com.californiadreamshostel.officetv.RTV
+        style="@style/StyleWeatherValueTextAppearance"
+        android:id="@id/id_tomorrow_tomorrow_weather_value"
+        android:layout_below="@id/id_tomorrow_tomorrow_weather_label"
+        android:layout_alignStart="@id/id_tomorrow_tomorrow_weather_label"/>
+
+
+
+
+    <com.californiadreamshostel.officetv.RTV
+        style="@style/StyleWeatherDayTextAppearance"
+        android:id="@id/id_tomorrow_tomorrow_tomorrow_weather_label"
+        android:layout_below="@id/one"
+        android:layout_alignStart="@id/id_tomorrow_weather_label"/>
+    <com.californiadreamshostel.officetv.RTV
+        style="@style/StyleWeatherValueTextAppearance"
+        android:id="@id/id_tomorrow_tomorrow_tomorrow_weather_value"
+        android:layout_below="@id/id_tomorrow_tomorrow_tomorrow_weather_label"
+        android:layout_alignStart="@id/id_tomorrow_tomorrow_tomorrow_weather_label"/>
+
+
+    <ImageView
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/sunshine_image"
+        android:layout_width="85dp"
+        android:layout_height="85dp" />
+
+    </RelativeLayout>
+
+<!--SURF INFORMATION-->
+<LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="4.5"
+        android:background="@drawable/bg_surf_display"
+        android:paddingStart="@dimen/size_padding_hor_large"
+        android:paddingEnd="@dimen/size_padding_hor_large"
+        android:paddingTop="@dimen/size_padding_ver_small"
+        android:paddingBottom="@dimen/size_padding_ver_small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/surfboard"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+        <Space style="@style/StyleHorSpace" android:layout_weight="1.5"/>
+
+    <LinearLayout
+            style="@style/StyleVerLinearLayout">
+
+        <com.californiadreamshostel.officetv.RTV
+            style="@style/StyleSurfWeatherTitle"
+            android:text="@string/string_wave_height" />
+
+        <ImageView
+            style="@style/StyleSurfWeatherIconDisplay"
+            android:src="@drawable/surfheight" />
+
+        <com.californiadreamshostel.officetv.RTV
+            style="@style/StyleSurfWeatherValue"
+            android:text="3 FT"/>
+
+    </LinearLayout>
+        <Space style="@style/StyleHorSpace"/>
+    <LinearLayout
+        style="@style/StyleVerLinearLayout">
+
+        <com.californiadreamshostel.officetv.RTV
+            style="@style/StyleSurfWeatherTitle"
+            android:text="@string/string_water_temperature" />
+
+        <ImageView
+            style="@style/StyleSurfWeatherIconDisplay"
+            android:src="@drawable/watertemp"/>
+
+        <com.californiadreamshostel.officetv.RTV
+            style="@style/StyleSurfWeatherValue"
+            android:text="69 F"/>
+
+
+
+    </LinearLayout>
+        <Space style="@style/StyleHorSpace"/>
+    <LinearLayout
+        style="@style/StyleVerLinearLayout">
+
+        <com.californiadreamshostel.officetv.RTV
+            style="@style/StyleSurfWeatherTitle"
+            android:text="@string/string_high_tide"/>
+
+        <ImageView
+            style="@style/StyleSurfWeatherIconDisplay"
+            android:src="@drawable/ic_hightide"/>
+
+        <com.californiadreamshostel.officetv.RTV
+            style="@style/StyleSurfWeatherValue"
+            android:text="9:33 AM"/>
+
+    </LinearLayout>
+        <Space style="@style/StyleHorSpace"/>
+    <LinearLayout
+        style="@style/StyleVerLinearLayout">
+
+        <com.californiadreamshostel.officetv.RTV
+            style="@style/StyleSurfWeatherTitle"
+            android:text="@string/string_wind_speed"/>
+
+        <ImageView
+            style="@style/StyleSurfWeatherIconDisplay"
+            android:src="@drawable/wind"/>
+
+        <com.californiadreamshostel.officetv.RTV
+            style="@style/StyleSurfWeatherValue"
+            android:text="8 KT"/>
+
+
+    </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
