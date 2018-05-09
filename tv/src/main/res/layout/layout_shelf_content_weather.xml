@@ -18,10 +18,11 @@
         android:paddingBottom="@dimen/size_padding_ver_large"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
     <com.californiadreamshostel.officetv.RTV
         app:FONT="REGULAR"
-        android:id="@+id/one"
-        android:text="68 F"
+        android:id="@id/id_today_weather_value"
+        android:text="0"
         android:layout_marginTop="-6dp"
         android:layout_marginEnd="@dimen/size_padding_hor"
         android:layout_marginBottom="@dimen/size_padding_ver_small"
@@ -35,7 +36,7 @@
     <com.californiadreamshostel.officetv.RTV
         style="@style/StyleWeatherDayTextAppearance"
         android:id="@id/id_tomorrow_weather_label"
-        android:layout_toEndOf="@id/one" />
+        android:layout_toEndOf="@id/id_today_weather_value" />
     <com.californiadreamshostel.officetv.RTV
         style="@style/StyleWeatherValueTextAppearance"
         android:id="@id/id_tomorrow_weather_value"
@@ -47,7 +48,7 @@
     <com.californiadreamshostel.officetv.RTV
         style="@style/StyleWeatherDayTextAppearance"
         android:id="@id/id_tomorrow_tomorrow_weather_label"
-        android:layout_below="@id/one"/>
+        android:layout_below="@id/id_today_weather_value"/>
     <com.californiadreamshostel.officetv.RTV
         style="@style/StyleWeatherValueTextAppearance"
         android:id="@id/id_tomorrow_tomorrow_weather_value"
@@ -60,7 +61,7 @@
     <com.californiadreamshostel.officetv.RTV
         style="@style/StyleWeatherDayTextAppearance"
         android:id="@id/id_tomorrow_tomorrow_tomorrow_weather_label"
-        android:layout_below="@id/one"
+        android:layout_below="@id/id_today_weather_value"
         android:layout_alignStart="@id/id_tomorrow_weather_label"/>
     <com.californiadreamshostel.officetv.RTV
         style="@style/StyleWeatherValueTextAppearance"
@@ -70,6 +71,7 @@
 
 
     <ImageView
+        android:id="@id/id_today_weather_image"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:src="@drawable/sunshine_image"
