@@ -22,6 +22,7 @@
 
     <com.californiadreamshostel.officetv.RTV
         app:FONT="LIGHT"
+        android:id="@id/id_social_media_one_display"
         android:layout_marginStart="@dimen/size_padding_hor"
         android:textColor="@color/color_dark"
         android:text="@string/string_instagram"
@@ -42,7 +43,9 @@
         app:FONT="LIGHT"
         android:text="@string/string_facebook"
             android:layout_marginStart="@dimen/size_padding_hor"
-        android:layout_marginTop="@dimen/size_padding_ver"
+            android:id="@id/id_social_media_two_display"
+
+            android:layout_marginTop="@dimen/size_padding_ver"
         android:layout_marginBottom="@dimen/size_padding_ver"
         android:textColor="@color/color_dark"
         android:layout_width="wrap_content"
@@ -62,6 +65,8 @@
         app:FONT="LIGHT"
         android:text="@string/string_facebook_group"
         android:layout_marginStart="@dimen/size_padding_hor"
+        android:id="@id/id_social_media_three_display"
+
         android:textColor="@color/color_dark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

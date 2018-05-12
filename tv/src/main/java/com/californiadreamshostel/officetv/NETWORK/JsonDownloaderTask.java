@@ -16,11 +16,13 @@ public class JsonDownloaderTask extends AsyncTask<String, Integer, String>{
 
     public static final String EMPTY = "EmptyResult";
 
-    private JsonResultListener listener;
+    private JsonDownloadPackage downloadPackage;
+    private int id;
 
-    public JsonDownloaderTask(@NonNull final JsonResultListener listener){
+    public JsonDownloaderTask(@NonNull final JsonDownloadPackage downloadPackage, final int id){
         super();
-        this.listener = listener;
+        this.downloadPackage = downloadPackage;
+        this.id = id;
     }
 
     //Method responsible for actually fetching the data
@@ -31,7 +33,7 @@ public class JsonDownloaderTask extends AsyncTask<String, Integer, String>{
 
     @Override
     protected void onPostExecute(String s) {
-        listener.onResult(s);
+        downloadPackage.listener.onResult(s, id);
     }
 
     private String download(final String url){

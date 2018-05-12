@@ -1,5 +1,0 @@
-Data will be fetched from an IntentService, who uses a subclass of type T. T is responsible for actually fetching
-the data from the internet, using simple HTTP protocols. T will post his results to the service who then posts his
-results to the caller
-
-

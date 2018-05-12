@@ -27,6 +27,9 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.display_root_wireframe);
 
+        getFragmentManager().beginTransaction()
+                .add(R.id.id_shelf_container, ShelfFragment.newInstance(null)).commit();
+
     }
 }
 
