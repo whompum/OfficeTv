@@ -40,17 +40,27 @@
     <!--UNITS-->
     <string name="string_farenheit">\u2109</string>
     <string name="string_celsius">"\u00b0"</string>
+    <string name="string_knots">KTS</string>
+    <string name="string_mph">MPH</string>
+    <string name="string_km">KM</string>
+    <string name="string_ft">FT</string>
+    <string name="string_am">AM</string>
+    <string name="string_pm">PM</string>
 
-    <!--DATES-->
+    <!--DATES
+        For the Array, Keep Sunday as Numero Uno; It's required for parsing requirements,
+        due to the nature of the Calendar Class.-->
     <string name="string_tomorrow">Tomorrow</string>
-    <string name="string_monday">Monday</string>
-    <string name="string_tuesday">Tuesday</string>
-    <string name="string_wednesday">Wednesday</string>
-    <string name="string_thursday">Thursday</string>
-    <string name="string_friday">Friday</string>
-    <string name="string_saturday">Saturday</string>
-    <string name="string_sunday">Sunday</string>
+    <string-array name="string_day_reps">
+        <item>Sunday</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+    </string-array>
 
     <!--MISC-->
-    <string name="string_in_development">Still In Development</string>
+    <string name="string_in_development">Bonjour, Lea. Je vous vois.</string>
 </resources>
