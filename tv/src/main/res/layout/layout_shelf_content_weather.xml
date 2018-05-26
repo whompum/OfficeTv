@@ -112,10 +112,13 @@
 
         <com.californiadreamshostel.officetv.RTV
             style="@style/StyleSurfWeatherValue"
+            android:id="@id/id_surf_wave_height"
             android:text="3 FT"/>
 
     </LinearLayout>
         <Space style="@style/StyleHorSpace"/>
+
+
     <LinearLayout
         style="@style/StyleVerLinearLayout">
 
@@ -129,6 +132,7 @@
 
         <com.californiadreamshostel.officetv.RTV
             style="@style/StyleSurfWeatherValue"
+            android:id="@id/id_surf_water_temp"
             android:text="69 F"/>
 
 
@@ -148,6 +152,7 @@
 
         <com.californiadreamshostel.officetv.RTV
             style="@style/StyleSurfWeatherValue"
+            android:id="@id/id_surf_height_tide"
             android:text="9:33 AM"/>
 
     </LinearLayout>
@@ -165,6 +170,7 @@
 
         <com.californiadreamshostel.officetv.RTV
             style="@style/StyleSurfWeatherValue"
+            android:id="@id/id_surf_wind_speed"
             android:text="8 KT"/>
 
 

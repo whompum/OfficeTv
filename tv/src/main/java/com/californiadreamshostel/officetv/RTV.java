@@ -3,7 +3,6 @@ package com.californiadreamshostel.officetv;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.content.res.TypedArray;
-import android.graphics.Canvas;
 import android.graphics.Typeface;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
