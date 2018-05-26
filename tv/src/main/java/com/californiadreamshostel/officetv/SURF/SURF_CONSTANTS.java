@@ -3,7 +3,7 @@ package com.californiadreamshostel.officetv.SURF;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.californiadreamshostel.officetv.SSSuperSecretAPIKey;
+import com.californiadreamshostel.officetv.WEATHER.API_KEYS;
 
 public class SURF_CONSTANTS {
 
@@ -34,7 +34,7 @@ public class SURF_CONSTANTS {
         public static final String MSW_BASE = "http://magicseaweed.com/api/";
         public static final String MSW_QUERY = "/forecast/?spot_id=" + SURF_PACIFIC_BEACH_LOCATION_ID;
 
-        public static final String MSW_URL = MSW_BASE + SSSuperSecretAPIKey.API_KEY_MSW +
+        public static final String MSW_URL = MSW_BASE + API_KEYS.API_KEY_MSW +
                 MSW_QUERY;
 
         public static final String MSW_FIELDS_BASE = "&fields=";

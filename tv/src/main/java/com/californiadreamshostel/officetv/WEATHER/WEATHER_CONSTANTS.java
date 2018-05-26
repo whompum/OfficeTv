@@ -1,9 +1,6 @@
 package com.californiadreamshostel.officetv.WEATHER;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
-import com.californiadreamshostel.officetv.SSSuperSecretAPIKey;
 
 public class WEATHER_CONSTANTS {
 
@@ -16,7 +13,7 @@ public class WEATHER_CONSTANTS {
 
     public static String getQuery(@NonNull Location location, @NonNull String appendableExcludes){
 
-        return BASE_DARK_SKY_URL + SSSuperSecretAPIKey.API_KEY_WEATHER_DARK_SKY + "/" +
+        return BASE_DARK_SKY_URL + API_KEYS.API_KEY_WEATHER_DARK_SKY + "/" +
         location.getLat() + "," + location.getLon() + appendableExcludes;
 
     }
