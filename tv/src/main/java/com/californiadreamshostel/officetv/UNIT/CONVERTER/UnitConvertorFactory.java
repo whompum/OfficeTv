@@ -3,7 +3,6 @@ package com.californiadreamshostel.officetv.UNIT.CONVERTER;
 
 import android.support.annotation.NonNull;
 
-import com.californiadreamshostel.officetv.UNIT.CONVERTER.Convertor;
 import com.californiadreamshostel.officetv.UNIT.CONVERTER.TEMPERATURE.CelsuisToFarenheitConverter;
 import com.californiadreamshostel.officetv.UNIT.CONVERTER.TEMPERATURE.FarenheitToCelsuisConverter;
 import com.californiadreamshostel.officetv.UNIT.UNITS.C;
@@ -22,36 +21,21 @@ import java.util.Set;
 //Converts a unit from one type to another. Also holds on to the set of units
 public class UnitConvertorFactory {
 
-    public static final Set<Unit> SIZE = new HashSet<>(3);
-    public static final Set<Unit> SPEED = new HashSet<>(3);
-    public static final Set<Unit> TEMPERATURE = new HashSet(3);
-
-    private static final double FEET_TO_METERS = 0.0D;
-    private static final double METERS_TO_FEET = 0.0D;
-    private static final double KILOMETERS_TO_FEET = 0.0D;
-    private static final double FEET_TO_KILOMETERS = 0.0D;
-    private static final double KILOMETERS_TO_METERS = 0.0D;
-    private static final double METERS_TO_KILOMETERS = 0.0D;
-
-    private static final double KPH_TO_KTS = 0.0D;
-    private static final double KTS_TO_KPH = 0.0D;
-    private static final double MPH_TO_KTS = 0.0D;
-    private static final double KTS_TO_MPH = 0.0D;
-    private static final double MPH_TO_KPH = 0.0D;
-    private static final double KPH_TO_MPH = 0.0D;
-
-    private static final double FARENHEIT_TO_CELSIUS = 0.0d;
-    private static final double CELSIUS_TO_FARENHEIT = 0.0d;
-
+    public static final Set<String> DISTANCE = new HashSet<>(3);
+    public static final Set<String> SPEED = new HashSet<>(3);
+    public static final Set<String> TEMPERATURE = new HashSet(2);
 
     static{
-        SIZE.add(new Ft());
-        SIZE.add(new M());
-        SIZE.add(new Km());
+        DISTANCE.add(Ft.TYPE);
+        DISTANCE.add(M.TYPE);
+        DISTANCE.add(Km.TYPE);
 
-        SPEED.add(new Kph());
-        SPEED.add(new Mph());
-        SPEED.add(new Kts());
+        SPEED.add(Kph.TYPE);
+        SPEED.add(Mph.TYPE);
+        SPEED.add(Kts.TYPE);
+
+        TEMPERATURE.add(F.TYPE);
+        TEMPERATURE.add(C.TYPE);
     }
 
     public static double convert(@NonNull final Unit from, @NonNull final Unit to){
@@ -59,43 +43,43 @@ public class UnitConvertorFactory {
         if( !(isTemperature(from) & isTemperature(to)) ) //If isn't  Temper
             if( !(isDistance(from) & isDistance(to)) ) //Check if isn't Distance
                 if( !(isSpeed(from) & isSpeed(to)) ) //If isn't Distance, or speed, or temp, return bad number
-                    return -0.09999999D;
+                    return -2D;
 
-        final Class classFrom = getUnitType(from);
-        final Class classTo = getUnitType(to);
+        final String classFrom = getUnitType(from);
+        final String classTo = getUnitType(to);
 
         //Are the same unit type, so nothing to convert.
         if(classFrom.equals(classTo))
-            return from.value();
+            return -100.0D;
 
-    return resolveConverter(classFrom, classTo).bind(from.value(), to.value()).getResult();
+    return resolveConverter(classFrom, classTo).bind(from.value()).getResult();
     }
 
 
     private static boolean isSpeed(@NonNull Unit unit){
-        return SPEED.contains(unit);
+        return SPEED.contains(unit.getType());
     }
 
     private static boolean isDistance(@NonNull final Unit unit){
-        return SIZE.contains(unit);
+        return DISTANCE.contains(unit.getType());
     }
 
     private static boolean isTemperature(@NonNull final Unit unit){
-        return TEMPERATURE.contains(unit);
+        return TEMPERATURE.contains(unit.getType());
     }
 
-    private static Class getUnitType(@NonNull final Unit unit){
-        return unit.getClass();
+    private static String getUnitType(@NonNull final Unit unit){
+        return unit.getType();
     }
 
 
     //Resolves the Type of convertor we want
-    private static Convertor resolveConverter(@NonNull final Class from, @NonNull final Class to){
+    private static Convertor resolveConverter(@NonNull final String from, @NonNull final String to){
 
-        if(from == F.class && to == C.class)
+        if(from.equals(new F().getType()) && to.equals(new C().getType()))
             return new FarenheitToCelsuisConverter();
 
-        if(from == C.class && to == F.class)
+        if(from.equals(new C().getType()) && to.equals(new F().getType()))
             return new CelsuisToFarenheitConverter();
 
         return new DummyConvertor();

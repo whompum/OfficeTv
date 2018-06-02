@@ -1,12 +1,11 @@
 package com.californiadreamshostel.officetv.UNIT.CONVERTER;
 
-import android.util.Log;
+import com.californiadreamshostel.officetv.UNIT.CONVERTER.CONVERSIONALGORITHMS.ConversionAlgorithm;
 
 public abstract class BaseConverter implements Convertor {
 
 
-   protected double from = -0.9999999D;
-   protected double to = -0.9999999D;
+   protected double from = -1D;
 
    protected ConversionAlgorithm algorithm;
 
@@ -16,22 +15,13 @@ public abstract class BaseConverter implements Convertor {
 
     @Override
     public double getResult() {
-
-       if( (from == -0.9999999D) | (to == -0.9999999D)) {
-           Log.w("UNIT_CONVERSION", "Calling getResult() before bind()");
-           return -0.9999999D;
-       }
-
-        return algorithm.convert(from, to);
+       return algorithm.convert(from);
     }
 
     @Override
-    public Convertor bind(double from, double to) {
-
+    public Convertor bind(double from) {
        this.from = from;
-       this.to = to;
-
-        return this;
+       return this;
     }
 
     protected abstract ConversionAlgorithm getConversionAlgorithm();
