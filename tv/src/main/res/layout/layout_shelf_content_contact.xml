@@ -20,7 +20,7 @@
         android:layout_width="16dp"
         android:layout_height="16dp" />
 
-    <com.californiadreamshostel.officetv.RTV
+    <com.californiadreamshostel.officetv.VIEWS.RTV
         app:FONT="LIGHT"
         android:id="@id/id_social_media_one_display"
         android:layout_marginStart="@dimen/size_padding_hor"
@@ -39,7 +39,7 @@
             android:src="@drawable/facebook"
             android:layout_width="16dp"
             android:layout_height="16dp" />
-        <com.californiadreamshostel.officetv.RTV
+        <com.californiadreamshostel.officetv.VIEWS.RTV
         app:FONT="LIGHT"
         android:text="@string/string_facebook"
             android:layout_marginStart="@dimen/size_padding_hor"
@@ -61,7 +61,7 @@
                 android:src="@drawable/facebook_group"
                 android:layout_width="16dp"
                 android:layout_height="16dp"/>
-    <com.californiadreamshostel.officetv.RTV
+    <com.californiadreamshostel.officetv.VIEWS.RTV
         app:FONT="LIGHT"
         android:text="@string/string_facebook_group"
         android:layout_marginStart="@dimen/size_padding_hor"

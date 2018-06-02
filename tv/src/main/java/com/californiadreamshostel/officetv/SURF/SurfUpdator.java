@@ -1,7 +1,6 @@
 package com.californiadreamshostel.officetv.SURF;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.californiadreamshostel.officetv.NETWORKING.JSON.JsonDownloadTask;
@@ -10,7 +9,7 @@ import com.californiadreamshostel.officetv.SURF.MODELS.HighTide;
 import com.californiadreamshostel.officetv.SURF.MODELS.SurfData;
 import com.californiadreamshostel.officetv.SURF.MODELS.WaterTemperature;
 import com.californiadreamshostel.officetv.SURF.MODELS.WindSwellHeight;
-import com.californiadreamshostel.officetv.TIMING.TickTockerTasker;
+import com.californiadreamshostel.officetv.UTILITIES.TickTockerTasker;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

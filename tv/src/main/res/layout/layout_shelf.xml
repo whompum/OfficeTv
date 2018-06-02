@@ -10,7 +10,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.californiadreamshostel.officetv.RTV
+    <com.californiadreamshostel.officetv.VIEWS.RTV
         style="@style/StyleContactTextAppearance"
         android:drawableStart="@drawable/ic_location"
         android:text="@string/string_location"
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <com.californiadreamshostel.officetv.RTV
+    <com.californiadreamshostel.officetv.VIEWS.RTV
         style="@style/StyleContactTextAppearance"
         android:layout_marginTop="@dimen/size_text_small"
         android:layout_above="@id/id_email_display"
@@ -31,7 +31,7 @@
         android:id="@id/id_phone_number_display"
         android:text="@string/string_phone_number" />
 
-    <com.californiadreamshostel.officetv.RTV
+    <com.californiadreamshostel.officetv.VIEWS.RTV
         style="@style/StyleContactTextAppearance"
         android:layout_alignParentBottom="true"
         android:drawableStart="@drawable/ic_email"

@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv;
+package com.californiadreamshostel.officetv.VIEWS;
 
 import android.content.Context;
 import android.content.res.AssetManager;
@@ -6,6 +6,8 @@ import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
+
+import com.californiadreamshostel.officetv.R;
 
 public class RTV extends AppCompatTextView {
 

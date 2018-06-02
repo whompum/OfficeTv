@@ -3,11 +3,14 @@ package com.californiadreamshostel.officetv.UTILITIES.ANIMATIONS;
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.animation.AnticipateOvershootInterpolator;
 import android.widget.TextView;
 
 //Animates TextViews between two texts
 public class TextAnimator{
+
+    public static final String TAG = "TextAnimator";
 
     private TextView sbj;
     private long duration;
@@ -44,6 +47,8 @@ public class TextAnimator{
 
 
     public void changeText(@NonNull final String newText){
+        Log.i(TAG, "ChangeText()# TextAnimator");
+
         this.spinX(newText);
     }
 

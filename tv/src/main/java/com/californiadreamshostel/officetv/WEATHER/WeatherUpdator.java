@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 
 import com.californiadreamshostel.officetv.NETWORKING.JSON.JsonDownloadTask;
 import com.californiadreamshostel.officetv.NETWORKING.JSON.ResponseListener;
-import com.californiadreamshostel.officetv.TIMING.TickTockerTasker;
+import com.californiadreamshostel.officetv.UTILITIES.TickTockerTasker;
 
 import java.util.concurrent.TimeUnit;
 

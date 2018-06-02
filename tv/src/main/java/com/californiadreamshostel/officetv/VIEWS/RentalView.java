@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv;
+package com.californiadreamshostel.officetv.VIEWS;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -14,8 +14,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import java.util.Currency;
-import java.util.Locale;
+import com.californiadreamshostel.officetv.R;
+import com.californiadreamshostel.officetv.VIEWS.RTV;
 
 public class RentalView extends LinearLayout {
 
