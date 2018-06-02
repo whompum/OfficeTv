@@ -2,17 +2,24 @@ package com.californiadreamshostel.officetv.UNIT.UNITS;
 
 public class F extends Unit {
 
-    public F() {
+    public static final String TYPE = "F";
+
+    {
+        UNIT_TYPE = TYPE;
+    }
+
+    public F(){
         super();
     }
 
-    public F(double value) {
+    public F(final double value){
         super(value);
     }
 
     @Override
-    public String getType() {
-        return "u/2109";
+    public String getStringRepresentation() {
+        return "\u2109";
     }
 }
+
 
