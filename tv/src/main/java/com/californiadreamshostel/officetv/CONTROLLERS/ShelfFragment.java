@@ -1,6 +1,7 @@
-package com.californiadreamshostel.officetv;
+package com.californiadreamshostel.officetv.CONTROLLERS;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,8 +11,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.californiadreamshostel.officetv.NETWORKING.JSON.ResponseListener;
+import com.californiadreamshostel.officetv.R;
+import com.californiadreamshostel.officetv.UNIT.UNITS.C;
+import com.californiadreamshostel.officetv.UNIT.UNITS.F;
+import com.californiadreamshostel.officetv.UNIT.UNITS.Unit;
+import com.californiadreamshostel.officetv.UNIT.UnitChoreographer;
+import com.californiadreamshostel.officetv.VIEWS.RTV;
 import com.californiadreamshostel.officetv.WEATHER.WEATHER_CONSTANTS;
 import com.californiadreamshostel.officetv.WEATHER.WeatherUpdator;
 
@@ -25,7 +33,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindString;
@@ -82,7 +92,8 @@ public final class ShelfFragment extends Fragment implements SurfUpdator.OnSurfD
     }
 
     //Contact Information TextViews
-    protected @BindView(R.id.id_location_display) RTV locationDisplay;
+    protected @BindView(R.id.id_location_display)
+    RTV locationDisplay;
     protected @BindView(R.id.id_phone_number_display) RTV phoneNumberDisplay;
     protected @BindView(R.id.id_email_display) RTV emailDisplay;
     protected @BindView(R.id.id_social_media_one_display) RTV socialMediaOneDisplay;
@@ -125,12 +136,25 @@ public final class ShelfFragment extends Fragment implements SurfUpdator.OnSurfD
          * Views are ready; Launch the timed tasks to update
          * weather and the SURF
          */
-        weatherUpdator.start();
-        surfUpdator.start();
+        //weatherUpdator.start(); KEEP COMMENTED OUT SO WE DON"T USE OUR API RATES UP
+        //surfUpdator.start();
+
+        final Set<UnitChoreographer> choreographers = new HashSet<>(5);
+
+        //Binding all the transmutational Choreographer guys aqui.
+        choreographers.add(newConvertor(todayWeatherDisplay));
+        choreographers.add(newConvertor(t_WeatherDisplay));
+        choreographers.add(newConvertor(t_T_TWeatherDisplay));
+        choreographers.add(newConvertor(t_T_TWeatherDisplay));
+
+        choreographers.add(newConvertor(waveHeightDisplay));
+        choreographers.add(newConvertor(windSpeedDisplay));
+        choreographers.add(newConvertor(highTideDisplay));
+        choreographers.add(newConvertor(waterTemperatureDisplay));
+
 
         return content;
     }
-
 
 
     @Override
@@ -138,8 +162,6 @@ public final class ShelfFragment extends Fragment implements SurfUpdator.OnSurfD
         super.onDestroyView();
         unbinder.unbind();
     }
-
-
 
     @Override
     public void onSurfDataFetched(@NonNull SurfData surfingData) {
@@ -161,11 +183,8 @@ public final class ShelfFragment extends Fragment implements SurfUpdator.OnSurfD
         highTideDisplay.setText(surfingData.getHighTideTime());
     }
 
-
     @Override
     public void onResponse(@NonNull String data) {
-
-        Log.i("FUCK_OFF", data);
 
         try {
 
@@ -178,9 +197,6 @@ public final class ShelfFragment extends Fragment implements SurfUpdator.OnSurfD
             final double currentTemperature = currentDataPoint.getDouble("temperature");
 
             todayWeatherDisplay.setText(getFormattedTemp(String.valueOf((int)currentTemperature), false));
-
-            Log.i("FUCK_OFF", "FETCHED DATA");
-
 
             final int dayCnt = 4; //Number days we want data for
 
@@ -248,6 +264,10 @@ public final class ShelfFragment extends Fragment implements SurfUpdator.OnSurfD
         }
 
 
+    }
+
+    public UnitChoreographer newConvertor(@NonNull TextView subject){
+        return new UnitChoreographer(subject);
     }
 
     private String getFormattedTemp(@NonNull String temp, final boolean useMetric){

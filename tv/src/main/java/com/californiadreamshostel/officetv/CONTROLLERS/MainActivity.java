@@ -12,10 +12,13 @@
  * the License.
  */
 
-package com.californiadreamshostel.officetv;
+package com.californiadreamshostel.officetv.CONTROLLERS;
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import com.californiadreamshostel.officetv.CONTROLLERS.ShelfFragment;
+import com.californiadreamshostel.officetv.R;
 
 /*
  * MainActivity class that loads {@link MainFragment}.
