@@ -18,6 +18,6 @@ public class C extends Unit {
 
     @Override
     public String getStringRepresentation() {
-        return "\u00b0";
+        return "\u2103";
     }
 }
