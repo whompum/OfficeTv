@@ -1,30 +1,20 @@
 package com.californiadreamshostel.officetv.UNIT.CONVERTER;
 
+import android.support.annotation.NonNull;
+
 import com.californiadreamshostel.officetv.UNIT.CONVERTER.CONVERSIONALGORITHMS.ConversionAlgorithm;
 
-public abstract class BaseConverter implements Convertor {
+public class UnitConverter{
 
+   private ConversionAlgorithm algorithm;
 
-   protected double from = -1D;
-
-   protected ConversionAlgorithm algorithm;
-
-   public BaseConverter(){
-       this.algorithm = getConversionAlgorithm();
+   public UnitConverter(@NonNull final ConversionAlgorithm algorithm){
+       this.algorithm = algorithm;
    }
 
-    @Override
-    public double getResult() {
-       return algorithm.convert(from);
-    }
-
-    @Override
-    public Convertor bind(double from) {
-       this.from = from;
-       return this;
-    }
-
-    protected abstract ConversionAlgorithm getConversionAlgorithm();
+   public double convert(final double value){
+       return algorithm.convert(value);
+   }
 
 
 }
