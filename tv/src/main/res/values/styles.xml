@@ -54,6 +54,7 @@
     <style name="StyleSurfWeatherTitle">
         <item name="FONT">LIGHT</item>
         <item name="android:textSize">@dimen/size_text_micro</item>
+        <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:textColor">@color/color_dark</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
