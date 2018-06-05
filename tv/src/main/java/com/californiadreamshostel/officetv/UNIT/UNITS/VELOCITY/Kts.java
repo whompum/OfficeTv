@@ -6,4 +6,8 @@ public class Kts extends Unit {
     {
         UNIT_TYPE = TYPE;
     }
+
+    public Kts(){}
+
+    public Kts(final)
 }

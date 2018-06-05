@@ -12,6 +12,10 @@ public class F extends Unit {
         super();
     }
 
+    public F(final int value){
+        super(value);
+    }
+
     public F(final double value){
         super(value);
     }
