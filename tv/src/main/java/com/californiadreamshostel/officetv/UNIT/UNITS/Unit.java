@@ -1,12 +1,16 @@
 package com.californiadreamshostel.officetv.UNIT.UNITS;
 
-public abstract class Unit implements UnitType {
+public abstract class Unit{
 
     protected String UNIT_TYPE = "NA";
     protected double value;
 
     public Unit(){
         this(-1D);
+    }
+
+    public Unit(final int value){
+        this(Double.valueOf(value));
     }
 
     public Unit(final double value){
@@ -21,7 +25,6 @@ public abstract class Unit implements UnitType {
         this.value = value;
     }
 
-    @Override
     public String getType() {
         return UNIT_TYPE;
     }
