@@ -1,7 +1,6 @@
 package com.californiadreamshostel.officetv.CONTROLLERS;
 
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,9 +14,11 @@ import android.widget.TextView;
 
 import com.californiadreamshostel.officetv.NETWORKING.JSON.ResponseListener;
 import com.californiadreamshostel.officetv.R;
-import com.californiadreamshostel.officetv.UNIT.UNITS.C;
-import com.californiadreamshostel.officetv.UNIT.UNITS.F;
-import com.californiadreamshostel.officetv.UNIT.UNITS.Unit;
+import com.californiadreamshostel.officetv.UNIT.CONVERTERTTASK.UnitUpdator;
+import com.californiadreamshostel.officetv.UNIT.CONVERTER.ConversionType;
+import com.californiadreamshostel.officetv.UNIT.UNITS.SIZE.Ft;
+import com.californiadreamshostel.officetv.UNIT.UNITS.TEMPERATURE.F;
+import com.californiadreamshostel.officetv.UNIT.UNITS.VELOCITY.Kts;
 import com.californiadreamshostel.officetv.UNIT.UnitChoreographer;
 import com.californiadreamshostel.officetv.VIEWS.RTV;
 import com.californiadreamshostel.officetv.WEATHER.WEATHER_CONSTANTS;
@@ -33,9 +34,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindString;
@@ -46,9 +46,14 @@ import butterknife.Unbinder;
 /**
  *
  * Should also connect to some kind of back-end to allow dynamic changing of data values
+ *
+ * TODO Move Api fetching data into a service, save data to DB, and populate views with LiveData
+ *
  * */
 public final class ShelfFragment extends Fragment implements SurfUpdator.OnSurfData, ResponseListener {
 
+    //Default Interval for Unit conversions para weather, and such
+    public static final long DEFAULT_UNIT_CONVERT_INTERVAL = TimeUnit.SECONDS.toMillis(10);
 
     public static final String WEATHER_QUERY = WEATHER_CONSTANTS.getQuery(new WEATHER_CONSTANTS.Location(32.80D, -117.24D),
             WEATHER_CONSTANTS.DAILY_CURRENTLY_URL);
@@ -71,7 +76,6 @@ public final class ShelfFragment extends Fragment implements SurfUpdator.OnSurfD
 
     public ShelfFragment(){
 
-
         final WeatherUpdator.TaskMetaInfo taskMetaInfo =
                 new WeatherUpdator.TaskMetaInfo(this, WEATHER_QUERY);
 
@@ -89,6 +93,8 @@ public final class ShelfFragment extends Fragment implements SurfUpdator.OnSurfD
                         SURF_CONSTANTS.MAGICSEAWEED.MSW_WIND_SPEED));
 
         this.surfUpdator = new SurfUpdator(TimeUnit.HOURS.toMillis(1), urls, this);
+
+        this.unitUpdator = new UnitUpdator(DEFAULT_UNIT_CONVERT_INTERVAL);
     }
 
     //Contact Information TextViews
@@ -120,7 +126,10 @@ public final class ShelfFragment extends Fragment implements SurfUpdator.OnSurfD
 
     private WeatherUpdator weatherUpdator;
     private SurfUpdator surfUpdator;
+    private UnitUpdator unitUpdator;
 
+    //Store a reference to all UnitChoreographer objects. Array-Key is the view ID
+    private Map<Integer, UnitChoreographer> unitChoreographers = new HashMap<>();
 
     @Nullable
     @Override
@@ -132,32 +141,24 @@ public final class ShelfFragment extends Fragment implements SurfUpdator.OnSurfD
         //Bind Butterknife View Injection to our Heirarchy
         unbinder = ButterKnife.bind(this, content);
 
+
+        populateChoreographers();
+        bindUnitChoreographers();
+
+        unitUpdator.start();
         /**
          * Views are ready; Launch the timed tasks to update
          * weather and the SURF
          */
-        //weatherUpdator.start(); KEEP COMMENTED OUT SO WE DON"T USE OUR API RATES UP
-        //surfUpdator.start();
-
-        final Set<UnitChoreographer> choreographers = new HashSet<>(5);
-
-        //Binding all the transmutational Choreographer guys aqui.
-        choreographers.add(newConvertor(todayWeatherDisplay));
-        choreographers.add(newConvertor(t_WeatherDisplay));
-        choreographers.add(newConvertor(t_T_TWeatherDisplay));
-        choreographers.add(newConvertor(t_T_TWeatherDisplay));
-
-        choreographers.add(newConvertor(waveHeightDisplay));
-        choreographers.add(newConvertor(windSpeedDisplay));
-        choreographers.add(newConvertor(highTideDisplay));
-        choreographers.add(newConvertor(waterTemperatureDisplay));
+        //weatherUpdator.start();
+        surfUpdator.start();
 
 
         return content;
     }
 
 
-    @Override
+    @Override //Unbinding Butterknife BTDUBS
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
@@ -167,19 +168,17 @@ public final class ShelfFragment extends Fragment implements SurfUpdator.OnSurfD
     public void onSurfDataFetched(@NonNull SurfData surfingData) {
         Log.i("BLAH", "SETTING WATER TEMP: " + getFormattedTemp(String.valueOf(surfingData.getWaterTemperature()), false));
 
-        final int waterTemp = surfingData.getWaterTemperature();
-        waterTemperatureDisplay.setText(getFormattedTemp(String.valueOf(waterTemp), false));
+        //Bind the choreographer with water temperature data
+        fetchChoreographer(waterTemperatureDisplay.getId())
+                .bind(new F(surfingData.getWaterTemperature()));
 
+        //Bind the choreographer with wind speed data
+        fetchChoreographer(windSpeedDisplay.getId())
+                .bind(new Kts(surfingData.getWindSpeed()));
 
-        final String wind = String.valueOf(surfingData.getWindSpeed()) +
-                " " + getString(R.string.string_knots);
+        fetchChoreographer(waveHeightDisplay.getId())
+                .bind(new Ft(surfingData.getWindSwellHeightMax()));
 
-        windSpeedDisplay.setText(wind);
-
-        String swellHeight = String.valueOf(surfingData.getWindSwellHeightMax()) + " " + getString(R.string.string_ft);
-
-
-        waveHeightDisplay.setText(swellHeight);
         highTideDisplay.setText(surfingData.getHighTideTime());
     }
 
@@ -197,6 +196,9 @@ public final class ShelfFragment extends Fragment implements SurfUpdator.OnSurfD
             final double currentTemperature = currentDataPoint.getDouble("temperature");
 
             todayWeatherDisplay.setText(getFormattedTemp(String.valueOf((int)currentTemperature), false));
+
+            fetchChoreographer(todayWeatherDisplay.getId())
+                    .bind(new F(currentTemperature));
 
             final int dayCnt = 4; //Number days we want data for
 
@@ -260,14 +262,70 @@ public final class ShelfFragment extends Fragment implements SurfUpdator.OnSurfD
 
         }catch (JSONException e){
             e.printStackTrace();
-            Log.i("FUCK_OFF", e.getLocalizedMessage());
+            Log.i("WEATHER_RESPONSE", e.getLocalizedMessage());
         }
 
 
     }
 
-    public UnitChoreographer newConvertor(@NonNull TextView subject){
-        return new UnitChoreographer(subject);
+    //Sorry future reader. This method is ugly but just populates all the choreographer objects
+    private void populateChoreographers(){
+
+        unitChoreographers.put(todayWeatherDisplay.getId(),
+                newChoreographer(todayWeatherDisplay, ConversionType.TEMPERATURE));
+
+        unitChoreographers.put(t_WeatherDisplay.getId(),
+                newChoreographer(t_WeatherDisplay, ConversionType.TEMPERATURE));
+
+        unitChoreographers.put(t_T_WeatherDisplay.getId(),
+                newChoreographer(t_T_WeatherDisplay, ConversionType.TEMPERATURE));
+
+        unitChoreographers.put(t_T_TWeatherDisplay.getId(),
+                newChoreographer(t_T_TWeatherDisplay, ConversionType.TEMPERATURE));
+
+        unitChoreographers.put(waveHeightDisplay.getId(),
+                newChoreographer(waveHeightDisplay, ConversionType.SIZE, true));
+
+        unitChoreographers.put(waterTemperatureDisplay.getId(),
+                newChoreographer(waterTemperatureDisplay, ConversionType.TEMPERATURE));
+
+        unitChoreographers.put(windSpeedDisplay.getId(),
+                newChoreographer(windSpeedDisplay, ConversionType.VELOCITY, true));
+
+    }
+
+    private void bindUnitChoreographers(){
+
+        final Iterator<Integer> unitChoreographerIterator = unitChoreographers.keySet().iterator();
+
+        while(unitChoreographerIterator.hasNext()){
+            final int id = unitChoreographerIterator.next();
+
+            final UnitChoreographer subject = unitChoreographers.get(id);
+
+            final ConversionType conversion_type = subject.getConversionType();
+
+            //Conversion Selector shouldn't ever be null
+            unitUpdator.bind(subject, conversion_type);
+        }
+
+
+    }
+
+    private UnitChoreographer newChoreographer(@NonNull TextView subject, ConversionType cT){
+        return new UnitChoreographer(subject, cT);
+    }
+    private UnitChoreographer newChoreographer(@NonNull TextView subject, ConversionType cT,
+                                               final boolean usePrettyPrinting){
+        return new UnitChoreographer(subject, cT, usePrettyPrinting);
+    }
+
+    @Nullable
+    private UnitChoreographer fetchChoreographer(final int id){
+        if(unitChoreographers.containsKey(id))
+            return unitChoreographers.get(id);
+
+    return null;
     }
 
     private String getFormattedTemp(@NonNull String temp, final boolean useMetric){
