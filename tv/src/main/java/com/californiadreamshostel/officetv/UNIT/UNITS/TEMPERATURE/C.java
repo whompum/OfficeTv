@@ -1,4 +1,6 @@
-package com.californiadreamshostel.officetv.UNIT.UNITS;
+package com.californiadreamshostel.officetv.UNIT.UNITS.TEMPERATURE;
+
+import com.californiadreamshostel.officetv.UNIT.UNITS.Unit;
 
 public class C extends Unit {
 
@@ -9,10 +11,14 @@ public class C extends Unit {
     }
 
     public C(){
-
+        super();
     }
 
     public C(final double value){
+        super(value);
+    }
+
+    public C(final int value){
         super(value);
     }
 
