@@ -60,10 +60,7 @@ public class JsonDownloadTask extends AsyncTask<String, Integer, String> {
             dataReader =
                     new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
-
             Log.i("JsonDownloadTask", getLogMsg(connection));
-
-            connection.disconnect();
 
             final String tempData = readData(new StringBuilder(), ((BufferedReader)dataReader), "", true);
 
@@ -71,15 +68,19 @@ public class JsonDownloadTask extends AsyncTask<String, Integer, String> {
                 data = tempData;
 
             //Should move to finally?
+            connection.disconnect();
             dataReader.close();
 
         }catch (MalformedURLException ex){
             ex.printStackTrace();
+            Log.i("JSON_DOWNLOAD_ISSUE", ex.getLocalizedMessage());
             return null;
         }catch (IOException ioException){
             ioException.printStackTrace();
+            Log.i("JSON_DOWNLOAD_ISSUE", ioException.getLocalizedMessage());
             return null;
         }
+
         return data;
     }
 
