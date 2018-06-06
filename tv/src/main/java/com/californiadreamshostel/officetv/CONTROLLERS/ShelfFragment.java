@@ -150,7 +150,7 @@ public final class ShelfFragment extends Fragment implements SurfUpdator.OnSurfD
          * Views are ready; Launch the timed tasks to update
          * weather and the SURF
          */
-        //weatherUpdator.start();
+        weatherUpdator.start();
         surfUpdator.start();
 
 
@@ -186,16 +186,12 @@ public final class ShelfFragment extends Fragment implements SurfUpdator.OnSurfD
     public void onResponse(@NonNull String data) {
 
         try {
-
             final JSONArray dataPoints =
                     new JSONObject(data).getJSONObject("daily").getJSONArray("data");
 
             final JSONObject currentDataPoint = new JSONObject(data).getJSONObject("currently");
 
-
             final double currentTemperature = currentDataPoint.getDouble("temperature");
-
-            todayWeatherDisplay.setText(getFormattedTemp(String.valueOf((int)currentTemperature), false));
 
             fetchChoreographer(todayWeatherDisplay.getId())
                     .bind(new F(currentTemperature));
