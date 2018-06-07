@@ -5,9 +5,7 @@
     <!--INFORMATION-->
     <string name="string_breakfast">Breakfast</string>
 
-    <string name="string_breakfast_time_start">8:30 AM -</string>
-    <string name="string_breakfast_time_end">9:30 AM</string>
-
+    <string name="string_breakfast_time">8:30 am - 9:30 am</string>
 
     <string name="string_checkin">Check In</string>
     <string name="string_checkin_time">2 PM</string>
@@ -16,15 +14,15 @@
 
     <!--RENTALS-->
     <string name="string_rentals">Rentals</string>
-    <string name="string_lock">Locks</string>
+    <string name="string_lock">Lock Rental</string>
     <string name="string_laundry">Laundry</string>
-    <string name="string_towel">Bath Towel</string>
+    <string name="string_towel">Towel Rental</string>
 
     <!--SURF-->
     <string name="string_wave_height">Wave Height</string>
     <string name="string_water_temperature">Water Temp</string>
     <string name="string_high_tide">High Tide</string>
-    <string name="string_wind_speed">Wind</string>
+    <string name="string_wind_speed">Wind Speed</string>
     
     <!--
       -ABOUT
