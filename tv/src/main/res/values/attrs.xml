@@ -15,4 +15,14 @@
         <attr name="rentalTitle" format="string|reference"/>
     </declare-styleable>
 
+    <declare-styleable name="SplitLayout">
+        <attr name="view_spacing_position" format="float"/>
+        <attr name="view_spacing_size" format="integer|dimension"/>
+        <attr name="layout_orientation" format="enum">
+            <enum name="orientation_vertical" value="0"/>
+            <enum name="orientation_horizontal" value="1"/>
+        </attr>
+
+    </declare-styleable>
+
 </resources>
