@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@id/id_shelf_root"
     android:background="@drawable/bg_shelf_shadow"
     android:paddingStart="@dimen/size_padding_hor"
@@ -10,6 +11,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <!--Location Display-->
     <com.californiadreamshostel.officetv.VIEWS.RTV
         style="@style/StyleContactTextAppearance"
         android:drawableStart="@drawable/ic_location"
@@ -17,26 +20,68 @@
         android:id="@id/id_location_display"
         android:layout_marginBottom="@dimen/size_padding_ver"/>
 
-   <include layout="@layout/layout_shelf_content"
+
+
+
+
+    <!--Main Content-->
+    <com.californiadreamshostel.officetv.VIEWS.SplitLayout
+        app:layout_orientation="orientation_vertical"
+        app:view_spacing_position="0.47"
+        app:view_spacing_size="@dimen/size_padding_ver"
         android:layout_below="@id/id_location_display"
         android:layout_above="@id/id_phone_number_display"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <include layout="@layout/layout_shelf_content_weather"/>
+        </FrameLayout>
+
+        <com.californiadreamshostel.officetv.VIEWS.SplitLayout
+            app:view_spacing_position=".45"
+            app:layout_orientation="orientation_vertical"
+            app:view_spacing_size="@dimen/size_padding_ver"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <include layout="@layout/layout_shelf_content_anicilliary"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <include layout="@layout/layout_shelf_content_extras"/>
+            </FrameLayout>
+
+        </com.californiadreamshostel.officetv.VIEWS.SplitLayout>
+
+    </com.californiadreamshostel.officetv.VIEWS.SplitLayout>
+
+
+
+
+
+    <!--Phone Number Display-->
     <com.californiadreamshostel.officetv.VIEWS.RTV
         style="@style/StyleContactTextAppearance"
-        android:layout_marginTop="@dimen/size_text_small"
+        android:layout_marginTop="@dimen/size_text_normal"
         android:layout_above="@id/id_email_display"
         android:drawableStart="@drawable/ic_cell"
         android:id="@id/id_phone_number_display"
         android:text="@string/string_phone_number" />
-
+    <!--Email Address Display-->
     <com.californiadreamshostel.officetv.VIEWS.RTV
         style="@style/StyleContactTextAppearance"
         android:layout_alignParentBottom="true"
         android:drawableStart="@drawable/ic_email"
         android:id="@id/id_email_display"
         android:text="@string/string_email"
-        android:layout_marginTop="@dimen/size_text_small"/>
+        android:layout_marginTop="@dimen/size_text_normal"/>
 
 </RelativeLayout>

@@ -6,26 +6,25 @@
 
     <com.californiadreamshostel.officetv.VIEWS.RTV
         android:id="@id/id_rental_price"
-        android:textColor="@color/color_tertiary"
-        android:textSize="@dimen/size_text_micro"
+        android:textColor="@color/color_special"
+        android:textSize="@dimen/size_text_small"
         android:layout_gravity="end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-
     <ImageView
         android:id="@id/id_rental_icon"
-        android:tint="@color/color_tertiary"
-        android:padding="2dp"
+        android:tint="@color/color_main"
+        android:padding="3dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="2dp"
         android:scaleType="fitCenter"
         android:layout_width="26dp"
         android:layout_height="26dp"/>
-
     <com.californiadreamshostel.officetv.VIEWS.RTV
         app:FONT="LIGHT"
         android:id="@id/id_rental_title"
-        android:textColor="@color/color_dark"
+        android:textColor="@color/color_main"
+        android:textAlignment="center"
         android:layout_gravity="center_horizontal"
         android:textSize="@dimen/size_text_micro"
         android:layout_width="wrap_content"

@@ -1,34 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<com.californiadreamshostel.officetv.VIEWS.SplitLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:weightSum="10"
-    android:orientation="horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_orientation="orientation_horizontal"
+    app:view_spacing_position="0.65"
+    app:view_spacing_size="@dimen/size_padding_hor"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
-<FrameLayout
-    android:layout_weight="6.5"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content">
-    <include
-        layout="@layout/layout_shelf_content_contact"/>
-</FrameLayout>
+    <FrameLayout
+        android:background="@drawable/bg_rounded_rect"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <include layout="@layout/layout_shelf_content_contact"/>
+    </FrameLayout>
 
-    <Space
-        android:layout_weight=".5"
-        android:layout_width="0dp"
-        android:layout_height="1dp"/>
-
-
-<FrameLayout
-    android:layout_weight="3"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content">
-
-    <include
-        layout="@layout/layout_shelf_content_extras_checkin_checkout"/>
-
-</FrameLayout>
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <include layout="@layout/layout_shelf_content_extras_checkin_checkout"/>
+    </FrameLayout>
 
 
-</LinearLayout>
+</com.californiadreamshostel.officetv.VIEWS.SplitLayout>

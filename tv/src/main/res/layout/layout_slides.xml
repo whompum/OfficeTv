@@ -20,7 +20,7 @@
         <com.californiadreamshostel.officetv.VIEWS.RTV
             android:layout_marginTop="12dp"
             android:text="@string/string_in_development"
-            android:textSize="@dimen/size_text_medium"
+            android:textSize="@dimen/size_text_large"
             android:textColor="@color/color_dark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

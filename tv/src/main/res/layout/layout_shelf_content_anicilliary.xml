@@ -1,34 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<com.californiadreamshostel.officetv.VIEWS.SplitLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
-    android:weightSum="10"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_orientation="orientation_horizontal"
+    app:view_spacing_position="0.65"
+    app:view_spacing_size="@dimen/size_padding_hor"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
+    android:layout_height="match_parent">
 
     <FrameLayout
-        android:padding="@dimen/size_padding_ver_small"
         android:background="@drawable/bg_rounded_rect"
-        android:layout_weight="6.5 "
-        android:layout_width="0dp"
-        android:layout_height="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
 
         <include layout="@layout/layout_shelf_content_ancilliary_rentals"/>
 
     </FrameLayout>
-    <Space
-        android:layout_weight=".5"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content" />
+
     <FrameLayout
-        android:layout_weight="3"
         android:background="@drawable/bg_rounded_rect"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content">
-
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
         <include layout="@layout/layout_shelf_content_ancilliary_breakfast"/>
-
     </FrameLayout>
 
-</LinearLayout>
+
+</com.californiadreamshostel.officetv.VIEWS.SplitLayout>

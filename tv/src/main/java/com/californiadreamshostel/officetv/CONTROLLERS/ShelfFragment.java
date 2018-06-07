@@ -119,7 +119,7 @@ public final class ShelfFragment extends Fragment implements SurfUpdator.OnSurfD
     //Surf Information Displays
     protected @BindView(R.id.id_surf_wave_height) RTV waveHeightDisplay;
     protected @BindView(R.id.id_surf_water_temp) RTV waterTemperatureDisplay;
-    protected @BindView(R.id.id_surf_height_tide) RTV highTideDisplay;
+    //protected @BindView(R.id.id_surf_height_tide) RTV highTideDisplay;
     protected @BindView(R.id.id_surf_wind_speed) RTV windSpeedDisplay;
 
     private Unbinder unbinder;
@@ -179,7 +179,7 @@ public final class ShelfFragment extends Fragment implements SurfUpdator.OnSurfD
         fetchChoreographer(waveHeightDisplay.getId())
                 .bind(new Ft(surfingData.getWindSwellHeightMax()));
 
-        highTideDisplay.setText(surfingData.getHighTideTime());
+        //highTideDisplay.setText(surfingData.getHighTideTime());
     }
 
     @Override

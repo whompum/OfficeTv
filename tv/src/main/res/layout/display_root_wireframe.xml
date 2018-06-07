@@ -9,16 +9,18 @@
     android:layout_height="match_parent"
     tools:context="com.californiadreamshostel.officetv.CONTROLLERS.MainActivity">
 
-    <!--SHELF-->
+    <!--SHELF
+    TODO remove the include tag-->
     <FrameLayout
         android:id="@id/id_shelf_container"
         android:layout_weight="4"
         android:layout_width="0dp"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+        <include layout="@layout/layout_shelf"/>
+    </FrameLayout>
 
 
     <!--SLIDES-->
-    <!--CONVERT TO A FRAGMENT-->
     <include layout="@layout/layout_slides"
              android:id="@id/id_slides_container"
              android:layout_weight="6"

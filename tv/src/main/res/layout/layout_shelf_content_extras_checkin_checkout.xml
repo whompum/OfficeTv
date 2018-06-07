@@ -15,7 +15,7 @@
         <com.californiadreamshostel.officetv.VIEWS.RTV
             app:FONT="LIGHT"
             android:layout_marginEnd="@dimen/size_padding_hor_small"
-            android:textSize="10sp"
+            android:textSize="@dimen/size_text_tiny"
             android:textColor="@color/color_dark"
             android:text="@string/string_checkin"
             android:layout_width="wrap_content"
@@ -23,8 +23,8 @@
 
         <com.californiadreamshostel.officetv.VIEWS.RTV
             app:FONT="REGULAR"
-            android:textSize="10sp"
-            android:textColor="@color/color_main"
+            android:textSize="@dimen/size_text_small"
+            android:textColor="@color/color_special"
             android:text="@string/string_checkin_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -45,7 +45,7 @@
         <com.californiadreamshostel.officetv.VIEWS.RTV
             app:FONT="LIGHT"
             android:layout_marginEnd="@dimen/size_padding_hor_small"
-            android:textSize="10sp"
+            android:textSize="@dimen/size_text_tiny"
             android:textColor="@color/color_dark"
             android:text="@string/string_checkout"
             android:layout_width="wrap_content"
@@ -53,8 +53,8 @@
 
         <com.californiadreamshostel.officetv.VIEWS.RTV
             app:FONT="REGULAR"
-            android:textSize="10sp"
-            android:textColor="@color/color_main"
+            android:textSize="@dimen/size_text_small"
+            android:textColor="@color/color_special"
             android:text="@string/string_checkout_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
