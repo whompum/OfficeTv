@@ -36,7 +36,13 @@
     <item name="id_surf_height_tide" type="id"/>
     <item name="id_surf_wind_speed" type="id"/>
 
-
+    <!--SLIDE RELATED IDS-->
     <item name="id_slides_container" type="id"/>
+
+    <item name="id_slide_title_container" type="id"/>
+    <item name="id_slide_title_cali" type="id"/>
+    <item name="id_slide_title_dreams" type="id"/>
+    <item name="id_slide_title_page" type="id"/>
+
 
 </resources>

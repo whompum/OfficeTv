@@ -28,14 +28,34 @@
         app:layout_constraintBottom_toTopOf="@id/local_image_guide"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <!--The scrim on the image-->
+    <View
+        android:background="@drawable/bg_slide_title_scrim"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/local_image_guide"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-    <FrameLayout
+    <com.californiadreamshostel.officetv.VIEWS.SlideTitleView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:slidePageTitle="@string/string_slide_title_rentals"
+        android:layout_marginStart="@dimen/size_padding_hor_large"
+        android:layout_marginTop="@dimen/size_padding_ver_large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.californiadreamshostel.officetv.VIEWS.ClipFrame
         app:layout_constraintTop_toBottomOf="@id/local_rentals_guide"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:TOP_RIGHT_RADII="@dimen/corner_radius_large"
+        app:TOP_LEFT_RADII="@dimen/corner_radius_large"
         android:layout_marginStart="@dimen/size_padding_hor_large"
         android:layout_marginEnd="@dimen/size_padding_hor_large"
-        android:background="@drawable/bg_rounded_rect_shadow"
+        android:background="@drawable/bg_rounded_top_rect_shadow"
         android:layout_width="match_parent"
-        android:layout_height="0dp"/>
+        android:layout_height="0dp">
+
+    </com.californiadreamshostel.officetv.VIEWS.ClipFrame>
 
 </android.support.constraint.ConstraintLayout>

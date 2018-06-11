@@ -6,6 +6,7 @@
             <enum name="THIN" value="0"/>
             <enum name="LIGHT" value="1"/>
             <enum name="REGULAR" value="2"/>
+            <enum name="MEDIUM" value="3"/>
         </attr>
     </declare-styleable>
 
@@ -30,6 +31,10 @@
         <attr name="TOP_RIGHT_RADII" format="dimension"/>
         <attr name="BOTTOM_LEFT_RADII" format="dimension"/>
         <attr name="BOTTOM_RIGHT_RADII" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="SlideTitleView">
+        <attr name="slidePageTitle" format="string"/>
     </declare-styleable>
 
 </resources>
