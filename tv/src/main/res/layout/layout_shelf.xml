@@ -20,7 +20,7 @@
 
         <!--WEATHER LAYOUT-->
         <FrameLayout
-            android:background="@drawable/weather_frame_shadow "
+            android:background="@drawable/weather_frame_shadow"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <include layout="@layout/layout_shelf_content_weather"/>
