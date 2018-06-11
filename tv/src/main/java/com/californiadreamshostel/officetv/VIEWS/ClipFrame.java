@@ -44,7 +44,7 @@ public class ClipFrame extends FrameLayout {
 
     private void initialize(final TypedArray array){
 
-        for(int i =0; i < array.length(); i++){
+        for(int i =0; i < array.getIndexCount(); i++){
 
             final int a = array.getIndex(i);
 
