@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.californiadreamshostel.officetv.VIEWS.WeatherFrame
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/bg_rounded_rect"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
 
+    <!--Use to color the background of the frame layout
+     For some reason, removing this View causes
+     the layout to shrink on the X-axis in
+     layout_shelf.xml -->
+
+    <View
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout style="@style/StyleVerLinearLayout"
+        android:layout_width="match_parent">
+    <!--Location Display-->
+    <com.californiadreamshostel.officetv.VIEWS.RTV
+        style="@style/StyleContactTextAppearance"
+        android:layout_marginTop="@dimen/size_padding_ver"
+        android:drawableStart="@drawable/ic_location"
+        android:text="@string/string_location"
+        android:id="@id/id_location_display"
+        android:layout_marginBottom="0dp"/>
 
 <!--WEATHER INFORMATION-->
 <RelativeLayout
@@ -75,15 +95,15 @@
         android:layout_height="76dp" />
 
     </RelativeLayout>
-
+    </LinearLayout>
 <!--SURF INFORMATION-->
 
     <ImageView
         android:layout_gravity="bottom|start"
         android:src="@drawable/surf_wave_graphic"
         android:scaleType="fitStart"
-        android:layout_width="76dp"
-        android:layout_height="58dp" />
+        android:layout_width="68dp"
+        android:layout_height="54dp" />
 
 <LinearLayout
         android:layout_gravity="bottom|end"
@@ -150,4 +170,4 @@
     </LinearLayout>
 
 
-</FrameLayout>
+</com.californiadreamshostel.officetv.VIEWS.WeatherFrame>
