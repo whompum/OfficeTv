@@ -6,14 +6,14 @@
         <shape>
             <padding android:bottom="2dp" />
             <corners android:bottomLeftRadius="@dimen/corner_radius_large"
-                     android:bottomRightRadius="@dimen/corner_radius_large"/>
-            <solid android:color="#0c969696" />
+                android:bottomRightRadius="@dimen/corner_radius_large"/>
+            <solid android:color="#0CCCCCCC" />
         </shape>
     </item>
     <item>
         <shape>
             <padding android:bottom="2dp" />
-            <solid android:color="#10969696" />
+            <solid android:color="#10CCCCCC" />
             <corners android:bottomLeftRadius="@dimen/corner_radius_large"
                 android:bottomRightRadius="@dimen/corner_radius_large"/>
         </shape>
@@ -21,7 +21,7 @@
     <item>
         <shape>
             <padding android:bottom="2dp" />
-            <solid android:color="#20969696" />
+            <solid android:color="#20CCCCCC" />
             <corners android:bottomLeftRadius="@dimen/corner_radius_large"
                 android:bottomRightRadius="@dimen/corner_radius_large"/>
         </shape>
@@ -29,7 +29,7 @@
     <item>
         <shape>
             <padding android:bottom="2dp"/>
-            <solid android:color="#30969696" />
+            <solid android:color="#30CCCCCC" />
             <corners android:bottomLeftRadius="@dimen/corner_radius_large"
                 android:bottomRightRadius="@dimen/corner_radius_large"/>
         </shape>
@@ -37,7 +37,7 @@
     <item>
         <shape>
             <padding android:bottom="2dp"/>
-            <solid android:color="#5096967b" />
+            <solid android:color="#50CCCCCC" />
             <corners android:bottomLeftRadius="@dimen/corner_radius_large"
                 android:bottomRightRadius="@dimen/corner_radius_large"/>
         </shape>
