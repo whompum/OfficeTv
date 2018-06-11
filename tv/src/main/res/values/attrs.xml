@@ -25,4 +25,11 @@
 
     </declare-styleable>
 
+    <declare-styleable name="ClipFrame">
+        <attr name="TOP_LEFT_RADII" format="dimension"/>
+        <attr name="TOP_RIGHT_RADII" format="dimension"/>
+        <attr name="BOTTOM_LEFT_RADII" format="dimension"/>
+        <attr name="BOTTOM_RIGHT_RADII" format="dimension"/>
+    </declare-styleable>
+
 </resources>
