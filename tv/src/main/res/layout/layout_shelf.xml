@@ -4,56 +4,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@id/id_shelf_root"
     android:background="@drawable/bg_shelf_shadow"
-    android:paddingStart="@dimen/size_padding_hor"
-    android:paddingEnd="@dimen/size_padding_hor"
-    android:paddingTop="@dimen/size_padding_ver"
     android:paddingBottom="@dimen/size_padding_ver"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
-    <!--Location Display-->
-    <com.californiadreamshostel.officetv.VIEWS.RTV
-        style="@style/StyleContactTextAppearance"
-        android:drawableStart="@drawable/ic_location"
-        android:text="@string/string_location"
-        android:id="@id/id_location_display"
-        android:layout_marginBottom="@dimen/size_padding_ver"/>
-
-
-
-
-
     <!--Main Content-->
     <com.californiadreamshostel.officetv.VIEWS.SplitLayout
         app:layout_orientation="orientation_vertical"
-        app:view_spacing_position="0.47"
+        app:view_spacing_position="0.52"
         app:view_spacing_size="@dimen/size_padding_ver"
-        android:layout_below="@id/id_location_display"
         android:layout_above="@id/id_phone_number_display"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!--WEATHER LAYOUT-->
         <FrameLayout
+            android:background="@drawable/weather_frame_shadow "
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <include layout="@layout/layout_shelf_content_weather"/>
         </FrameLayout>
 
+
+        <!--EXTRAS LAYOUTS-->
         <com.californiadreamshostel.officetv.VIEWS.SplitLayout
-            app:view_spacing_position=".45"
+            app:view_spacing_position=".5"
             app:layout_orientation="orientation_vertical"
-            app:view_spacing_size="@dimen/size_padding_ver"
+            app:view_spacing_size="@dimen/size_padding_ver_large"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <FrameLayout
+                android:paddingStart="@dimen/size_padding_hor_large"
+                android:paddingEnd="@dimen/size_padding_hor_large"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <include layout="@layout/layout_shelf_content_anicilliary"/>
             </FrameLayout>
 
             <FrameLayout
+                android:paddingStart="@dimen/size_padding_hor_large"
+                android:paddingEnd="@dimen/size_padding_hor_large"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <include layout="@layout/layout_shelf_content_extras"/>
@@ -66,11 +58,10 @@
 
 
 
-
     <!--Phone Number Display-->
     <com.californiadreamshostel.officetv.VIEWS.RTV
         style="@style/StyleContactTextAppearance"
-        android:layout_marginTop="@dimen/size_text_normal"
+        android:layout_marginTop="@dimen/size_padding_ver_large"
         android:layout_above="@id/id_email_display"
         android:drawableStart="@drawable/ic_cell"
         android:id="@id/id_phone_number_display"
@@ -82,6 +73,6 @@
         android:drawableStart="@drawable/ic_email"
         android:id="@id/id_email_display"
         android:text="@string/string_email"
-        android:layout_marginTop="@dimen/size_text_normal"/>
+        android:layout_marginTop="@dimen/size_padding_ver"/>
 
 </RelativeLayout>

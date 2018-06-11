@@ -5,40 +5,37 @@
     <item>
         <shape>
             <padding android:right="1dp" />
-            <solid android:color="#0c969696" />
+            <solid android:color="#00CCCCCC" />
         </shape>
     </item>
     <item>
         <shape>
             <padding android:right="1dp" />
-            <solid android:color="#10969696" />
+            <solid android:color="#10CCCCCC" />
         </shape>
     </item>
     <item>
         <shape>
             <padding android:right="1dp" />
-            <solid android:color="#20969696" />
+            <solid android:color="#20CCCCCC" />
         </shape>
     </item>
     <item>
         <shape>
             <padding android:right="1dp"/>
-            <solid android:color="#30969696" />
+            <solid android:color="#30CCCCCC" />
         </shape>
     </item>
     <item>
         <shape>
             <padding android:right="1dp"/>
-            <solid android:color="#5096967b" />
+            <solid android:color="#40CCCCCC" />
         </shape>
     </item>
 
     <item >
         <shape android:shape="rectangle">
-            <gradient
-                android:angle="-270"
-                android:endColor="@color/color_secondary"
-                android:startColor="@color/color_main"/>
+            <solid android:color="@color/color_milk"/>
         </shape>
     </item>
 

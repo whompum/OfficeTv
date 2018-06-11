@@ -1,31 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:keepScreenOn="true"
-    android:background="@android:color/white"
-    android:weightSum="10"
-    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:clipChildren="false"
     android:layout_height="match_parent"
-    tools:context="com.californiadreamshostel.officetv.CONTROLLERS.MainActivity">
+    android:layout_width="match_parent">
 
-    <!--SHELF
-    TODO remove the include tag-->
-    <FrameLayout
-        android:id="@id/id_shelf_container"
-        android:layout_weight="4"
-        android:layout_width="0dp"
+    <com.californiadreamshostel.officetv.VIEWS.SplitLayout
+        app:layout_orientation="orientation_horizontal"
+        app:view_spacing_position=".41"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <include layout="@layout/layout_shelf"/>
-    </FrameLayout>
+
+        <View
+            android:background="@color/color_milk"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <!--SLIDES-->
+        <FrameLayout
+            android:id="@+id/test"
+            android:layout_weight="6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <include layout="@layout/slides_rental"/>
+        </FrameLayout>
+
+    </com.californiadreamshostel.officetv.VIEWS.SplitLayout>
+
+    <com.californiadreamshostel.officetv.VIEWS.SplitLayout
+        app:layout_orientation="orientation_horizontal"
+        app:view_spacing_position=".415"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--SHELF
+    TODO remove the include tag-->
+        <FrameLayout
+            android:id="@id/id_shelf_container"
+            android:layout_weight="4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <include layout="@layout/layout_shelf"/>
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
 
-    <!--SLIDES-->
-    <include layout="@layout/layout_slides"
-             android:id="@id/id_slides_container"
-             android:layout_weight="6"
-             android:layout_width="0dp"
-             android:layout_height="match_parent"/>
+    </com.californiadreamshostel.officetv.VIEWS.SplitLayout>
 
-</LinearLayout>
+
+</FrameLayout>
+
 
