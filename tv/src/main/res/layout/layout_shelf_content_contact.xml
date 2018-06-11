@@ -2,13 +2,9 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_gravity="center"
-    android:background="@drawable/bg_rounded_rect"
-    android:paddingStart="14dp"
-    android:paddingEnd="14dp"
-    android:paddingTop="10dp"
-    android:paddingBottom="10dp"
     android:orientation="vertical"
+    android:paddingStart="@dimen/size_padding_ver"
+    android:layout_gravity="center_vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
@@ -19,40 +15,26 @@
         android:layout_gravity="center_vertical"
         android:tint="@color/color_special"
         android:src="@drawable/instagram"
-        android:layout_width="16dp"
-        android:layout_height="16dp"/>
+        android:layout_width="14dp"
+        android:layout_height="14dp"/>
 
-    <com.californiadreamshostel.officetv.VIEWS.RTV
-        app:FONT="LIGHT"
+    <com.californiadreamshostel.officetv.VIEWS.RTV style="@style/StyleSocialMediaTextAppearance"
         android:id="@id/id_social_media_one_display"
-        android:layout_marginStart="@dimen/size_padding_hor"
-        android:textColor="@color/color_dark"
-        android:text="@string/string_instagram"
-        android:textSize="@dimen/size_text_normal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:text="@string/string_instagram" />
     </LinearLayout>
     <LinearLayout style="@style/StyleHorLinearLayout">
-
-
 
     <ImageView
             android:layout_gravity="center_vertical"
             android:tint="@color/color_special"
             android:src="@drawable/facebook"
-            android:layout_width="16dp"
-            android:layout_height="16dp"/>
-        <com.californiadreamshostel.officetv.VIEWS.RTV
-        app:FONT="LIGHT"
+            android:layout_width="14dp"
+            android:layout_height="14dp"/>
+        <com.californiadreamshostel.officetv.VIEWS.RTV style="@style/StyleSocialMediaTextAppearance"
         android:text="@string/string_facebook"
-            android:textSize="@dimen/size_text_normal"
-        android:layout_marginStart="@dimen/size_padding_hor"
         android:id="@id/id_social_media_two_display"
         android:layout_marginTop="@dimen/size_padding_ver"
-        android:layout_marginBottom="@dimen/size_padding_ver"
-        android:textColor="@color/color_dark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_marginBottom="@dimen/size_padding_ver" />
     </LinearLayout>
     <LinearLayout style="@style/StyleHorLinearLayout">
 
@@ -62,17 +44,11 @@
         android:layout_gravity="center_vertical"
         android:tint="@color/color_special"
         android:src="@drawable/facebook_group"
-        android:layout_width="16dp"
-        android:layout_height="16dp"/>
-    <com.californiadreamshostel.officetv.VIEWS.RTV
-        app:FONT="LIGHT"
+        android:layout_width="14dp"
+        android:layout_height="14dp"/>
+    <com.californiadreamshostel.officetv.VIEWS.RTV style="@style/StyleSocialMediaTextAppearance"
         android:text="@string/string_facebook_group"
-        android:textSize="@dimen/size_text_normal"
-        android:layout_marginStart="@dimen/size_padding_hor"
-        android:id="@id/id_social_media_three_display"
-        android:textColor="@color/color_dark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:id="@id/id_social_media_three_display" />
 
         </LinearLayout>
 
