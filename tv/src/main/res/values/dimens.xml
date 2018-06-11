@@ -20,4 +20,9 @@
     <dimen name="size_padding_ver">12dp</dimen>
     <dimen name="size_padding_ver_small">6dp</dimen>
     <dimen name="size_padding_ver_large">18dp</dimen>
+
+    <dimen name="corner_radius_small">10dp</dimen>
+    <dimen name="corner_radius_normal">10dp</dimen>
+    <dimen name="corner_radius_large">22dp</dimen>
+
 </resources>
