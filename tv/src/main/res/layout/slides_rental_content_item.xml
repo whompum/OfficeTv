@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="@color/color_milk"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!--Rental Title Guideline-->
+    <android.support.constraint.Guideline
+        app:layout_constraintGuide_percent=".10"
+        android:orientation="vertical"
+        android:id="@+id/local_rental_title_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <!--Rental Three Hours Guideline-->
+    <android.support.constraint.Guideline
+        app:layout_constraintGuide_percent=".55"
+        android:orientation="vertical"
+        android:id="@+id/local_three_hour_value_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <!--Rental Full Day Guideline-->
+    <android.support.constraint.Guideline
+        app:layout_constraintGuide_percent=".75"
+        android:orientation="vertical"
+        android:id="@+id/local_full_day_value_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.californiadreamshostel.officetv.VIEWS.RTV
+        app:FONT="REGULAR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/local_rental_title_guideline"
+        tools:text="Surf Board"
+        android:id="@+id/rental_slide_title"
+        android:textColor="#bcbcbc"
+        android:textSize="@dimen/size_text_large"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+    <com.californiadreamshostel.officetv.VIEWS.RTV
+        app:FONT="LIGHT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/local_three_hour_value_guideline"
+        tools:text="$15"
+        android:textColor="@color/color_tertiary"
+        android:id="@+id/rental_slide_three_hour_price"
+        android:textSize="@dimen/size_text_large"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+    <com.californiadreamshostel.officetv.VIEWS.RTV
+        app:FONT="MEDIUM"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/local_full_day_value_guide"
+        tools:text="$20"
+        android:textColor="@color/color_special"
+        android:id="@+id/rental_slide_full_day_price"
+
+        android:textSize="@dimen/size_text_large"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+
+</android.support.constraint.ConstraintLayout>

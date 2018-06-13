@@ -6,12 +6,26 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
+
+    <!--
+        NOTE
+        The use of android:letterSpacing
+        will apply a spacing at the start of the
+        first character. This View tries to achieve
+        a visual effect where all its children are
+        left justified. Due to the inconsistency
+        of the letterSpacings, i use negative margins
+        to achieve the desired Visual effect.
+    -->
+
+
     <com.californiadreamshostel.officetv.VIEWS.RTV
         app:FONT="MEDIUM"
         android:id="@id/id_slide_title_cali"
         android:textSize="22dp"
         android:textColor="@android:color/white"
-        android:letterSpacing=".15"
+        android:letterSpacing=".75"
+        android:layout_marginStart="-6dp"
         tools:text="@string/string_slide_title_cali"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -20,7 +34,8 @@
         app:FONT="MEDIUM"
         android:id="@id/id_slide_title_dreams"
         android:textSize="22dp"
-        android:letterSpacing=".15"
+        android:letterSpacing=".75"
+        android:layout_marginStart="-6dp"
         android:textColor="@android:color/white"
         tools:text="@string/string_slide_title_dreams"
         android:layout_marginTop="@dimen/size_padding_ver_small"
@@ -32,6 +47,7 @@
         android:id="@id/id_slide_title_page"
         android:textSize="@dimen/size_text_large"
         android:textColor="@android:color/white"
+        android:letterSpacing=".25"
         android:text="ALOHA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

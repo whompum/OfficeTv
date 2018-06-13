@@ -59,10 +59,14 @@
         <item>Saturday</item>
     </string-array>
 
-    <!--SLIDE TITLES-->
-    <string name="string_slide_title_cali">C&#160;&#160;A&#160;&#160;L&#160;&#160;I</string>
-    <string name="string_slide_title_dreams">D&#160;&#160;R&#160;&#160;E&#160;&#160;A&#160;&#160;M&#160;&#160;S</string>
-    <string name="string_slide_title_rentals">R&#160;E&#160;N&#160;T&#160;A&#160;L&#160;S</string>
+    <!--Rental Slide Title-->
+    <string name="string_slide_title_cali">CALI</string>
+    <string name="string_slide_title_dreams">DREAMS</string>
+    <string name="string_slide_title_rentals">RENTALS</string>
+
+    <!--Rental Times-->
+    <string name="string_three_hours">3 Hours</string>
+    <string name="string_full_day">Full Day</string>
 
     <!--MISC-->
     <string name="string_in_development">Still In Development</string>

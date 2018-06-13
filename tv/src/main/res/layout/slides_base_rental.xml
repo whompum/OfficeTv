@@ -65,7 +65,7 @@
         android:layout_height="match_parent">
 
 
-        <include layout="@layout/layout_rentals_slide_content"/>
+        <include layout="@layout/slide_rental_content"/>
 
 
     </com.californiadreamshostel.officetv.VIEWS.ClipFrame>
