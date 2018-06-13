@@ -33,6 +33,10 @@ public class MainActivity extends Activity {
         getFragmentManager().beginTransaction()
                 .add(R.id.id_shelf_container, ShelfFragment.newInstance(null)).commit();
 
+
+        getFragmentManager().beginTransaction()
+                .add(R.id.id_slides_container, RentalSlideFragment.newInstance()).commit();
+
     }
 }
 

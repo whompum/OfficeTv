@@ -25,9 +25,9 @@
         app:layout_constraintStart_toEndOf="@id/local_slides_guide"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:id="@id/id_slides_container"
         android:layout_width="0dp"
         android:layout_height="match_parent">
-        <include layout="@layout/slides_rental"/>
     </FrameLayout>
 
     <FrameLayout
@@ -37,7 +37,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/local_shelf_guide"
         app:layout_constraintTop_toTopOf="parent">
-        <include layout="@layout/layout_shelf"/>
     </FrameLayout>
 
 
