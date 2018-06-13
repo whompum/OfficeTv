@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="@style/Theme.Leanback"/>
+
+    <!--TODO Put resources into their appropriate Folders!-->
+
+    <style name="StyleContactTextAppearance">
+        <item name="FONT">LIGHT</item>
+        <item name="android:text">Lorem Ipsum Dolar Sit Amet</item>
+        <item name="android:textSize">@dimen/size_text_large</item>
+        <item name="android:textColor">#cf707070</item>
+        <item name="android:layout_marginStart">@dimen/size_padding_hor_large</item>
+        <item name="android:drawablePadding">@dimen/size_padding_hor_small</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="StyleHorSpace">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="StyleVerLinearLayout">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="StyleHorLinearLayout">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="StyleWeatherLabelTextAppearance">
+        <item name="FONT">THIN</item>
+        <item name="android:text">LOREM</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:textSize">@dimen/size_text_normal</item>
+        <item name="android:textColor">@color/color_dark</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="StyleWeatherValueTextAppearance">
+        <item name="FONT">REGULAR</item>
+        <item name="android:textColor">@color/color_tertiary</item>
+        <item name="android:textSize">@dimen/size_text_normal</item>
+        <item name="android:text">51D</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
+
+    <!--SURF INFORMATION ATTRIBUTES-->
+    <style name="StyleSurfWeatherTitle">
+        <item name="FONT">LIGHT</item>
+        <item name="android:textSize">@dimen/size_text_tiny</item>
+        <item name="android:layout_marginEnd">@dimen/size_padding_hor_small</item>
+        <item name="android:textColor">@color/color_dark</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="StyleSurfWeatherIconDisplay">
+        <item name="android:layout_width">12dp</item>
+        <item name="android:layout_height">12dp</item>
+    </style>
+
+    <!--
+        The point of the "-2dp" for marginTop is because
+        the TextView using RobotoFont has a larger height
+        than what is required to display the text. In tight spaces
+        alignment adjustements are required. The aforementioned
+        -2dp is required to align it accordingly with its
+        horizontal neighbor
+    -->
+    <style name="StyleSurfWeatherValue">
+        <item name="FONT">REGULAR</item>
+        <item name="android:textSize">@dimen/size_text_small</item>
+        <item name="android:layout_marginTop">-2dp</item>
+        <item name="android:layout_marginStart">@dimen/size_padding_hor_small</item>
+        <item name="android:textColor">@color/color_main</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="StyleSurfValueContainer" parent="StyleHorLinearLayout">
+        <item name="android:layout_marginTop">@dimen/size_padding_ver_small</item>
+    </style>
+
+
+    <!-- SOCIAL MEDIA STYLING -->
+   <style name="StyleSocialMediaTextAppearance">
+       <item name="FONT">LIGHT</item>
+       <item name="android:textSize">@dimen/size_text_small</item>
+       <item name="android:layout_marginStart">@dimen/size_padding_hor</item>
+       <item name="android:textColor">@color/color_dark</item>
+       <item name="android:layout_width">wrap_content</item>
+       <item name="android:layout_height">wrap_content</item>
+   </style>
+
+   <style name="StyleSocialMediaIcon">
+       <item name="android:layout_gravity">center_vertical</item>
+       <item name="android:tint">@color/color_special</item>
+       <item name="android:layout_width">16dp</item>
+       <item name="android:layout_height">16dp</item>
+   </style>
+
+</resources>

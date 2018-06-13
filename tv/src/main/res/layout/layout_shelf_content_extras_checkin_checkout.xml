@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:padding="@dimen/size_padding_ver_small"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_rounded_rect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.californiadreamshostel.officetv.VIEWS.RTV
+            app:FONT="LIGHT"
+            android:layout_marginEnd="@dimen/size_padding_hor_small"
+            android:textSize="@dimen/size_text_tiny"
+            android:textColor="@color/color_dark"
+            android:text="@string/string_checkin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.californiadreamshostel.officetv.VIEWS.RTV
+            app:FONT="REGULAR"
+            android:textSize="@dimen/size_text_small"
+            android:textColor="@color/color_special"
+            android:text="@string/string_checkin_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="@dimen/size_padding_ver"/>
+
+    <LinearLayout
+        android:padding="@dimen/size_padding_ver_small"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_rounded_rect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.californiadreamshostel.officetv.VIEWS.RTV
+            app:FONT="LIGHT"
+            android:layout_marginEnd="@dimen/size_padding_hor_small"
+            android:textSize="@dimen/size_text_tiny"
+            android:textColor="@color/color_dark"
+            android:text="@string/string_checkout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.californiadreamshostel.officetv.VIEWS.RTV
+            app:FONT="REGULAR"
+            android:textSize="@dimen/size_text_small"
+            android:textColor="@color/color_special"
+            android:text="@string/string_checkout_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

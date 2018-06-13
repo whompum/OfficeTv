@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">OfficeTv</string>
+    <string name="title_activity_main">CaliforniaDreamsHostel</string>
+
+    <!--INFORMATION-->
+    <string name="string_breakfast">Breakfast</string>
+
+    <string name="string_breakfast_time">8:30 am - 9:30 am</string>
+
+    <string name="string_checkin">Check In</string>
+    <string name="string_checkin_time">2 PM</string>
+    <string name="string_checkout">Check Out</string>
+    <string name="string_checkout_time">11 AM</string>
+
+    <!--RENTALS-->
+    <string name="string_rentals">Rentals</string>
+    <string name="string_lock">Lock Rental</string>
+    <string name="string_laundry">Laundry</string>
+    <string name="string_towel">Towel Rental</string>
+
+    <!--SURF-->
+    <string name="string_wave_height">Wave Height</string>
+    <string name="string_water_temperature">Water Temp</string>
+    <string name="string_high_tide">High Tide</string>
+    <string name="string_wind_speed">Wind Speed</string>
+    
+    <!--
+      -ABOUT
+      -NOTE: These values shouldn't be hardcoded. They should come from a server
+    -->
+    <string name="string_location">743 Emerald st, San Diego, 92109</string>
+    <string name="string_phone_number">+1 (619) 832 1127</string>
+    <string name="string_email">support@californiadreamshostel.com</string>
+    <string name="string_instagram">\@CaliforniaDreamsHostel</string>
+    <string name="string_facebook">\@Cali.Dreams</string>
+    <string name="string_facebook_group">\@CaliDreamsAlumni</string>
+
+    <!--UNITS-->
+    <string name="string_farenheit">\u2109</string>
+    <string name="string_celsius">"\u00b0"</string>
+    <string name="string_knots">KTS</string>
+    <string name="string_mph">MPH</string>
+    <string name="string_km">KM</string>
+    <string name="string_ft">FT</string>
+    <string name="string_am">AM</string>
+    <string name="string_pm">PM</string>
+
+    <!--DATES
+        For the Array, Keep Sunday as Numero Uno; It's required for parsing requirements,
+        due to the nature of the Calendar Class.-->
+    <string name="string_tomorrow">Tomorrow</string>
+    <string-array name="string_day_reps">
+        <item>Sunday</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+    </string-array>
+
+    <!--Rental Slide Title-->
+    <string name="string_slide_title_cali">CALI</string>
+    <string name="string_slide_title_dreams">DREAMS</string>
+    <string name="string_slide_title_rentals">RENTALS</string>
+
+    <!--Rental Times-->
+    <string name="string_three_hours">3 Hours</string>
+    <string name="string_full_day">Full Day</string>
+
+    <!--MISC-->
+    <string name="string_in_development">Still In Development</string>
+
+</resources>

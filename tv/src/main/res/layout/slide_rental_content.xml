@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/color_milk"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:paddingTop="@dimen/size_padding_ver"
+        android:paddingBottom="@dimen/size_padding_ver"
+        android:background="#e1e1e1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.constraint.Guideline
+            app:layout_constraintGuide_percent=".55"
+            android:orientation="vertical"
+            android:id="@+id/local_three_hour_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <android.support.constraint.Guideline
+            app:layout_constraintGuide_percent=".75"
+            android:orientation="vertical"
+            android:id="@+id/local_full_day_guide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.californiadreamshostel.officetv.VIEWS.RTV
+            app:FONT="LIGHT"
+            app:layout_constraintStart_toStartOf="@id/local_three_hour_guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/string_three_hours"
+            android:textColor="@color/color_tertiary"
+            android:textSize="@dimen/size_text_large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <com.californiadreamshostel.officetv.VIEWS.RTV
+            app:FONT="LIGHT"
+            app:layout_constraintStart_toStartOf="@id/local_full_day_guide"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/string_full_day"
+            android:textColor="@color/color_special"
+            android:textSize="@dimen/size_text_large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/rental_slide_content_container"
+        android:paddingTop="@dimen/size_padding_ver"
+        android:paddingBottom="@dimen/size_padding_ver"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </LinearLayout>
+
+
+</LinearLayout>

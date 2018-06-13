@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.californiadreamshostel.officetv.VIEWS.ClipFrame
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:BOTTOM_LEFT_RADII="@dimen/corner_radius_large"
+    app:BOTTOM_RIGHT_RADII="@dimen/corner_radius_large"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <!--Use to color the background of the frame layout
+     For some reason, removing this View causes
+     the layout to shrink on the X-axis in
+     layout_shelf.xml -->
+
+    <View
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout style="@style/StyleVerLinearLayout"
+        android:layout_width="match_parent">
+    <!--Location Display-->
+    <com.californiadreamshostel.officetv.VIEWS.RTV
+        style="@style/StyleContactTextAppearance"
+        android:layout_marginTop="@dimen/size_padding_ver"
+        android:drawableStart="@drawable/ic_location"
+        android:text="@string/string_location"
+        android:id="@id/id_location_display"
+        android:layout_marginBottom="0dp"/>
+
+<!--WEATHER INFORMATION-->
+<RelativeLayout
+        android:id="@id/id_weather_container"
+        android:paddingStart="@dimen/size_padding_hor_large"
+        android:paddingEnd="@dimen/size_padding_hor_large"
+        android:paddingTop="@dimen/size_padding_ver_large"
+        android:paddingBottom="@dimen/size_padding_ver_large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <com.californiadreamshostel.officetv.VIEWS.RTV
+        app:FONT="REGULAR"
+        android:id="@id/id_today_weather_value"
+        android:text="0"
+        android:layout_marginTop="-6dp"
+        android:layout_marginEnd="@dimen/size_padding_hor"
+        android:layout_marginBottom="@dimen/size_padding_ver_small"
+        android:textSize="@dimen/size_text_hulk"
+        android:textColor="@color/color_tertiary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
+    <com.californiadreamshostel.officetv.VIEWS.RTV
+        style="@style/StyleWeatherLabelTextAppearance"
+        android:id="@id/id_tomorrow_weather_label"
+        android:layout_toEndOf="@id/id_today_weather_value" />
+    <com.californiadreamshostel.officetv.VIEWS.RTV
+        style="@style/StyleWeatherValueTextAppearance"
+        android:id="@id/id_tomorrow_weather_value"
+        android:layout_alignStart="@id/id_tomorrow_weather_label"
+        android:layout_below="@id/id_tomorrow_weather_label"/>
+
+
+
+    <com.californiadreamshostel.officetv.VIEWS.RTV
+        style="@style/StyleWeatherLabelTextAppearance"
+        android:id="@id/id_tomorrow_tomorrow_weather_label"
+        android:layout_below="@id/id_today_weather_value"/>
+    <com.californiadreamshostel.officetv.VIEWS.RTV
+        style="@style/StyleWeatherValueTextAppearance"
+        android:id="@id/id_tomorrow_tomorrow_weather_value"
+        android:layout_below="@id/id_tomorrow_tomorrow_weather_label"
+        android:layout_alignStart="@id/id_tomorrow_tomorrow_weather_label"/>
+
+
+
+
+    <com.californiadreamshostel.officetv.VIEWS.RTV
+        style="@style/StyleWeatherLabelTextAppearance"
+        android:id="@id/id_tomorrow_tomorrow_tomorrow_weather_label"
+        android:layout_below="@id/id_today_weather_value"
+        android:layout_alignStart="@id/id_tomorrow_weather_label"/>
+    <com.californiadreamshostel.officetv.VIEWS.RTV
+        style="@style/StyleWeatherValueTextAppearance"
+        android:id="@id/id_tomorrow_tomorrow_tomorrow_weather_value"
+        android:layout_below="@id/id_tomorrow_tomorrow_tomorrow_weather_label"
+        android:layout_alignStart="@id/id_tomorrow_tomorrow_tomorrow_weather_label"/>
+
+
+    <ImageView
+        android:id="@id/id_today_weather_image"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/sunshine_image"
+        android:layout_width="76dp"
+        android:layout_height="76dp" />
+
+    </RelativeLayout>
+    </LinearLayout>
+<!--SURF INFORMATION-->
+
+    <ImageView
+        android:layout_gravity="bottom|start"
+        android:src="@drawable/surf_wave_graphic"
+        android:scaleType="fitStart"
+        android:layout_width="68dp"
+        android:layout_height="54dp" />
+
+<LinearLayout
+        android:layout_gravity="bottom|end"
+        android:orientation="horizontal"
+        android:paddingEnd="@dimen/size_padding_hor_large"
+        android:paddingBottom="@dimen/size_padding_ver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+    <LinearLayout style="@style/StyleVerLinearLayout">
+
+        <com.californiadreamshostel.officetv.VIEWS.RTV
+            style="@style/StyleSurfWeatherTitle"
+            android:text="@string/string_wave_height" />
+
+        <LinearLayout style="@style/StyleSurfValueContainer">
+            <ImageView style="@style/StyleSurfWeatherIconDisplay"
+                android:src="@drawable/surfheight" />
+
+        <com.californiadreamshostel.officetv.VIEWS.RTV style="@style/StyleSurfWeatherValue"
+            android:id="@id/id_surf_wave_height"
+            android:text="3 FT"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout style="@style/StyleVerLinearLayout"
+        android:layout_marginStart="@dimen/size_padding_hor_large"
+        android:layout_marginEnd="@dimen/size_padding_hor_large">
+
+        <com.californiadreamshostel.officetv.VIEWS.RTV
+            style="@style/StyleSurfWeatherTitle"
+            android:text="@string/string_water_temperature" />
+        <LinearLayout style="@style/StyleSurfValueContainer">
+
+        <ImageView style="@style/StyleSurfWeatherIconDisplay"
+                   android:src="@drawable/watertemp"/>
+
+        <com.californiadreamshostel.officetv.VIEWS.RTV
+            style="@style/StyleSurfWeatherValue"
+            android:id="@id/id_surf_water_temp"
+            android:text="69 F"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout style="@style/StyleVerLinearLayout">
+
+        <com.californiadreamshostel.officetv.VIEWS.RTV
+            style="@style/StyleSurfWeatherTitle"
+            android:text="@string/string_wind_speed"/>
+        <LinearLayout style="@style/StyleSurfValueContainer">
+
+        <ImageView style="@style/StyleSurfWeatherIconDisplay"
+            android:src="@drawable/wind"/>
+
+        <com.californiadreamshostel.officetv.VIEWS.RTV
+            style="@style/StyleSurfWeatherValue"
+            android:id="@id/id_surf_wind_speed"
+            android:text="8 KT"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</com.californiadreamshostel.officetv.VIEWS.ClipFrame>

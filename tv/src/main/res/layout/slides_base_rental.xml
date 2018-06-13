@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/color_milk"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--Image Guide-->
+    <android.support.constraint.Guideline
+        android:id="@+id/local_image_guide"
+         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <!--Main Content Guide-->
+    <android.support.constraint.Guideline
+        android:id="@+id/local_rentals_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <!--Backdrop Image of the Rentals Slide-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/san_diego_scenery"
+        app:layout_constraintBottom_toTopOf="@id/local_image_guide"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!--The scrim on the image-->
+    <View
+        android:background="@drawable/bg_slide_title_scrim"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/local_image_guide"
+        app:layout_constraintTop_toTopOf="parent"/>
+    
+    <!--Rental Slide Title-->
+    <com.californiadreamshostel.officetv.VIEWS.SlideTitleView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:slidePageTitle="@string/string_slide_title_rentals"
+        android:layout_marginStart="@dimen/size_padding_hor_large"
+        android:layout_marginTop="@dimen/size_padding_ver_large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <!--Main Content-->
+    <FrameLayout
+        app:layout_constraintTop_toBottomOf="@id/local_rentals_guide"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="@dimen/size_padding_hor_large"
+        android:layout_marginEnd="@dimen/size_padding_hor_large"
+        android:background="@drawable/bg_rounded_top_rect_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+    <com.californiadreamshostel.officetv.VIEWS.ClipFrame
+        app:TOP_RIGHT_RADII="@dimen/corner_radius_large"
+        app:TOP_LEFT_RADII="@dimen/corner_radius_large"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <include layout="@layout/slide_rental_content"/>
+
+
+    </com.californiadreamshostel.officetv.VIEWS.ClipFrame>
+
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>
