@@ -34,7 +34,7 @@
         <shape>
             <padding android:right="1dp" android:top="1dp" android:left="1dp" android:bottom="0dp"/>
             <corners android:topLeftRadius="@dimen/corner_radius_large" android:topRightRadius="@dimen/corner_radius_large"/>
-            <solid android:color="#50CCCCCC" />
+            <solid android:color="#40CCCCCC" />
         </shape>
     </item>
 
