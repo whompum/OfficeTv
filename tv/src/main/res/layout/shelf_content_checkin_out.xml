@@ -22,7 +22,7 @@
         android:paddingTop="@dimen/size_padding_ver"
         android:paddingBottom="@dimen/size_padding_ver"
         android:orientation="horizontal"
-        android:background="@drawable/bg_checkin_out_shadow"
+        android:background="@drawable/background_checkin_shadow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -60,7 +60,7 @@
         android:paddingTop="@dimen/size_padding_ver"
         android:paddingBottom="@dimen/size_padding_ver"
         android:orientation="horizontal"
-        android:background="@drawable/bg_checkin_out_shadow"
+        android:background="@drawable/background_checkin_shadow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
