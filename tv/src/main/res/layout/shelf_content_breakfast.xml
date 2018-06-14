@@ -20,7 +20,7 @@
         android:layout_height="26dp" />
 
     <com.californiadreamshostel.officetv.VIEWS.RTV
-        app:FONT="LIGHT"
+        app:FONT="MEDIUM"
         android:text="@string/string_breakfast_time"
         android:textColor="@color/color_main"
         android:textSize="@dimen/size_text_tiny"

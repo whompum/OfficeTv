@@ -5,15 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <!--
+        NOTE
+        A slight padding is applied
+        due to the shadow bounds, thus causing mis-alignment;
+        Thus the RTV's below have a marginBottom=4dp
+        attribute to center-align the text on the Y-Axis
+        The 4 dp is arbitrary to what works best for the designated
+        screen this app will run on.
+    -->
+
     <LinearLayout
-        android:padding="@dimen/size_padding_ver_small"
+        android:paddingStart="@dimen/size_padding_ver_small"
+        android:paddingEnd="@dimen/size_padding_ver_small"
+        android:paddingTop="@dimen/size_padding_ver"
+        android:paddingBottom="@dimen/size_padding_ver"
         android:orientation="horizontal"
-        android:background="@drawable/bg_rounded_rect"
+        android:background="@drawable/bg_checkin_out_shadow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <com.californiadreamshostel.officetv.VIEWS.RTV
-            app:FONT="LIGHT"
+            app:FONT="MEDIUM"
+            android:layout_marginBottom="4dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="2dp"
             android:layout_marginEnd="@dimen/size_padding_hor_small"
             android:textSize="@dimen/size_text_tiny"
             android:textColor="@color/color_dark"
@@ -22,8 +39,10 @@
             android:layout_height="wrap_content" />
 
         <com.californiadreamshostel.officetv.VIEWS.RTV
-            app:FONT="REGULAR"
-            android:textSize="@dimen/size_text_small"
+            app:FONT="MEDIUM"
+            android:layout_marginBottom="4dp"
+            android:layout_gravity="center_vertical"
+            android:textSize="@dimen/size_text_tiny"
             android:textColor="@color/color_special"
             android:text="@string/string_checkin_time"
             android:layout_width="wrap_content"
@@ -33,17 +52,23 @@
 
     <Space
         android:layout_width="0dp"
-        android:layout_height="@dimen/size_padding_ver"/>
+        android:layout_height="@dimen/size_padding_ver_small"/>
 
     <LinearLayout
-        android:padding="@dimen/size_padding_ver_small"
+        android:paddingStart="@dimen/size_padding_ver_small"
+        android:paddingEnd="@dimen/size_padding_ver_small"
+        android:paddingTop="@dimen/size_padding_ver"
+        android:paddingBottom="@dimen/size_padding_ver"
         android:orientation="horizontal"
-        android:background="@drawable/bg_rounded_rect"
+        android:background="@drawable/bg_checkin_out_shadow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <com.californiadreamshostel.officetv.VIEWS.RTV
-            app:FONT="LIGHT"
+            app:FONT="MEDIUM"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="2dp"
+            android:layout_gravity="center_vertical"
             android:layout_marginEnd="@dimen/size_padding_hor_small"
             android:textSize="@dimen/size_text_tiny"
             android:textColor="@color/color_dark"
@@ -52,8 +77,10 @@
             android:layout_height="wrap_content" />
 
         <com.californiadreamshostel.officetv.VIEWS.RTV
-            app:FONT="REGULAR"
-            android:textSize="@dimen/size_text_small"
+            app:FONT="MEDIUM"
+            android:layout_marginBottom="4dp"
+            android:layout_gravity="center_vertical"
+            android:textSize="@dimen/size_text_tiny"
             android:textColor="@color/color_special"
             android:text="@string/string_checkout_time"
             android:layout_width="wrap_content"

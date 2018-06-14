@@ -10,7 +10,7 @@
     <!--Use to color the background of the frame layout
      For some reason, removing this View causes
      the layout to shrink on the X-axis in
-     layout_shelf.xml -->
+     shelf_base.xml-->
 
     <View
         android:background="#fff"
