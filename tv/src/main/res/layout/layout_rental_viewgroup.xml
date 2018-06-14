@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"/>
     <ImageView
         android:id="@id/id_rental_icon"
-        android:tint="@color/color_main"
+        android:tint="@color/color_dark"
         android:padding="3dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="2dp"
@@ -21,9 +21,9 @@
         android:layout_width="26dp"
         android:layout_height="26dp"/>
     <com.californiadreamshostel.officetv.VIEWS.RTV
-        app:FONT="LIGHT"
+        app:FONT="MEDIUM"
         android:id="@id/id_rental_title"
-        android:textColor="@color/color_main"
+        android:textColor="@color/color_dark"
         android:textAlignment="center"
         android:layout_gravity="center_horizontal"
         android:textSize="@dimen/size_text_micro"
