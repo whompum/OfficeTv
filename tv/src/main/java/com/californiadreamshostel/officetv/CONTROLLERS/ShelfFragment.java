@@ -59,7 +59,7 @@ public final class ShelfFragment extends Fragment implements SurfUpdator.OnSurfD
             WEATHER_CONSTANTS.DAILY_CURRENTLY_URL);
 
     @LayoutRes
-    public static final int LAYOUT = R.layout.layout_shelf;
+    public static final int LAYOUT = R.layout.shelf_base;
 
     protected @BindString(R.string.string_farenheit) String farenheight;
     protected @BindString(R.string.string_celsius) String celsius;

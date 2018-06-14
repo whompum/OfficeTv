@@ -23,7 +23,7 @@
             android:background="@drawable/weather_frame_shadow"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <include layout="@layout/layout_shelf_content_weather"/>
+            <include layout="@layout/shelf_content_weather"/>
         </FrameLayout>
 
 
@@ -40,7 +40,7 @@
                 android:paddingEnd="@dimen/size_padding_hor_large"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <include layout="@layout/layout_shelf_content_anicilliary"/>
+                <include layout="@layout/shelf_content_ancilliary_base"/>
             </FrameLayout>
 
             <FrameLayout
@@ -48,7 +48,7 @@
                 android:paddingEnd="@dimen/size_padding_hor_large"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <include layout="@layout/layout_shelf_content_extras"/>
+                <include layout="@layout/shelf_content_extras_base"/>
             </FrameLayout>
 
         </com.californiadreamshostel.officetv.VIEWS.SplitLayout>

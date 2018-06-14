@@ -12,16 +12,13 @@
         android:background="@drawable/bg_rounded_rect_shadow"
         android:layout_width="wrap_content"
         android:layout_height="match_parent">
-
-        <include layout="@layout/layout_shelf_content_ancilliary_rentals"/>
-
+        <include layout="@layout/shelf_content_contact"/>
     </FrameLayout>
 
     <FrameLayout
-        android:background="@drawable/bg_rounded_rect_shadow"
         android:layout_width="wrap_content"
         android:layout_height="match_parent">
-        <include layout="@layout/layout_shelf_content_ancilliary_breakfast"/>
+        <include layout="@layout/shelf_content_checkin_out"/>
     </FrameLayout>
 
 
