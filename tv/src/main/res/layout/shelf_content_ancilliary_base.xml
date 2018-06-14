@@ -4,13 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:layout_orientation="orientation_horizontal"
     app:view_spacing_position="0.65"
-    app:view_spacing_size="@dimen/size_padding_hor"
+    app:view_spacing_size="@dimen/size_padding_hor_small"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <FrameLayout
         android:background="@drawable/bg_rounded_rect_shadow"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <include layout="@layout/shelf_content_rentals"/>
@@ -19,7 +19,7 @@
 
     <FrameLayout
         android:background="@drawable/bg_rounded_rect_shadow"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
         <include layout="@layout/shelf_content_breakfast"/>
     </FrameLayout>
