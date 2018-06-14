@@ -16,7 +16,7 @@
         android:layout_height="wrap_content" />
     <!--Rental Three Hours Guideline-->
     <android.support.constraint.Guideline
-        app:layout_constraintGuide_percent=".55"
+        app:layout_constraintGuide_percent=".48"
         android:orientation="vertical"
         android:id="@+id/local_three_hour_value_guideline"
         android:layout_width="wrap_content"
@@ -30,17 +30,17 @@
         android:layout_height="wrap_content" />
 
     <com.californiadreamshostel.officetv.VIEWS.RTV
-        app:FONT="REGULAR"
+        app:FONT="MEDIUM"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/local_rental_title_guideline"
         tools:text="Surf Board"
         android:id="@+id/rental_slide_title"
-        android:textColor="#bcbcbc"
+        android:textColor="@color/color_dark"
         android:textSize="@dimen/size_text_large"
         android:layout_width="0dp"
         android:layout_height="wrap_content" />
     <com.californiadreamshostel.officetv.VIEWS.RTV
-        app:FONT="LIGHT"
+        app:FONT="MEDIUM"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/local_three_hour_value_guideline"
         tools:text="$15"
@@ -56,7 +56,6 @@
         tools:text="$20"
         android:textColor="@color/color_special"
         android:id="@+id/rental_slide_full_day_price"
-
         android:textSize="@dimen/size_text_large"
         android:layout_width="0dp"
         android:layout_height="wrap_content" />
