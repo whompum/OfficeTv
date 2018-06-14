@@ -20,7 +20,7 @@ import java.util.List;
 public class RentalSlideFragment extends Fragment {
 
     @LayoutRes
-    public static final int LAYOUT = R.layout.slides_base_rental;
+    public static final int LAYOUT = R.layout.slides_rental_base;
 
 
     public static Fragment newInstance(){
@@ -75,7 +75,7 @@ public class RentalSlideFragment extends Fragment {
         final List<RentalData> data = new ArrayList<>(6);
 
         data.add(new RentalData("Surfboard (foam)", 15L, 25L));
-        data.add(new RentalData("Surfboard (fiber)", 20L, 25L));
+        data.add(new RentalData("Surfboard (fiber)", 20L, 30L));
         data.add(new RentalData("Wetsuit", 15L, 20L));
         data.add(new RentalData("Bikes", 8L, 12L));
         data.add(new RentalData("Beach Towel", 0L, 5L));

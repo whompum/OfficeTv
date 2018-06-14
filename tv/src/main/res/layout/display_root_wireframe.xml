@@ -27,7 +27,7 @@
         android:id="@id/id_slides_container"
         android:layout_width="0dp"
         android:layout_height="match_parent">
-        <include layout="@layout/slides_base_rental"/>
+        <include layout="@layout/slides_rental_base"/>
     </FrameLayout>
 
     <FrameLayout
