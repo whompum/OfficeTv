@@ -23,7 +23,7 @@
             android:background="@drawable/weather_frame_shadow"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <include layout="@layout/layout_shelf_content_weather"/>
+            <include layout="@layout/shelf_content_weather"/>
         </FrameLayout>
 
 
@@ -31,24 +31,24 @@
         <com.californiadreamshostel.officetv.VIEWS.SplitLayout
             app:view_spacing_position=".5"
             app:layout_orientation="orientation_vertical"
-            app:view_spacing_size="@dimen/size_padding_ver_large"
+            app:view_spacing_size="@dimen/size_padding_ver"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <FrameLayout
-                android:paddingStart="@dimen/size_padding_hor_large"
-                android:paddingEnd="@dimen/size_padding_hor_large"
+                android:paddingStart="@dimen/size_padding_hor"
+                android:paddingEnd="@dimen/size_padding_hor"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <include layout="@layout/layout_shelf_content_anicilliary"/>
+                <include layout="@layout/shelf_content_ancilliary_base"/>
             </FrameLayout>
 
             <FrameLayout
-                android:paddingStart="@dimen/size_padding_hor_large"
-                android:paddingEnd="@dimen/size_padding_hor_large"
+                android:paddingStart="@dimen/size_padding_hor"
+                android:paddingEnd="@dimen/size_padding_hor"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <include layout="@layout/layout_shelf_content_extras"/>
+                <include layout="@layout/shelf_content_extras_base"/>
             </FrameLayout>
 
         </com.californiadreamshostel.officetv.VIEWS.SplitLayout>
