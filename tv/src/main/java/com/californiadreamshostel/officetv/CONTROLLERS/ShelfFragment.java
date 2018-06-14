@@ -172,7 +172,7 @@ public final class ShelfFragment extends Fragment implements SurfUpdator.OnSurfD
         fetchChoreographer(waterTemperatureDisplay.getId())
                 .bind(new F(surfingData.getWaterTemperature()));
 
-        //Bind the choreographer with icon_weather_wind speed data
+        //Bind the choreographer with wind speed data
         fetchChoreographer(windSpeedDisplay.getId())
                 .bind(new Kts(surfingData.getWindSpeed()));
 

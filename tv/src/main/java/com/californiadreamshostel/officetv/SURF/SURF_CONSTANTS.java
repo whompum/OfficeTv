@@ -41,7 +41,7 @@ public class SURF_CONSTANTS {
         public static final String MSW_TIMESTAMP = "localTimestamp";
         public static final String MSW_SWELL_MIN = "swell.minBreakingHeight";
         public static final String MSW_SWELL_MAX = "swell.maxBreakingHeight";
-        public static final String MSW_WIND_SPEED = "icon_weather_wind.speed";
+        public static final String MSW_WIND_SPEED = "wind.speed";
 
         public static String getQuery(@Nullable String... params){
             return MSW_URL + resolveParams(params);
