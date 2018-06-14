@@ -43,6 +43,6 @@
         </shape>
     </item>
 
-    <item android:drawable="@drawable/bg_checkin_out"/>
+    <item android:drawable="@drawable/background_checkin"/>
 
 </layer-list>

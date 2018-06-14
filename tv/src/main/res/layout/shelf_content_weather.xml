@@ -23,7 +23,7 @@
     <com.californiadreamshostel.officetv.VIEWS.RTV
         style="@style/StyleContactTextAppearance"
         android:layout_marginTop="@dimen/size_padding_ver"
-        android:drawableStart="@drawable/ic_location"
+        android:drawableStart="@drawable/icon_contact_location"
         android:text="@string/string_location"
         android:id="@id/id_location_display"
         android:layout_marginBottom="0dp"/>
@@ -92,7 +92,7 @@
     <ImageView
         android:id="@id/id_today_weather_image"
         android:layout_alignParentEnd="true"
-        android:src="@drawable/sunshine_image"
+        android:src="@drawable/image_weather_cloudy"
         android:layout_width="76dp"
         android:layout_height="76dp" />
 
@@ -102,7 +102,7 @@
 
     <ImageView
         android:layout_gravity="bottom|start"
-        android:src="@drawable/surf_wave_graphic"
+        android:src="@drawable/image_weather_wave_graphic"
         android:scaleType="fitStart"
         android:layout_width="68dp"
         android:layout_height="54dp" />
@@ -124,7 +124,7 @@
 
         <LinearLayout style="@style/StyleSurfValueContainer">
             <ImageView style="@style/StyleSurfWeatherIconDisplay"
-                android:src="@drawable/surfheight" />
+                android:src="@drawable/icon_weather_surfheight" />
 
         <com.californiadreamshostel.officetv.VIEWS.RTV style="@style/StyleSurfWeatherValue"
             android:id="@id/id_surf_wave_height"
@@ -142,7 +142,7 @@
         <LinearLayout style="@style/StyleSurfValueContainer">
 
         <ImageView style="@style/StyleSurfWeatherIconDisplay"
-                   android:src="@drawable/watertemp"/>
+                   android:src="@drawable/icon_weather_watertemp"/>
 
         <com.californiadreamshostel.officetv.VIEWS.RTV
             style="@style/StyleSurfWeatherValue"
@@ -158,7 +158,7 @@
         <LinearLayout style="@style/StyleSurfValueContainer">
 
         <ImageView style="@style/StyleSurfWeatherIconDisplay"
-            android:src="@drawable/wind"/>
+            android:src="@drawable/icon_weather_wind"/>
 
         <com.californiadreamshostel.officetv.VIEWS.RTV
             style="@style/StyleSurfWeatherValue"

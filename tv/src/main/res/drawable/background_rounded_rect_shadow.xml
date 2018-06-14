@@ -38,6 +38,6 @@
         </shape>
     </item>
 
-    <item android:drawable="@drawable/bg_rounded_rect"/>
+    <item android:drawable="@drawable/background_round_rect"/>
 
 </layer-list>

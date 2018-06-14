@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@id/id_shelf_root"
-    android:background="@drawable/bg_shelf_shadow"
+    android:background="@drawable/background_shelf_shadow"
     android:paddingBottom="@dimen/size_padding_ver"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -20,7 +20,7 @@
 
         <!--WEATHER LAYOUT-->
         <FrameLayout
-            android:background="@drawable/weather_frame_shadow"
+            android:background="@drawable/background_weather_shadow"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <include layout="@layout/shelf_content_weather"/>
@@ -63,14 +63,14 @@
         style="@style/StyleContactTextAppearance"
         android:layout_marginTop="@dimen/size_padding_ver_large"
         android:layout_above="@id/id_email_display"
-        android:drawableStart="@drawable/ic_cell"
+        android:drawableStart="@drawable/icon_contact_cellphone"
         android:id="@id/id_phone_number_display"
         android:text="@string/string_phone_number" />
     <!--Email Address Display-->
     <com.californiadreamshostel.officetv.VIEWS.RTV
         style="@style/StyleContactTextAppearance"
         android:layout_alignParentBottom="true"
-        android:drawableStart="@drawable/ic_email"
+        android:drawableStart="@drawable/icon_contact_email"
         android:id="@id/id_email_display"
         android:text="@string/string_email"
         android:layout_marginTop="@dimen/size_padding_ver"/>

@@ -14,7 +14,7 @@
     <ImageView
         android:layout_gravity="center_vertical"
         android:tint="@color/color_special"
-        android:src="@drawable/instagram"
+        android:src="@drawable/icon_social_instragram"
         android:layout_width="14dp"
         android:layout_height="14dp"/>
 
@@ -27,7 +27,7 @@
     <ImageView
             android:layout_gravity="center_vertical"
             android:tint="@color/color_special"
-            android:src="@drawable/facebook"
+            android:src="@drawable/icon_social_facebook"
             android:layout_width="14dp"
             android:layout_height="14dp"/>
         <com.californiadreamshostel.officetv.VIEWS.RTV style="@style/StyleSocialMediaTextAppearance"
@@ -43,7 +43,7 @@
     <ImageView
         android:layout_gravity="center_vertical"
         android:tint="@color/color_special"
-        android:src="@drawable/facebook_group"
+        android:src="@drawable/icon_social_world"
         android:layout_width="14dp"
         android:layout_height="14dp"/>
     <com.californiadreamshostel.officetv.VIEWS.RTV style="@style/StyleSocialMediaTextAppearance"

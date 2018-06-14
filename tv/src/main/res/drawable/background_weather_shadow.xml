@@ -44,6 +44,6 @@
     </item>
 
     <!-- Background -->
-    <item android:drawable="@drawable/weather_frame_shape"/>
+    <item android:drawable="@drawable/background_weather"/>
 
 </layer-list>

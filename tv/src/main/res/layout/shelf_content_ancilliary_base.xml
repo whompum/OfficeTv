@@ -9,7 +9,7 @@
     android:layout_height="match_parent">
 
     <FrameLayout
-        android:background="@drawable/bg_rounded_rect_shadow"
+        android:background="@drawable/background_rounded_rect_shadow"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -18,7 +18,7 @@
     </FrameLayout>
 
     <FrameLayout
-        android:background="@drawable/bg_rounded_rect_shadow"
+        android:background="@drawable/background_rounded_rect_shadow"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <include layout="@layout/shelf_content_breakfast"/>
