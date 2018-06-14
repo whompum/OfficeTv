@@ -3,19 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/color_milk"
+    android:background="@android:color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <android.support.constraint.ConstraintLayout
         android:paddingTop="@dimen/size_padding_ver"
         android:paddingBottom="@dimen/size_padding_ver"
-        android:background="#e1e1e1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <android.support.constraint.Guideline
-            app:layout_constraintGuide_percent=".55"
+            app:layout_constraintGuide_percent=".48"
             android:orientation="vertical"
             android:id="@+id/local_three_hour_guideline"
             android:layout_width="wrap_content"
@@ -28,7 +27,7 @@
             android:layout_height="wrap_content" />
 
         <com.californiadreamshostel.officetv.VIEWS.RTV
-            app:FONT="LIGHT"
+            app:FONT="MEDIUM"
             app:layout_constraintStart_toStartOf="@id/local_three_hour_guideline"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/string_three_hours"
@@ -37,7 +36,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
         <com.californiadreamshostel.officetv.VIEWS.RTV
-            app:FONT="LIGHT"
+            app:FONT="MEDIUM"
             app:layout_constraintStart_toStartOf="@id/local_full_day_guide"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/string_full_day"
