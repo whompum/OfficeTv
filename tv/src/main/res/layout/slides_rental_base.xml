@@ -31,7 +31,7 @@
         app:layout_constraintBottom_toTopOf="@id/local_image_guide"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <!--The scrim on the image-->
+    <!--The scrim of the backdrop image-->
     <View
         android:background="@drawable/background_scrim"
         android:layout_width="match_parent"
@@ -55,12 +55,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="@dimen/size_padding_hor_large"
         android:layout_marginEnd="@dimen/size_padding_hor_large"
-        android:background="@drawable/background_rounded_rect_top_shadow"
+        android:layout_marginBottom="@dimen/size_padding_ver_large"
+        android:background="@drawable/background_rounded_rect_shadow"
         android:layout_width="match_parent"
         android:layout_height="0dp">
     <com.californiadreamshostel.officetv.VIEWS.ClipFrame
-        app:TOP_RIGHT_RADII="@dimen/corner_radius_large"
-        app:TOP_LEFT_RADII="@dimen/corner_radius_large"
+        app:TOP_RIGHT_RADII="@dimen/corner_radius_small"
+        app:TOP_LEFT_RADII="@dimen/corner_radius_small"
+        app:BOTTOM_LEFT_RADII="@dimen/corner_radius_small"
+        app:BOTTOM_RIGHT_RADII="@dimen/corner_radius_small"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

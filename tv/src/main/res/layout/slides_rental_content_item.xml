@@ -16,7 +16,7 @@
         android:layout_height="wrap_content" />
     <!--Rental Three Hours Guideline-->
     <android.support.constraint.Guideline
-        app:layout_constraintGuide_percent=".48"
+        app:layout_constraintGuide_percent=".5"
         android:orientation="vertical"
         android:id="@+id/local_three_hour_value_guideline"
         android:layout_width="wrap_content"
@@ -29,6 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <!--Rental Title-->
     <com.californiadreamshostel.officetv.VIEWS.RTV
         app:FONT="MEDIUM"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,25 +40,31 @@
         android:textSize="@dimen/size_text_large"
         android:layout_width="0dp"
         android:layout_height="wrap_content" />
+
+    <!--Three Hour Value-->
     <com.californiadreamshostel.officetv.VIEWS.RTV
-        app:FONT="MEDIUM"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:FONT="REGULAR"
+        app:layout_constraintEnd_toEndOf="@id/local_full_day_value_guide"
         app:layout_constraintStart_toStartOf="@id/local_three_hour_value_guideline"
+        app:layout_constraintHorizontal_bias=".5"
         tools:text="$15"
         android:textColor="@color/color_tertiary"
         android:id="@+id/rental_slide_three_hour_price"
         android:textSize="@dimen/size_text_large"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <!--Full Day Value-->
     <com.californiadreamshostel.officetv.VIEWS.RTV
         app:FONT="MEDIUM"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/local_full_day_value_guide"
+        app:layout_constraintHorizontal_bias=".5"
         tools:text="$20"
-        android:textColor="@color/color_special"
+        android:textColor="@color/color_milk"
         android:id="@+id/rental_slide_full_day_price"
         android:textSize="@dimen/size_text_large"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
 </android.support.constraint.ConstraintLayout>
