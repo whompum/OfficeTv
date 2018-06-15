@@ -224,7 +224,9 @@ public final class ShelfFragment extends Fragment implements SurfUpdator.OnSurfD
                 }
 
                 if(valueDisplay != null)
-                    valueDisplay.setText(getFormattedTemp( String.valueOf((int)forecastedTemperature), false));
+                    fetchChoreographer(valueDisplay.getId())
+                            .bind(new F(), forecastedTemperature);
+                    //   valueDisplay.setText(getFormattedTemp(String.valueOf((int) forecastedTemperature), false));
 
                 if(valueLabel != null){
 
