@@ -193,6 +193,56 @@ public final class ShelfFragment extends Fragment implements SurfUpdator.OnSurfD
 
             final double currentTemperature = currentDataPoint.getDouble("temperature");
 
+            final String condition = currentDataPoint.getString("icon");
+
+
+            /**
+             *
+             * clear-day,
+             * clear-night,
+             * rain,
+             * snow,
+             * sleet,
+             * wind,
+             * fog,
+             * cloudy,
+             * partly-cloudy-day,
+             * or partly-cloudy-night
+             */
+
+            if(condition != null){
+
+                int conditionImage = 0;
+
+                if(condition.equals("clear-day"))
+                    conditionImage = R.drawable.sun_image;
+
+                else if(condition.equals("clear-night"))
+                    conditionImage = R.drawable.night_moon;
+
+                else if(condition.equals("rain"))
+                     conditionImage = R.drawable.rain_image;
+
+                else if(condition.equals("wind"))
+                     conditionImage = R.drawable.windy_image;
+
+                else if(condition.equals("cloudy"))
+                     conditionImage = R.drawable.cloudy_image;
+
+                else if(condition.equals("partly-cloudy-day"))
+                    conditionImage = R.drawable.image_weather_cloudy;
+
+                else if(condition.equals("fog"))
+                    conditionImage = R.drawable.foggy_image;
+                else //Handles Default Cases.
+                    conditionImage = R.drawable.temp_tv_banner;
+
+                todayWeatherImage.setImageResource(conditionImage);
+
+                Log.i("CONDITION_ICON", "The icon is: " + condition);
+
+            }
+
             fetchChoreographer(todayWeatherDisplay.getId())
                     .bind(new F(currentTemperature));
 
