@@ -9,23 +9,23 @@ import android.support.annotation.Nullable;
  * Subclasses are responsible for setting the generic type of this class
  * @param <T> The object type we're working with
  */
-public abstract class AbstractParsingStrategy<T> implements ParsingStrategy {
+public abstract class AbstractParsingStrategy<T> implements IParsingStrategy {
 
     private T data;
-    private ParsingObserver observer;
+    private IParsingObserver observer;
 
     public AbstractParsingStrategy(){
 
     }
 
-    public AbstractParsingStrategy(@NonNull final ParsingObserver observer){
+    public AbstractParsingStrategy(@NonNull final IParsingObserver observer){
         this.observer = observer;
     }
 
     public abstract void parseData(@NonNull String response, @NonNull String contentType);
 
-    public void setObserver(@NonNull ParsingObserver parsingObserver) {
-        this.observer = parsingObserver;
+    public void setObserver(@NonNull IParsingObserver IParsingObserver) {
+        this.observer = IParsingObserver;
     }
 
     protected void setData(@Nullable final T t){

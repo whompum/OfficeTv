@@ -7,6 +7,6 @@ import android.support.annotation.NonNull;
  * Strategy Pattern used by implementors to define
  * how to handle data.
  */
-public interface ParsingStrategy {
+public interface IParsingStrategy {
     void parseData(@NonNull final String data, @NonNull final String contentType);
 }
