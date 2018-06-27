@@ -8,7 +8,6 @@ import android.util.Log;
 
 import com.californiadreamshostel.officetv.NETWORKING.DOWNLOADING.DataDownloadService;
 
-
 /**
  * Uses the strategy design pattern to parse data received
  * by the DataDownloadService then call the observer

@@ -10,16 +10,16 @@ public class SURF_CONSTANTS {
 
     public static class SPITCAST {
         //search query for Spitcast
-        public static final String SPIT_CAST_COUNTY = "san-diego/";
+        public static final String SPIT_CAST_COUNTY = "san-diego";
 
         //Base url for Spitcast
         public static final String SPIT_CAST_BASE = "http://api.spitcast.com/api/county/";
 
         //Water Temperature query parameter
-        public static final String SPIT_CAST_WATER_TEMP = "water-temperature/";
+        public static final String SPIT_CAST_WATER_TEMP = "water-temperature";
 
         //Spit cast Tide Query parameter
-        public static final String SPIT_CAST_TIDE = "tide/";
+        public static final String SPIT_CAST_TIDE = "tide";
 
 
         public static String getQuery(@NonNull final String queryType){
