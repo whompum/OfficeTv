@@ -29,4 +29,12 @@ public class DownloadIntent extends Intent {
        putExtra(DataDownloadService.RESULT_RECEIVER_KEY, responseListener);
     }
 
+    public Uri getUri(){
+        return getParcelableExtra(DataDownloadService.URI_KEY);
+    }
+
+    public ResultReceiver getResponseListener(){
+        return getParcelableExtra(DataDownloadService.RESULT_RECEIVER_KEY);
+    }
+
 }
