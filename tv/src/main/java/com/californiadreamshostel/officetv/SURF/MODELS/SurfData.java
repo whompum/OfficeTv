@@ -4,45 +4,45 @@ import android.support.annotation.NonNull;
 
 public class SurfData {
 
-    private HighTide highTide;
+    private Tide tide;
     private WaterTemperature temperature;
-    private WindSwellHeight windSwellHeight;
+    private WindAndSwell windAndSwell;
 
-    private SurfData(final HighTide highTide, WaterTemperature waterTemperature, WindSwellHeight swellHeight){
-        this.highTide = highTide;
+    private SurfData(final Tide tide, WaterTemperature waterTemperature, WindAndSwell swellHeight){
+        this.tide = tide;
         this.temperature = waterTemperature;
-        this.windSwellHeight = swellHeight;
+        this.windAndSwell = swellHeight;
     }
 
     //Returns units in IMPERIAL
     public int getWaterTemperature(){
-        return temperature.getTemperature();
+        return (int)temperature.getFahrenheit();
     }
 
     public int getWindSpeed(){
-        return windSwellHeight.getWind().getWindSpeed();
+        return (int)windAndSwell.getWind().getSpeed();
     }
 
-    public int getWindSwellHeight(){
-        return windSwellHeight.getSwell().getMinBreakingHeight();
+    public int getWindAndSwell(){
+        return (int)windAndSwell.getSwell().getMinBreakingHeight();
     }
 
-    public int getWindSwellHeightMax(){return windSwellHeight.getSwell().getMaxBreakingHeight();}
+    public int getWindSwellHeightMax(){return (int)windAndSwell.getSwell().getMaxBreakingHeight();}
 
     public String getHighTideTime(){
-        return highTide.getHour();
+        return tide.getHour();
     }
 
     public static class Builder{
 
         private SurfData data;
 
-        private HighTide highTide;
+        private Tide tide;
         private WaterTemperature waterTemperature;
-        private WindSwellHeight swellHeight;
+        private WindAndSwell swellHeight;
 
-        public Builder setTideInfo(@NonNull final HighTide highTide){
-            this.highTide = highTide;
+        public Builder setTideInfo(@NonNull final Tide tide){
+            this.tide = tide;
             return this;
         }
 
@@ -52,17 +52,17 @@ public class SurfData {
             return this;
         }
 
-        public Builder setSwellHeight(@NonNull final WindSwellHeight swellHeight){
+        public Builder setSwellHeight(@NonNull final WindAndSwell swellHeight){
             this.swellHeight = swellHeight;
             return this;
         }
 
         public boolean isReady(){
-            return highTide != null && waterTemperature != null && swellHeight != null;
+            return tide != null && waterTemperature != null && swellHeight != null;
         }
 
         public SurfData create(){
-            return new SurfData(highTide, waterTemperature, swellHeight);
+            return new SurfData(tide, waterTemperature, swellHeight);
         }
 
     }
