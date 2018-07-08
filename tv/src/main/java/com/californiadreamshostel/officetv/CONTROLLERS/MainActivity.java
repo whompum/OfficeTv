@@ -17,12 +17,11 @@ package com.californiadreamshostel.officetv.CONTROLLERS;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.californiadreamshostel.officetv.CONTROLLERS.ShelfFragment;
 import com.californiadreamshostel.officetv.R;
 
-/*
- * MainActivity class that loads {@link MainFragment}.
- */
+/******
+ *MainActivity class that loads {@link RentalSlideFragment} and {@link ShelfFragment}.
+ ******/
 public class MainActivity extends Activity {
 
     @Override
@@ -33,56 +32,14 @@ public class MainActivity extends Activity {
         getFragmentManager().beginTransaction()
                 .add(R.id.id_shelf_container, ShelfFragment.newInstance(null)).commit();
 
-
         getFragmentManager().beginTransaction()
                 .add(R.id.id_slides_container, RentalSlideFragment.newInstance()).commit();
 
+        //Initialize the Weather Surf job service
+        WeatherSurfController.start(this);
+
     }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
