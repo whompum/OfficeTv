@@ -2,10 +2,10 @@ package com.californiadreamshostel.officetv.WEATHER;
 
 import android.support.annotation.NonNull;
 
-import com.californiadreamshostel.officetv.PARSING.IParsingObserver;
+import com.californiadreamshostel.officetv.PARSING.IParsingFinishedObserver;
 import com.californiadreamshostel.officetv.PARSING.AbstractParsingStrategy;
 import com.californiadreamshostel.officetv.NETWORKING.ContentType;
-import com.californiadreamshostel.officetv.WEATHER.MODELS.DARKSKY.DarkSkyWeather;
+import com.californiadreamshostel.officetv.WEATHER.model.DarkSkyWeather;
 import com.google.gson.Gson;
 
 public class DarkSkyParsingStrategy extends AbstractParsingStrategy<DarkSkyWeather> {
@@ -14,7 +14,7 @@ public class DarkSkyParsingStrategy extends AbstractParsingStrategy<DarkSkyWeath
 
     }
 
-    public DarkSkyParsingStrategy(@NonNull final IParsingObserver observer){
+    public DarkSkyParsingStrategy(@NonNull final IParsingFinishedObserver observer){
         super(observer);
     }
 
