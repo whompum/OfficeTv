@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.ResultReceiver;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
@@ -13,6 +14,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class DataDownloadService extends IntentService {
+
 
     public static final String TAG = "DataDownloadService";
     public static final String NAME = "DataDownloadService_Name";
@@ -81,18 +83,19 @@ public class DataDownloadService extends IntentService {
             try {
                 data = DataDownloader.download(url);
             } catch (IOException e) {
+                Log.i(TAG, "IOEXCEPTION: " + e.getMessage());
                 e.printStackTrace();
-                Log.i(TAG, "IOException");
                 resultCode = TEAPOT;
+                data = NO_DATA;
             }
         }
 
         final Bundle result = new Bundle();
         result.putString(DATA_KEY, data);
+        result.putParcelable(URI_KEY, path);
 
         listener.send(resultCode,result);
 
-        Log.i("URI_TEST", "In DataDownloadService");
     }
 
 }
