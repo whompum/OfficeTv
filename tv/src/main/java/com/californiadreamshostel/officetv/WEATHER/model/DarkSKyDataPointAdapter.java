@@ -22,7 +22,7 @@ public class DarkSKyDataPointAdapter extends DataPointAdapter<DarkSkyWeather> {
 
         point.setTemperature(data.getCurrently().getTemperature());
         point.setWindSpeed(data.getCurrently().getWindSpeed());
-        point.setSummary(data.getCurrently().getSummary());
+        point.setSummary(data.getCurrently().getIcon());
         point.setMillis(TimeUnit.SECONDS.toMillis(data.getCurrently().getTime()));
 
         return point;
