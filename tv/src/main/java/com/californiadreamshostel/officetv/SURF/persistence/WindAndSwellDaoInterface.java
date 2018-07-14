@@ -1,5 +1,6 @@
 package com.californiadreamshostel.officetv.SURF.persistence;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
@@ -27,5 +28,5 @@ public interface WindAndSwellDaoInterface extends DaoCacheContract<WindAndSwell>
 
     @Override
     @Query("SELECT * FROM WindAndSwell")
-    List<WindAndSwell> fetchAll();
+    LiveData<List<WindAndSwell>> fetchAll();
 }

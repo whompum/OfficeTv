@@ -1,5 +1,6 @@
 package com.californiadreamshostel.officetv.SURF.persistence;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
@@ -27,5 +28,5 @@ public interface TideDaoInterface extends DaoCacheContract<Tide> {
 
     @Override
     @Query("SELECT * FROM Tide")
-    List<Tide> fetchAll();
+    LiveData<List<Tide>> fetchAll();
 }

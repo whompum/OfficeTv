@@ -1,5 +1,6 @@
 package com.californiadreamshostel.officetv.persistence;
 
+import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 
 import java.util.List;
@@ -14,5 +15,5 @@ public interface DaoCacheContract<T> {
     void insert(@NonNull final T t);
     void insert(final T... t);
     void deleteAll();
-    List<T> fetchAll();
+    LiveData<List<T>> fetchAll();
 }

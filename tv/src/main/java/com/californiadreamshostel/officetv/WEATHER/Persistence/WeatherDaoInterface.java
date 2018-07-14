@@ -1,5 +1,6 @@
 package com.californiadreamshostel.officetv.WEATHER.Persistence;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
@@ -27,6 +28,6 @@ public interface WeatherDaoInterface extends DaoCacheContract<WeatherData> {
 
     @Override
     @Query("SELECT * From WeatherData")
-    List<WeatherData> fetchAll();
+    LiveData<List<WeatherData>> fetchAll();
 
 }
