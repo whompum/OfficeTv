@@ -75,7 +75,16 @@ public class WeatherSurfController extends JobService implements IParsingFinishe
     private final Uri TIDE_URI = new Spitcast.UriBuilder().getUri(PATH_TIDE);
     private final Uri WIND_WAVE_URI = new MagicSeaWeed.UriBuilder().getUri(TIMESTAMP, SWELL_MAXIMUM, SWELL_MINIMUM, WINDSPEED);
 
-    private final ResultReceiver WEATHER_RECEIVER = new DarkSkyParsingStrategy(this);
+    private final ResultReceiver WEATHER_RECEIVER = new DarkSkyParsingStrategy(new IParsingFinishedObserver() {
+        @Override
+        public void onDataParsed(Object data) {
+
+            WeatherRepo.obtain(WeatherSurfController.this).renewCache(new WeatherDataProxy().addProvider(
+                            new WeatherProvider().setAdapter(new DarkSKyDataPointAdapter((DarkSkyWeather)data))
+                    ).getWeatherData());
+
+        }
+    });
     private final ResultReceiver TIDE_RECEIVER = new TideParsingStrategy(this);
     private final ResultReceiver WIND_WAVE_RECEIVER = new WindSwellParsingStrategy(this);
 
@@ -87,9 +96,10 @@ public class WeatherSurfController extends JobService implements IParsingFinishe
         if(downloads == null)
             prepareDownloadIntents();
 
-        for(int a = 0; a  < downloads.length; a++)
-            startService(downloads[a]);
+       // for(int a = 0; a  < downloads.length; a++)
+         //   startService(downloads[a]);
 
+        startService(downloads[0]);
 
         //start(this);  //Reschedules the Job.
         return false;
@@ -122,9 +132,6 @@ public class WeatherSurfController extends JobService implements IParsingFinishe
 
         else if(resolveType(o).equals(SOURCE_TYPE.TIDE))
             saveTide(c, o);
-
-        else if(resolveType(o).equals(SOURCE_TYPE.WEATHER))
-            saveWeatherData(c, o);
 
     }
 
@@ -200,31 +207,6 @@ public class WeatherSurfController extends JobService implements IParsingFinishe
         }.start();
     }
 
-    private void saveWeatherData(@NonNull final DaoCacheContract c, @NonNull final Object o){
-        new Thread(){
-            @Override
-            public void run(){
-
-                WeatherData data;
-
-                DataPointAdapter adapter = null;
-
-                if(o instanceof DarkSkyWeather)
-                    adapter = new DarkSKyDataPointAdapter((DarkSkyWeather) o);
-
-
-                if(adapter != null) {
-                    data = new WeatherDataProxy()
-                            .addProvider(new WeatherProvider().setAdapter(adapter))
-                            .getWeatherData();
-
-                    c.deleteAll();
-                    c.insert(data);
-                }
-            }
-        }.start();
-    }
-
     /**
      * Prepares the DownloadIntent array object
      * with the various Endpoints to download.
@@ -233,7 +215,8 @@ public class WeatherSurfController extends JobService implements IParsingFinishe
         downloads = new DownloadIntent[]{
                 fetchIntent(WEATHER_URI, WEATHER_RECEIVER),
                 fetchIntent(TIDE_URI, TIDE_RECEIVER),
-                fetchIntent(WIND_WAVE_URI, WIND_WAVE_RECEIVER)};
+                fetchIntent(WIND_WAVE_URI, WIND_WAVE_RECEIVER)
+        };
     }
 
     private DownloadIntent fetchIntent(@NonNull final Uri uri, @NonNull final ResultReceiver receiver){
@@ -247,7 +230,7 @@ public class WeatherSurfController extends JobService implements IParsingFinishe
 
     private static JobInfo makeJobInfo(@NonNull final Context context){
         return new JobInfo.Builder(ID, new ComponentName(context, WeatherSurfController.class))
-                .setMinimumLatency(TimeUnit.SECONDS.toMillis(90))
+                .setMinimumLatency(TimeUnit.SECONDS.toMillis(60))
                 .setOverrideDeadline(15000)
                 .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
                 .build();
