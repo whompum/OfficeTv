@@ -61,7 +61,7 @@
         app:layout_constraintStart_toStartOf="@id/local_full_day_value_guide"
         app:layout_constraintHorizontal_bias=".5"
         tools:text="$20"
-        android:textColor="@color/color_milk"
+        android:textColor="@color/color_special"
         android:id="@+id/rental_slide_full_day_price"
         android:textSize="@dimen/size_text_large"
         android:layout_width="wrap_content"

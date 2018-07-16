@@ -27,6 +27,7 @@
         android:letterSpacing=".75"
         android:layout_marginStart="-6dp"
         tools:text="@string/string_slide_title_cali"
+        android:background="@color/color_special"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -38,8 +39,9 @@
         android:layout_marginStart="-6dp"
         android:textColor="@android:color/white"
         tools:text="@string/string_slide_title_dreams"
-        android:layout_marginTop="@dimen/size_padding_ver_small"
-        android:layout_marginBottom="@dimen/size_padding_ver_small"
+        android:background="@color/color_special"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -48,6 +50,7 @@
         android:textSize="@dimen/size_text_large"
         android:textColor="@android:color/white"
         android:letterSpacing=".25"
+        android:background="@color/color_special"
         android:text="ALOHA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
