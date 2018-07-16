@@ -74,6 +74,26 @@ public class DateUtils {
         }
     }
 
+    @Nullable
+    public static String getDayRep(final long millis){
+        utility.setTimeInMillis(millis);
+        final int doW = utility.get(Calendar.DAY_OF_WEEK);
+
+        String rep = null;
+
+        switch(doW){
+            case Calendar.SUNDAY: rep = "Sunday"; break;
+            case Calendar.MONDAY: rep = "Monday"; break;
+            case Calendar.TUESDAY: rep = "Tuesday"; break;
+            case Calendar.WEDNESDAY: rep = "Wednesday"; break;
+            case Calendar.THURSDAY: rep = "Thursday"; break;
+            case Calendar.FRIDAY: rep = "Friday"; break;
+            case Calendar.SATURDAY: rep = "Saturday"; break;
+        }
+
+        return rep;
+    }
+
     /**
      * Offsets the milliseconds for this date to be its lowest representation for the day
      * NOTE that this method assumes the Calendar already has a timestamp associated with it

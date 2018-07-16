@@ -4,36 +4,32 @@ import android.app.job.JobInfo;
 import android.app.job.JobParameters;
 import android.app.job.JobScheduler;
 import android.app.job.JobService;
-import android.arch.persistence.room.Room;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.ResultReceiver;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.californiadreamshostel.officetv.NETWORKING.DOWNLOADING.DataDownloadService;
 import com.californiadreamshostel.officetv.NETWORKING.DOWNLOADING.DownloadIntent;
 import com.californiadreamshostel.officetv.PARSING.IParsingFinishedObserver;
 import com.californiadreamshostel.officetv.SURF.ENDPOINTS.MagicSeaWeed;
 import com.californiadreamshostel.officetv.SURF.ENDPOINTS.Spitcast;
 import com.californiadreamshostel.officetv.SURF.MODELS.Tide;
-import com.californiadreamshostel.officetv.SURF.MODELS.WaterTemperature;
 import com.californiadreamshostel.officetv.SURF.MODELS.WindAndSwell;
 import com.californiadreamshostel.officetv.SURF.TideParsingStrategy;
-import com.californiadreamshostel.officetv.SURF.persistence.TideRoomDatabase;
-import com.californiadreamshostel.officetv.SURF.persistence.WindAndSwellRoomDatabase;
 import com.californiadreamshostel.officetv.SURF.WindSwellParsingStrategy;
 import com.californiadreamshostel.officetv.WEATHER.model.DarkSKyDataPointAdapter;
 import com.californiadreamshostel.officetv.WEATHER.DarkSkyParsingStrategy;
-import com.californiadreamshostel.officetv.WEATHER.model.DataPointAdapter;
 import com.californiadreamshostel.officetv.WEATHER.ENDPOINTS.DarkSky;
 import com.californiadreamshostel.officetv.WEATHER.model.DarkSkyWeather;
-import com.californiadreamshostel.officetv.WEATHER.Persistence.WeatherRoom;
-import com.californiadreamshostel.officetv.WEATHER.model.WeatherData;
 import com.californiadreamshostel.officetv.WEATHER.model.WeatherDataProxy;
 import com.californiadreamshostel.officetv.WEATHER.model.WeatherProvider;
-import com.californiadreamshostel.officetv.persistence.DaoCacheContract;
 
+import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
 import static com.californiadreamshostel.officetv.SURF.ENDPOINTS.MagicSeaWeed.SWELL_MAXIMUM;
@@ -61,15 +57,22 @@ import static com.californiadreamshostel.officetv.WEATHER.ENDPOINTS.DarkSky.MINU
  * TODO use only a single Thread object to insert my data instead of resolving multiple threads @ Runtime.
  *
  */
-public class WeatherSurfController extends JobService implements IParsingFinishedObserver{
+public class WeatherSurfController extends JobService{
 
     private enum SOURCE_TYPE{ WEATHER, TIDE, WAVE_WIND, WATER_TEMPERATURE, NO_SABES_NADA }
 
-    public static final long INTERVAL = TimeUnit.HOURS.toMillis(1);
+    public static final long INTERVAL = TimeUnit.MINUTES.toMillis(2);
 
     public static final long MAXIMUM_XECUTE_DELAY = TimeUnit.SECONDS.toMillis(5);
 
     public static final int ID = 0;
+
+    public static final int NO_MATCH = 1;
+    public static final int MATCH = 0;
+
+    public static final long WEATHER_INTERVAL = TimeUnit.MINUTES.toMillis(61); //One hour
+    public static final long TIDE_INTERVAL = TimeUnit.DAYS.toMillis(1); //One day
+    public static final long WIND_WAVE_INTERVAL = TimeUnit.DAYS.toMillis(1); //One day
 
     private final Uri WEATHER_URI = new DarkSky.UriBuilder().getQueryUri("32.80, -117.24", FLAGS_EXCLUDE, ALERTS_EXCLUDE, MINUTELY_EXCLUDE);
     private final Uri TIDE_URI = new Spitcast.UriBuilder().getUri(PATH_TIDE);
@@ -83,10 +86,34 @@ public class WeatherSurfController extends JobService implements IParsingFinishe
                             new WeatherProvider().setAdapter(new DarkSKyDataPointAdapter((DarkSkyWeather)data))
                     ).getWeatherData());
 
+            TimestampSaverUtils.saveTimestamp(WEATHER_URI.toString(),
+                    getSharedPreferences(TimestampSaverUtils.NAME, Context.MODE_PRIVATE).edit());
+
         }
     });
-    private final ResultReceiver TIDE_RECEIVER = new TideParsingStrategy(this);
-    private final ResultReceiver WIND_WAVE_RECEIVER = new WindSwellParsingStrategy(this);
+
+    private final ResultReceiver TIDE_RECEIVER = new TideParsingStrategy(new IParsingFinishedObserver() {
+        @Override
+        public void onDataParsed(Object data) {
+            TideRepo.obtain(WeatherSurfController.this)
+            .renewCache( (Tide[])data );
+
+            TimestampSaverUtils.saveTimestamp(TIDE_URI.toString(),
+                    getSharedPreferences(TimestampSaverUtils.NAME, Context.MODE_PRIVATE).edit());
+
+        }
+    });
+
+    private final ResultReceiver WIND_WAVE_RECEIVER = new WindSwellParsingStrategy(new IParsingFinishedObserver() {
+        @Override
+        public void onDataParsed(Object data) {
+            WindSwellRepo.obtain(WeatherSurfController.this)
+                    .renewCache( (WindAndSwell[]) data );
+
+            TimestampSaverUtils.saveTimestamp(WIND_WAVE_URI.toString(),
+                    getSharedPreferences(TimestampSaverUtils.NAME, Context.MODE_PRIVATE).edit());
+        }
+    });
 
     private DownloadIntent[] downloads;
 
@@ -96,12 +123,33 @@ public class WeatherSurfController extends JobService implements IParsingFinishe
         if(downloads == null)
             prepareDownloadIntents();
 
-       // for(int a = 0; a  < downloads.length; a++)
-         //   startService(downloads[a]);
+        for(int a = 0; a  < downloads.length; a++) {
 
-        startService(downloads[0]);
+            final Uri download = downloads[a].getUri();
 
-        //start(this);  //Reschedules the Job.
+            final long lastUpdate = TimestampSaverUtils.getTimestamp(download.toString(), getUpdates());
+
+            //Check if the update happened past our interval for the uri type.
+            //If so then we shall update.
+
+            //Check if current time is lastUpdate + interval ago
+
+            long interval = Long.MAX_VALUE;
+
+            if(download.compareTo(WEATHER_URI) == MATCH)
+                interval = WEATHER_INTERVAL;
+
+            if(download.compareTo(TIDE_URI) == MATCH)
+                interval = TIDE_INTERVAL;
+
+            if(download.compareTo(WIND_WAVE_URI) == MATCH)
+                interval = WIND_WAVE_INTERVAL;
+
+            if(System.currentTimeMillis() >= (lastUpdate + interval) )
+                startService(downloads[a]);
+        }
+
+        start(this);  // Reschedules the Job.
         return false;
     }
 
@@ -111,101 +159,6 @@ public class WeatherSurfController extends JobService implements IParsingFinishe
         return false;
     }
 
-    /**
-     * Resolve the @Dao sqlite abstraction by resolving the type of data we're using -> SOURCE_TYPE
-     * Then pass the @Dao (contract), as well as the data to the saveData method
-     * @param data The data i want to cache
-     */
-    @Override
-    public void onDataParsed(Object data) {
-
-        DaoCacheContract contract;
-
-        if( (contract = resolveContract(resolveType(data))) != null)
-            saveData(contract, data);
-    }
-
-    private void saveData(@NonNull final DaoCacheContract c, @NonNull final Object o){
-
-        if(resolveType(o).equals(SOURCE_TYPE.WAVE_WIND))
-            saveWindAndSwell(c, o);
-
-        else if(resolveType(o).equals(SOURCE_TYPE.TIDE))
-            saveTide(c, o);
-
-    }
-
-    /**
-     * Resolves the specific @Dao interface we're using
-     * @param type
-     * @return
-     */
-    private DaoCacheContract resolveContract(@NonNull final SOURCE_TYPE type){
-
-        DaoCacheContract contract = null;
-
-        if(type.equals(SOURCE_TYPE.TIDE))
-            contract = Room.databaseBuilder(this, TideRoomDatabase.class, "tide.db").build().getDao();
-
-        if(type.equals(SOURCE_TYPE.WAVE_WIND))
-            contract = Room.databaseBuilder(this, WindAndSwellRoomDatabase.class, "wind_swell.db").build().getDao();
-
-        if(type.equals(SOURCE_TYPE.WEATHER))
-            contract = Room.databaseBuilder(this, WeatherRoom.class, "weather.db").build().getDao();
-
-        return contract;
-    }
-
-    /**
-     * Resolves the Endpoint type of data we're working with.
-     * @param o
-     * @return
-     */
-    @NonNull
-    private SOURCE_TYPE resolveType(@NonNull final Object o){
-        if(o instanceof DarkSkyWeather)
-            return SOURCE_TYPE.WEATHER;
-
-        else if(o instanceof Tide[])
-             return SOURCE_TYPE.TIDE;
-
-        else if(o instanceof WaterTemperature)
-            return SOURCE_TYPE.WATER_TEMPERATURE;
-
-        else if(o instanceof WindAndSwell[])
-            return SOURCE_TYPE.WAVE_WIND;
-
-    return SOURCE_TYPE.NO_SABES_NADA;
-    }
-
-    private void saveTide(@NonNull final DaoCacheContract c, @NonNull final Object o){
-        new Thread() {
-            @Override
-            public void run() {
-                final Tide[] data = (Tide[]) o;
-
-                c.deleteAll();
-
-                for(Tide t: data)
-                    c.insert(t);
-            }
-        }.start();
-    }
-
-    private void saveWindAndSwell(@NonNull final DaoCacheContract c, @NonNull final Object o){
-        new Thread() {
-            @Override
-            public void run() {
-
-                final WindAndSwell[] data = (WindAndSwell[]) o;
-
-                c.deleteAll();
-
-                for(WindAndSwell a : data)
-                    c.insert(a);
-            }
-        }.start();
-    }
 
     /**
      * Prepares the DownloadIntent array object
@@ -223,6 +176,10 @@ public class WeatherSurfController extends JobService implements IParsingFinishe
         return new DownloadIntent(this, uri, receiver);
     }
 
+    private SharedPreferences getUpdates(){
+        return getSharedPreferences(TimestampSaverUtils.NAME, Context.MODE_PRIVATE);
+    }
+
     public static void start(@NonNull final Context context){
         ((JobScheduler)context.getSystemService(Context.JOB_SCHEDULER_SERVICE))
                 .schedule(makeJobInfo(context.getApplicationContext()));
@@ -230,8 +187,8 @@ public class WeatherSurfController extends JobService implements IParsingFinishe
 
     private static JobInfo makeJobInfo(@NonNull final Context context){
         return new JobInfo.Builder(ID, new ComponentName(context, WeatherSurfController.class))
-                .setMinimumLatency(TimeUnit.SECONDS.toMillis(60))
-                .setOverrideDeadline(15000)
+                .setMinimumLatency(MAXIMUM_XECUTE_DELAY)
+                .setOverrideDeadline(INTERVAL)
                 .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
                 .build();
     }

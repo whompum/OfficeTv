@@ -4,8 +4,10 @@ import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.LifecycleRegistry;
 import android.arch.lifecycle.Observer;
+import android.icu.util.Calendar;
+import android.icu.util.TimeZone;
 import android.os.Bundle;
-import android.support.annotation.DrawableRes;
+import android.os.CountDownTimer;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,17 +19,24 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.californiadreamshostel.officetv.CONTROLLERS.weather$surf.TideRepo;
 import com.californiadreamshostel.officetv.CONTROLLERS.weather$surf.WeatherRepo;
+import com.californiadreamshostel.officetv.CONTROLLERS.weather$surf.WindSwellRepo;
 import com.californiadreamshostel.officetv.R;
+import com.californiadreamshostel.officetv.SURF.MODELS.Tide;
+import com.californiadreamshostel.officetv.SURF.MODELS.WindAndSwell;
+import com.californiadreamshostel.officetv.SURF.TideUtils;
+import com.californiadreamshostel.officetv.SURF.WindSwellUtils;
 import com.californiadreamshostel.officetv.UNIT.CONVERTERTTASK.UnitUpdator;
 import com.californiadreamshostel.officetv.UNIT.CONVERTER.ConversionType;
+import com.californiadreamshostel.officetv.UNIT.UNITS.SIZE.Ft;
 import com.californiadreamshostel.officetv.UNIT.UNITS.TEMPERATURE.F;
+import com.californiadreamshostel.officetv.UNIT.UNITS.VELOCITY.Kts;
 import com.californiadreamshostel.officetv.UNIT.UnitChoreographer;
 import com.californiadreamshostel.officetv.VIEWS.RTV;
 import com.californiadreamshostel.officetv.WEATHER.ConditionUiUtility;
 import com.californiadreamshostel.officetv.WEATHER.DateUtils;
 import com.californiadreamshostel.officetv.WEATHER.model.WeatherData;
-
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -35,22 +44,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+
 /**
+ * TODO Decouple Weather$Surf data handling from this object into a ViewModel object
+ * Desc: This class filters the data received for Weather$Surf when it shouldn't even have that responsibility.
  *
- * Should also connect to some kind of back-end to allow dynamic changing of data values
- *
- * TODO Move Api fetching data into a service, save data to DB, and populate views with LiveData
- *
- * */
+ */
 public final class ShelfFragment extends Fragment implements LifecycleOwner{
 
     //Default Interval for Unit conversions para weather, and such
-    public static final long DEFAULT_UNIT_CONVERT_INTERVAL = TimeUnit.SECONDS.toMillis(10);
+    public static final long DEFAULT_UNIT_CONVERT_INTERVAL = TimeUnit. SECONDS.toMillis(10);
 
     @LayoutRes
     public static final int LAYOUT = R.layout.shelf_base;
@@ -89,8 +96,8 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner{
 
     //Surf Information Displays
     protected @BindView(R.id.id_surf_wave_height) RTV waveHeightDisplay;
-    protected @BindView(R.id.id_surf_water_temp) RTV waterTemperatureDisplay;
-    //protected @BindView(R.id.id_surf_height_tide) RTV highTideDisplay;
+    //protected @BindView(R.id.id_surf_water_temp) RTV waterTemperatureDisplay;
+    protected @BindView(R.id.id_surf_height_tide) RTV highTideDisplay;
     protected @BindView(R.id.id_surf_wind_speed) RTV windSpeedDisplay;
 
     private Unbinder unbinder;
@@ -111,6 +118,7 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner{
     @Override
     public void onDestroy() {
         super.onDestroy();
+        unitUpdator.cancel();
         registry.markState(Lifecycle.State.DESTROYED);
     }
 
@@ -145,9 +153,24 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner{
          * weather and the SURF
          */
 
-        registerWeatherListener();
-
+        registerRegistrator();
         return content;
+    }
+
+    private void registerRegistrator(){
+        new CountDownTimer(Long.MAX_VALUE, TimeUnit.MINUTES.toMillis(10)){
+            @Override
+            public void onTick(long millisUntilFinished) {
+                registerWeatherListener();
+                registerTideDataListener();
+                registerWindSwellListener();
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        }.start();
     }
 
     private void registerWeatherListener(){
@@ -173,6 +196,8 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner{
                     fetchChoreographer(todayWeatherDisplay.getId())
                             .bind(new F(currently.getTemperature()));
 
+                    Log.i("API_TIMING_FIX", "CURRENT WEATHER TIMESTAMP: " + currently.getTimestamp());
+
                     bindConditionDisplay(currently.getCondition());
                 }
 
@@ -184,16 +209,77 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner{
                             WeatherData.Daily.DataPoints dP;
                             if((dP = DateUtils.dailyFromProjection(daily.getData(), projection)) == null) continue;
                             UnitChoreographer c = null;
-                            if(projection == 1) c = fetchChoreographer(t_WeatherDisplay.getId()); //Tomorrow
-                            if(projection == 2) c = fetchChoreographer(t_T_WeatherDisplay.getId()); //Tomorrow Tomorrow
-                            if(projection == 3) c = fetchChoreographer(t_T_TWeatherDisplay.getId()); //Tomorrow Tomorrow Tomorrow
+                            RTV dayDisplay = null;
+
+                            final String rep = DateUtils.getDayRep(dP.getTimestamp());
+
+                            if(projection == 1){
+                                c = fetchChoreographer(t_WeatherDisplay.getId());  //Tomorrow
+                                dayDisplay = t_WeatherLabel;
+                            }
+                            if(projection == 2){
+                                c = fetchChoreographer(t_T_WeatherDisplay.getId()); //Tomorrow Tomorrow
+                                dayDisplay = t_T_WeatherLabel;
+                            }
+                            if(projection == 3){
+                                c = fetchChoreographer(t_T_TWeatherDisplay.getId()); //Tomorrow Tomorrow Tomorrow
+                                dayDisplay = t_T_TWeatherLabel;
+                            }
                             if(c != null)
                                 c.bind(new F(dP.getTemperature()));
+
+                            if(dayDisplay != null && rep != null)
+                                dayDisplay.setText(rep);
+
                         }
 
             }
         });
     }
+    private void registerTideDataListener(){
+        TideRepo.obtain(getActivity())
+                .getData().observe(this, new Observer<List<Tide>>() {
+            @Override
+            public void onChanged(@Nullable List<Tide> tides) {
+
+                Tide highTide = null;
+
+                if(tides != null)
+                    if( (highTide = TideUtils.highestTideFrom(tides)) != null)
+                        highTideDisplay.setText(highTide.getHour());
+
+            }
+        });
+    }
+    private void registerWindSwellListener(){
+
+        WindSwellRepo.obtain(getActivity())
+                .getData().observe(this, new Observer<List<WindAndSwell>>() {
+            @Override
+            public void onChanged(@Nullable List<WindAndSwell> windAndSwells) {
+                //Bind to views.
+
+                if(windAndSwells != null && windAndSwells.size() > 0){
+
+                    WindAndSwell was;
+
+                    if( ( was = WindSwellUtils.findClosest(windAndSwells)) != null){
+                        fetchChoreographer(waveHeightDisplay.getId())
+                                .bind(new Ft(was.getSwell().getMaxBreakingHeight()));
+
+                        fetchChoreographer(windSpeedDisplay.getId())
+                                .bind(new Kts(was.getWind().getSpeed()));
+                    }
+
+                    Log.i("TIMESTAMPS", "WIND SWELL TS: " + was.getLocalTimestamp());
+
+                }
+            }
+        });
+
+    }
+
+
 
     @Override //Unbinding Butterknife BTDUBS
     public void onDestroyView() {
@@ -225,8 +311,9 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner{
         unitChoreographers.put(waveHeightDisplay.getId(),
                 newChoreographer(waveHeightDisplay, ConversionType.SIZE, true));
 
-        unitChoreographers.put(waterTemperatureDisplay.getId(),
-                newChoreographer(waterTemperatureDisplay, ConversionType.TEMPERATURE));
+        //unitChoreographers.put(waterTemperatureDisplay.getId(),
+          //      newChoreographer(waterTemperatureDisplay, ConversionType.TEMPERATURE));
+
 
         unitChoreographers.put(windSpeedDisplay.getId(),
                 newChoreographer(windSpeedDisplay, ConversionType.VELOCITY, true));

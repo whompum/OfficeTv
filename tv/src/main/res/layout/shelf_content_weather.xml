@@ -138,16 +138,16 @@
 
         <com.californiadreamshostel.officetv.VIEWS.RTV
             style="@style/StyleSurfWeatherTitle"
-            android:text="@string/string_water_temperature" />
+            android:text="@string/string_high_tide" />
         <LinearLayout style="@style/StyleSurfValueContainer">
 
         <ImageView style="@style/StyleSurfWeatherIconDisplay"
-                   android:src="@drawable/icon_weather_watertemp"/>
+                   android:src="@drawable/icon_hightide"/>
 
         <com.californiadreamshostel.officetv.VIEWS.RTV
             style="@style/StyleSurfWeatherValue"
-            android:id="@id/id_surf_water_temp"
-            android:text="69 F"/>
+            android:id="@id/id_surf_height_tide"
+            android:text="9 AM"/>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout style="@style/StyleVerLinearLayout">
