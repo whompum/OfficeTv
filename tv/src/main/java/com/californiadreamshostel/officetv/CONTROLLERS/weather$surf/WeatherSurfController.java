@@ -8,12 +8,10 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
-import android.os.Bundle;
 import android.os.ResultReceiver;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.californiadreamshostel.officetv.NETWORKING.DOWNLOADING.DataDownloadService;
 import com.californiadreamshostel.officetv.NETWORKING.DOWNLOADING.DownloadIntent;
 import com.californiadreamshostel.officetv.PARSING.IParsingFinishedObserver;
 import com.californiadreamshostel.officetv.SURF.ENDPOINTS.MagicSeaWeed;
@@ -29,7 +27,6 @@ import com.californiadreamshostel.officetv.WEATHER.model.DarkSkyWeather;
 import com.californiadreamshostel.officetv.WEATHER.model.WeatherDataProxy;
 import com.californiadreamshostel.officetv.WEATHER.model.WeatherProvider;
 
-import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
 import static com.californiadreamshostel.officetv.SURF.ENDPOINTS.MagicSeaWeed.SWELL_MAXIMUM;
@@ -38,7 +35,9 @@ import static com.californiadreamshostel.officetv.SURF.ENDPOINTS.MagicSeaWeed.TI
 import static com.californiadreamshostel.officetv.SURF.ENDPOINTS.MagicSeaWeed.WINDSPEED;
 import static com.californiadreamshostel.officetv.SURF.ENDPOINTS.Spitcast.PATH_TIDE;
 import static com.californiadreamshostel.officetv.WEATHER.ENDPOINTS.DarkSky.ALERTS_EXCLUDE;
+import static com.californiadreamshostel.officetv.WEATHER.ENDPOINTS.DarkSky.DAILY_EXCLUDE;
 import static com.californiadreamshostel.officetv.WEATHER.ENDPOINTS.DarkSky.FLAGS_EXCLUDE;
+import static com.californiadreamshostel.officetv.WEATHER.ENDPOINTS.DarkSky.HOURLY_EXCLUDE;
 import static com.californiadreamshostel.officetv.WEATHER.ENDPOINTS.DarkSky.MINUTELY_EXCLUDE;
 
 /**
@@ -54,27 +53,24 @@ import static com.californiadreamshostel.officetv.WEATHER.ENDPOINTS.DarkSky.MINU
  * that i'll get back to.
  *
  * TODO merge surf model data from an API into a common interface for easier caching.
- * TODO use only a single Thread object to insert my data instead of resolving multiple threads @ Runtime.
  *
  */
 public class WeatherSurfController extends JobService{
 
-    private enum SOURCE_TYPE{ WEATHER, TIDE, WAVE_WIND, WATER_TEMPERATURE, NO_SABES_NADA }
-
-    public static final long INTERVAL = TimeUnit.MINUTES.toMillis(2);
-
-    public static final long MAXIMUM_XECUTE_DELAY = TimeUnit.SECONDS.toMillis(5);
-
     public static final int ID = 0;
+    public static final long LAUNCH_INTERVAL = 1800000L; //Thirty Minutes to re-run this service
 
-    public static final int NO_MATCH = 1;
-    public static final int MATCH = 0;
+    public static final long DAILY_INTERVAL = 86400000L; //One Day
+    public static final long THIRTY_MINUTES_INTERVAL = LAUNCH_INTERVAL  ; //Thirty Minutes interval
 
-    public static final long WEATHER_INTERVAL = TimeUnit.MINUTES.toMillis(61); //One hour
-    public static final long TIDE_INTERVAL = TimeUnit.DAYS.toMillis(1); //One day
-    public static final long WIND_WAVE_INTERVAL = TimeUnit.DAYS.toMillis(1); //One day
+    public static final long MAXIMUM_XECUTE_DELAY = 5000L; //5 Seconds
 
-    private final Uri WEATHER_URI = new DarkSky.UriBuilder().getQueryUri("32.80, -117.24", FLAGS_EXCLUDE, ALERTS_EXCLUDE, MINUTELY_EXCLUDE);
+    public static final long THIRTY_MIN_GRACE_PERIOD = TimeUnit.MINUTES.toMillis(5);
+    public static final long DAILY_GRACE_PERIOD = TimeUnit.MINUTES.toMillis(10);
+
+    public static final int URI_MATCH = 0;
+
+    private final Uri BULK_WEATHER = new DarkSky.UriBuilder().getQueryUri("32.80, -117.24", FLAGS_EXCLUDE, ALERTS_EXCLUDE, MINUTELY_EXCLUDE);
     private final Uri TIDE_URI = new Spitcast.UriBuilder().getUri(PATH_TIDE);
     private final Uri WIND_WAVE_URI = new MagicSeaWeed.UriBuilder().getUri(TIMESTAMP, SWELL_MAXIMUM, SWELL_MINIMUM, WINDSPEED);
 
@@ -86,9 +82,8 @@ public class WeatherSurfController extends JobService{
                             new WeatherProvider().setAdapter(new DarkSKyDataPointAdapter((DarkSkyWeather)data))
                     ).getWeatherData());
 
-            TimestampSaverUtils.saveTimestamp(WEATHER_URI.toString(),
+            TimestampSaverUtils.saveTimestamp(BULK_WEATHER.toString(),
                     getSharedPreferences(TimestampSaverUtils.NAME, Context.MODE_PRIVATE).edit());
-
         }
     });
 
@@ -100,7 +95,6 @@ public class WeatherSurfController extends JobService{
 
             TimestampSaverUtils.saveTimestamp(TIDE_URI.toString(),
                     getSharedPreferences(TimestampSaverUtils.NAME, Context.MODE_PRIVATE).edit());
-
         }
     });
 
@@ -123,34 +117,45 @@ public class WeatherSurfController extends JobService{
         if(downloads == null)
             prepareDownloadIntents();
 
-        for(int a = 0; a  < downloads.length; a++) {
-
-            final Uri download = downloads[a].getUri();
-
-            final long lastUpdate = TimestampSaverUtils.getTimestamp(download.toString(), getUpdates());
-
-            //Check if the update happened past our interval for the uri type.
-            //If so then we shall update.
-
-            //Check if current time is lastUpdate + interval ago
-
-            long interval = Long.MAX_VALUE;
-
-            if(download.compareTo(WEATHER_URI) == MATCH)
-                interval = WEATHER_INTERVAL;
-
-            if(download.compareTo(TIDE_URI) == MATCH)
-                interval = TIDE_INTERVAL;
-
-            if(download.compareTo(WIND_WAVE_URI) == MATCH)
-                interval = WIND_WAVE_INTERVAL;
-
-            if(System.currentTimeMillis() >= (lastUpdate + interval) )
+        for(int a = 0; a  < downloads.length; a++)
+            if(shouldUpdate(downloads[a].getUri()))
                 startService(downloads[a]);
-        }
 
         start(this);  // Reschedules the Job.
         return false;
+    }
+
+    /**
+     * Determines if we should renew the data the key represents.
+     * This method also takes a grace period into account. Meaning
+     * if we're N minutes away from need to update something, then we'll just update it.
+     *
+     * NOTE: Grace period serves to decrease the volume of the interval.
+     * This should help us with regression bugs caused by slow time-leaks.
+     * (Time leaks occur because we're trying to run our updates around a clock, but
+     * are NOT gauranteed they're ran that way)
+     *
+     * @param key The value we want to check to update for
+     * @return si o no
+     */
+    private boolean shouldUpdate(@NonNull final Uri key){
+
+        long lastUpdate = TimestampSaverUtils.getTimestamp(key.toString(), getUpdates());
+        long grace = DAILY_GRACE_PERIOD;
+        long interval = DAILY_INTERVAL;
+
+        //Current weather is updated more frequently that once daily.
+        if(key.compareTo(BULK_WEATHER) == URI_MATCH){
+            grace = THIRTY_MIN_GRACE_PERIOD;
+            interval = THIRTY_MINUTES_INTERVAL;
+        }
+
+
+        //If the current time is greater or equal to the lastupdate plus its interval minus the grace
+        final boolean shouldUpdate = System.currentTimeMillis() >= ( (lastUpdate+interval) - grace);
+
+        Log.i("API_TIMING_FIX", "SHOULD UPDATE: " + key.toString() + " : " + String.valueOf(shouldUpdate));
+        return shouldUpdate;
     }
 
     @Override
@@ -166,9 +171,9 @@ public class WeatherSurfController extends JobService{
      */
     private void prepareDownloadIntents(){
         downloads = new DownloadIntent[]{
-                fetchIntent(WEATHER_URI, WEATHER_RECEIVER),
+                fetchIntent(BULK_WEATHER, WEATHER_RECEIVER),
                 fetchIntent(TIDE_URI, TIDE_RECEIVER),
-                fetchIntent(WIND_WAVE_URI, WIND_WAVE_RECEIVER)
+                fetchIntent(WIND_WAVE_URI, WIND_WAVE_RECEIVER),
         };
     }
 
@@ -188,7 +193,7 @@ public class WeatherSurfController extends JobService{
     private static JobInfo makeJobInfo(@NonNull final Context context){
         return new JobInfo.Builder(ID, new ComponentName(context, WeatherSurfController.class))
                 .setMinimumLatency(MAXIMUM_XECUTE_DELAY)
-                .setOverrideDeadline(INTERVAL)
+                .setOverrideDeadline(LAUNCH_INTERVAL)
                 .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
                 .build();
     }

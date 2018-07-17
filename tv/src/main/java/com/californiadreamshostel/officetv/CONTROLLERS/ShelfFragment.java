@@ -269,9 +269,10 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner{
 
                         fetchChoreographer(windSpeedDisplay.getId())
                                 .bind(new Kts(was.getWind().getSpeed()));
-                    }
 
-                    Log.i("TIMESTAMPS", "WIND SWELL TS: " + was.getLocalTimestamp());
+                        Log.i("API_TIMING_FIX", "WIND SWELL TS: " + was.getLocalTimestamp());
+
+                    }
 
                 }
             }
