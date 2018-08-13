@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/color_milk"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -9,7 +10,7 @@
     <!--Image Guide-->
     <android.support.constraint.Guideline
         android:id="@+id/local_image_guide"
-         android:layout_width="wrap_content"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.50" />
@@ -40,14 +41,23 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <!--Rental Slide Title-->
-    <com.californiadreamshostel.officetv.VIEWS.SlideTitleView
-        app:layout_constraintStart_toStartOf="parent"
+    <com.californiadreamshostel.officetv.VIEWS.RTV
+        tools:text="Title"
+        app:FONT="MEDIUM"
         app:layout_constraintTop_toTopOf="parent"
-        app:slidePageTitle="@string/string_slide_title_rentals"
-        android:layout_marginStart="@dimen/size_padding_hor_large"
+        android:id="@+id/local_slide_title"
         android:layout_marginTop="@dimen/size_padding_ver_large"
+        android:paddingStart="@dimen/size_padding_hor"
+        android:paddingEnd="@dimen/size_padding_hor_large"
+        android:paddingTop="@dimen/size_padding_ver"
+        android:paddingBottom="@dimen/size_padding_ver"
+        android:textSize="@dimen/size_text_large"
+        android:background="@color/color_special"
+        android:letterSpacing=".60"
+        android:textColor="@color/color_light"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
+
 
     <!--Main Content-->
     <FrameLayout
@@ -64,15 +74,9 @@
         app:TOP_LEFT_RADII="@dimen/corner_radius_small"
         app:BOTTOM_LEFT_RADII="@dimen/corner_radius_small"
         app:BOTTOM_RIGHT_RADII="@dimen/corner_radius_small"
+        android:id="@+id/id_slides_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-        <include layout="@layout/slide_rental_content"/>
-
-
-    </com.californiadreamshostel.officetv.VIEWS.ClipFrame>
-
+        android:layout_height="match_parent"/>
     </FrameLayout>
 
 </android.support.constraint.ConstraintLayout>

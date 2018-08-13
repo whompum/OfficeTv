@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/color_light"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <android.support.constraint.Guideline
+        app:layout_constraintGuide_percent=".25"
+        android:id="@+id/local_guide_quarter"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+    <android.support.constraint.Guideline
+        app:layout_constraintGuide_percent=".50"
+        android:id="@+id/local_guide_half"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+    <android.support.constraint.Guideline
+        app:layout_constraintGuide_percent=".75"
+        android:id="@+id/local_guide_three_quarter"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+
+    <View
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/local_guide_quarter"
+        android:id="@+id/local_include_zero"
+        android:background="@color/color_tertiary"
+        android:layout_width="16dp"
+        android:layout_height="0dp"/>
+    <View
+        app:layout_constraintTop_toTopOf="@id/local_guide_quarter"
+        app:layout_constraintBottom_toBottomOf="@id/local_guide_half"
+        android:id="@+id/local_include_one"
+        android:background="@color/color_main"
+        android:layout_width="16dp"
+        android:layout_height="0dp"/>
+    <View
+        app:layout_constraintTop_toTopOf="@id/local_guide_half"
+        app:layout_constraintBottom_toBottomOf="@id/local_guide_three_quarter"
+        android:id="@+id/local_include_two"
+        android:background="@color/color_secondary"
+        android:layout_width="16dp"
+        android:layout_height="0dp"/>
+    <View
+        app:layout_constraintTop_toTopOf="@id/local_guide_three_quarter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/local_include_three"
+        android:background="@color/color_special"
+        android:layout_width="16dp"
+        android:layout_height="0dp"/>
+
+    <LinearLayout
+        app:layout_constraintStart_toEndOf="@id/local_include_zero"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/local_guide_quarter"
+        android:paddingStart="@dimen/size_padding_hor"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.californiadreamshostel.officetv.VIEWS.RTV
+            style="@style/StyleSurfLessonIncludeLabel"
+            android:id="@+id/local_include_zero_label"
+            android:text="@string/string_professional_lesson_include"
+            android:textColor="@color/color_tertiary"/>
+
+        <com.californiadreamshostel.officetv.VIEWS.RTV
+            style="@style/StyleSurfLessonIncludeDesc"
+            android:id="@+id/local_include_zero_desc"
+            android:text="@string/string_professional_lesson_include_desc" />
+
+    </LinearLayout>
+    <LinearLayout
+        app:layout_constraintStart_toEndOf="@id/local_include_two"
+        app:layout_constraintTop_toTopOf="@id/local_guide_quarter"
+        app:layout_constraintBottom_toBottomOf="@id/local_guide_half"
+        android:paddingStart="@dimen/size_padding_hor"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.californiadreamshostel.officetv.VIEWS.RTV
+            style="@style/StyleSurfLessonIncludeLabel"
+            android:id="@+id/local_include_one_label"
+            android:text="@string/string_surfboard_include"
+            android:textColor="@color/color_main"/>
+
+        <com.californiadreamshostel.officetv.VIEWS.RTV
+            style="@style/StyleSurfLessonIncludeDesc"
+            android:id="@+id/local_include_one_desc"
+            android:text="@string/string_surfboard_include_desc" />
+
+    </LinearLayout>
+    <LinearLayout
+        app:layout_constraintStart_toEndOf="@id/local_include_two"
+        app:layout_constraintTop_toTopOf="@id/local_guide_half"
+        app:layout_constraintBottom_toBottomOf="@id/local_guide_three_quarter"
+        android:paddingStart="@dimen/size_padding_hor"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.californiadreamshostel.officetv.VIEWS.RTV
+            style="@style/StyleSurfLessonIncludeLabel"
+            android:id="@+id/local_include_two_label"
+            android:text="@string/string_wetsuit_include"
+            android:textColor="@color/color_secondary"/>
+
+        <com.californiadreamshostel.officetv.VIEWS.RTV
+            style="@style/StyleSurfLessonIncludeDesc"
+            android:id="@+id/local_include_two_desc"
+            android:text="@string/string_wetsuit_include_desc" />
+
+    </LinearLayout>
+    <LinearLayout
+        app:layout_constraintStart_toEndOf="@id/local_include_two"
+        app:layout_constraintTop_toTopOf="@id/local_guide_three_quarter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingStart="@dimen/size_padding_hor"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.californiadreamshostel.officetv.VIEWS.RTV
+            style="@style/StyleSurfLessonIncludeLabel"
+            android:id="@+id/local_include_three_label"
+            android:text="@string/string_lesson_length_include"
+            android:textColor="@color/color_special"/>
+
+        <com.californiadreamshostel.officetv.VIEWS.RTV
+            style="@style/StyleSurfLessonIncludeDesc"
+            android:id="@+id/local_include_three_desc"
+            android:text="@string/string_lesson_length_include_desc" />
+
+    </LinearLayout>
+
+    <com.californiadreamshostel.officetv.VIEWS.RTV
+        app:FONT="MEDIUM"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/local_surf_lesson_price"
+        android:layout_marginTop="@dimen/size_padding_ver"
+        android:layout_marginEnd="@dimen/size_padding_hor"
+        android:text="$55"
+        android:textSize="26dp"
+        android:textColor="@color/color_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <com.californiadreamshostel.officetv.VIEWS.RTV
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/local_surf_lesson_times"
+        android:layout_marginBottom="@dimen/size_padding_ver"
+        android:layout_marginEnd="@dimen/size_padding_hor"
+        android:text="@string/string_surf_lesson_times"
+        android:textSize="@dimen/size_text_small"
+        android:textColor="@color/color_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</android.support.constraint.ConstraintLayout>

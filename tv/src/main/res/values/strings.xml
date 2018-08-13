@@ -71,4 +71,25 @@
     <!--MISC-->
     <string name="string_in_development">Still In Development</string>
 
+    <!-- SURF LESSONS -->
+    <string name="string_surf_lesson_times">Every Day 9AM / 12AM</string>
+
+    <string name="string_professional_lesson_include">Professional Instruction</string>
+    <string name="string_surfboard_include">Surfboard</string>
+    <string name="string_wetsuit_include">Wetsuit</string>
+    <string name="string_lesson_length_include">90 Minute Lesson</string>
+
+    <string name="string_professional_lesson_include_desc">Learn from a professional surfer,
+certified in both CPR and First Aid</string>
+
+    <string name="string_surfboard_include_desc">Ride on a foam top long board perfect for
+    the budding beginner to shred waves. </string>
+
+    <string name="string_wetsuit_include_desc">Includes a wetsuit to protect you from the
+    cold, and make you aerodynamic</string>
+
+    <string name="string_lesson_length_include_desc">90 minutes of pure fun. The perfect amount
+    of time to take you from beginner to pro.</string>
+
+
 </resources>

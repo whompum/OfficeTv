@@ -25,10 +25,9 @@
         app:layout_constraintStart_toEndOf="@id/local_slides_guide"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:id="@id/id_slides_container"
         android:layout_width="0dp"
         android:layout_height="match_parent">
-        <include layout="@layout/slides_rental_base"/>
+        <include layout="@layout/slides_base"/>
     </FrameLayout>
 
     <FrameLayout

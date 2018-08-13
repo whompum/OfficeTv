@@ -17,11 +17,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class RentalSlideFragment extends Fragment {
+
+public class RentalSlideFragment extends Slide{
 
     @LayoutRes
-    public static final int LAYOUT = R.layout.slides_rental_base;
-
+    public static final int LAYOUT = R.layout.slide_rental_content;
 
     public static Fragment newInstance(){
         return new RentalSlideFragment();
@@ -85,4 +85,8 @@ public class RentalSlideFragment extends Fragment {
         return data;
     }
 
+    @Override
+    public String getTitle() {
+        return "RENTALS";
+    }
 }
