@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.californiadreamshostel.officetv.R;
-import com.californiadreamshostel.officetv.SLIDES.RentalData;
+import com.californiadreamshostel.officetv.Slides.RentalData;
 import com.californiadreamshostel.officetv.VIEWS.RTV;
 
 import java.util.ArrayList;
@@ -19,6 +19,8 @@ import java.util.List;
 
 
 public class RentalSlideFragment extends Slide{
+
+    public static final String DEFAULT_TITLE = "RentalsSlideFragment.class";
 
     @LayoutRes
     public static final int LAYOUT = R.layout.slide_rental_content;
@@ -86,7 +88,12 @@ public class RentalSlideFragment extends Slide{
     }
 
     @Override
-    public String getTitle() {
-        return "RENTALS";
+    String getDefaultTitle() {
+        return "Rentals";
+    }
+
+    @Override
+    String getSlideTitle() {
+        return getString(R.string.string_slide_title_rentals);
     }
 }

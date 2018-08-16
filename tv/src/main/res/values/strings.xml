@@ -72,6 +72,7 @@
     <string name="string_in_development">Still In Development</string>
 
     <!-- SURF LESSONS -->
+    <string name="string_surf_lesson">Surf Lessons</string>
     <string name="string_surf_lesson_times">Every Day 9AM / 12AM</string>
 
     <string name="string_professional_lesson_include">Professional Instruction</string>

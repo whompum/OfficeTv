@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.SLIDES;
+package com.californiadreamshostel.officetv.Slides;
 
 import android.support.annotation.NonNull;
 
