@@ -4,8 +4,6 @@ import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.LifecycleRegistry;
 import android.arch.lifecycle.Observer;
-import android.icu.util.Calendar;
-import android.icu.util.TimeZone;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.LayoutRes;
@@ -34,9 +32,15 @@ import com.californiadreamshostel.officetv.UNIT.UNITS.TEMPERATURE.F;
 import com.californiadreamshostel.officetv.UNIT.UNITS.VELOCITY.Kts;
 import com.californiadreamshostel.officetv.UNIT.UnitChoreographer;
 import com.californiadreamshostel.officetv.VIEWS.RTV;
+import com.californiadreamshostel.officetv.VIEWS.RentalView;
 import com.californiadreamshostel.officetv.WEATHER.ConditionUiUtility;
 import com.californiadreamshostel.officetv.WEATHER.DateUtils;
 import com.californiadreamshostel.officetv.WEATHER.model.WeatherData;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -47,7 +51,6 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-
 
 /**
  * TODO Decouple Weather$Surf data handling from this object into a ViewModel object
@@ -75,6 +78,10 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner{
     public ShelfFragment(){
         this.unitUpdator = new UnitUpdator(DEFAULT_UNIT_CONVERT_INTERVAL);
     }
+
+    protected @BindView(R.id.local_rentals_one) RentalView rentalsOne;
+    protected @BindView(R.id.local_rentals_two) RentalView rentalsTwo;
+    protected @BindView(R.id.local_rentals_three) RentalView rentalsThree;
 
     //Contact Information TextViews
     protected @BindView(R.id.id_location_display) RTV locationDisplay;
@@ -173,7 +180,7 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner{
         }.start();
     }
 
-    private void registerWeatherListener(){
+    private void registerWeatherListener(){ //Data logic should be held in a controller..
         WeatherRepo.obtain(this.getActivity())
                 .getWeatherData().observe(this, new Observer<List<WeatherData>>() {
             @Override
@@ -313,7 +320,7 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner{
                 newChoreographer(waveHeightDisplay, ConversionType.SIZE, true));
 
         //unitChoreographers.put(waterTemperatureDisplay.getId(),
-          //      newChoreographer(waterTemperatureDisplay, ConversionType.TEMPERATURE));
+        //      newChoreographer(waterTemperatureDisplay, ConversionType.TEMPERATURE));
 
 
         unitChoreographers.put(windSpeedDisplay.getId(),
@@ -345,7 +352,7 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner{
         final int conditionDrawable = ConditionUiUtility.getRepresentation(condition);
 
         if(conditionDrawable != ConditionUiUtility.DERP && conditionDrawable  != ConditionUiUtility.NOT_SUPPORTED)
-                todayWeatherImage.setImageResource(conditionDrawable);
+            todayWeatherImage.setImageResource(conditionDrawable);
     }
 
 
@@ -362,10 +369,11 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner{
         if(unitChoreographers.containsKey(id))
             return unitChoreographers.get(id);
 
-    return null;
+        return null;
     }
 
 }
+
 
 
 

@@ -15,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.californiadreamshostel.officetv.R;
-import com.californiadreamshostel.officetv.VIEWS.RTV;
 
 public class RentalView extends LinearLayout {
 
@@ -93,7 +92,7 @@ public class RentalView extends LinearLayout {
     public void setPrice(@Nullable String total){
 
         if(total == null)
-            total = "$" + "0";
+            total = "$0";
 
         final View priceRTV = getChildFromId(ID_PRICE);
 

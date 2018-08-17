@@ -1,27 +1,35 @@
 {
   "project_info": {
-    "project_number": "976778940963",
-    "firebase_url": "https://officeapp-eb8fb.firebaseio.com",
-    "project_id": "officeapp-eb8fb",
-    "storage_bucket": "officeapp-eb8fb.appspot.com"
+    "project_number": "1001039099286",
+    "firebase_url": "https://officetv-14f01.firebaseio.com",
+    "project_id": "officetv-14f01",
+    "storage_bucket": "officetv-14f01.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:976778940963:android:7ad676e26371bd90",
+        "mobilesdk_app_id": "1:1001039099286:android:7ad676e26371bd90",
         "android_client_info": {
           "package_name": "com.californiadreamshostel.officetv"
         }
       },
       "oauth_client": [
         {
-          "client_id": "976778940963-163fra6spghvt2f99qe21pt24pnvlfqf.apps.googleusercontent.com",
+          "client_id": "1001039099286-6isj9ts9chctugqdu8hgc527r6knbu0d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.californiadreamshostel.officetv",
+            "certificate_hash": "48729203ace2965fe4e35fa46f50859a0305b4a7"
+          }
+        },
+        {
+          "client_id": "1001039099286-k1ebl3ro27dukmcpjsm14bfmtg95bqkf.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC99BYbQxPERaChJwl5e9-LUu8FfKUMgcs"
+          "current_key": "AIzaSyC2qglGyjBkzdBnkoUeRhtM-CHttXDnKRk"
         }
       ],
       "services": {
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1001039099286-k1ebl3ro27dukmcpjsm14bfmtg95bqkf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

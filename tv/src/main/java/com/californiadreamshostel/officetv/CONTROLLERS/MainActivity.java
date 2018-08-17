@@ -34,7 +34,7 @@ public class MainActivity extends Activity implements OnExchangeListener {
         surfLessons = (SurfLessonSlideFragment) SurfLessonSlideFragment.newInstance();
 
         //Initialize the Weather Surf job service
-        WeatherSurfController.start(this);
+        //WeatherSurfController.start(this);
 
     }
 
