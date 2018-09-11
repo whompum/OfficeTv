@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.NETWORKING.DOWNLOADING;
+package com.californiadreamshostel.officetv.Networking.DOWNLOADING;
 
 public interface IDownloadError {
 

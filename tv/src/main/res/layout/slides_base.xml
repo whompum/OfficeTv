@@ -23,7 +23,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.35" />
 
-    <!--Backdrop Image of the Rentals Slide-->
+    <!--Backdrop Image of the Rentals SlideFragment-->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -40,7 +40,7 @@
         app:layout_constraintBottom_toTopOf="@id/local_image_guide"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <!--Rental Slide Title-->
+    <!--Rental SlideFragment Title-->
     <com.californiadreamshostel.officetv.VIEWS.RTV
         tools:text="Title"
         app:FONT="MEDIUM"

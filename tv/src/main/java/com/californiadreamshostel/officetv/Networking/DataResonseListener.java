@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.NETWORKING;
+package com.californiadreamshostel.officetv.Networking;
 
 import android.support.annotation.NonNull;
 

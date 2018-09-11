@@ -21,6 +21,7 @@
 
     <com.californiadreamshostel.officetv.VIEWS.RTV
         app:FONT="MEDIUM"
+        android:id="@id/id_extras_breakfast"
         android:text="@string/string_breakfast_time"
         android:textColor="@color/color_main"
         android:textSize="@dimen/size_text_tiny"

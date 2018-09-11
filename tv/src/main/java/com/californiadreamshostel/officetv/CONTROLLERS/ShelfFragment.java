@@ -17,8 +17,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.californiadreamshostel.firebaseclient.DataSchema;
+import com.californiadreamshostel.firebaseclient.ReferenceItem;
 import com.californiadreamshostel.officetv.CONTROLLERS.weather$surf.TideRepo;
-import com.californiadreamshostel.officetv.CONTROLLERS.weather$surf.WeatherRepo;
 import com.californiadreamshostel.officetv.CONTROLLERS.weather$surf.WindSwellRepo;
 import com.californiadreamshostel.officetv.R;
 import com.californiadreamshostel.officetv.SURF.MODELS.Tide;
@@ -34,13 +35,6 @@ import com.californiadreamshostel.officetv.UNIT.UnitChoreographer;
 import com.californiadreamshostel.officetv.VIEWS.RTV;
 import com.californiadreamshostel.officetv.VIEWS.RentalView;
 import com.californiadreamshostel.officetv.WEATHER.ConditionUiUtility;
-import com.californiadreamshostel.officetv.WEATHER.DateUtils;
-import com.californiadreamshostel.officetv.WEATHER.model.WeatherData;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -57,7 +51,8 @@ import butterknife.Unbinder;
  * Desc: This class filters the data received for Weather$Surf when it shouldn't even have that responsibility.
  *
  */
-public final class ShelfFragment extends Fragment implements LifecycleOwner{
+public final class ShelfFragment extends Fragment implements LifecycleOwner,
+        WeatherDataReceiver, RemoteDataReceiver{
 
     //Default Interval for Unit conversions para weather, and such
     public static final long DEFAULT_UNIT_CONVERT_INTERVAL = TimeUnit. SECONDS.toMillis(10);
@@ -83,13 +78,18 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner{
     protected @BindView(R.id.local_rentals_two) RentalView rentalsTwo;
     protected @BindView(R.id.local_rentals_three) RentalView rentalsThree;
 
-    //Contact Information TextViews
+    //Contact Information Displays
     protected @BindView(R.id.id_location_display) RTV locationDisplay;
     protected @BindView(R.id.id_phone_number_display) RTV phoneNumberDisplay;
     protected @BindView(R.id.id_email_display) RTV emailDisplay;
     protected @BindView(R.id.id_social_media_one_display) RTV socialMediaOneDisplay;
     protected @BindView(R.id.id_social_media_two_display) RTV socialMediaTwoDisplay;
     protected @BindView(R.id.id_social_media_three_display) RTV socialMediaThreeDisplay;
+
+    //Extras Information Displays
+    protected @BindView(R.id.id_extras_breakfast) RTV breakfastDisplay;
+    protected @BindView(R.id.id_extras_checkin) RTV checkinDisplay;
+    protected @BindView(R.id.id_extras_checkout) RTV checkoutDisplay;
 
     //Weather Information Display
     protected @BindView(R.id.id_today_weather_value) RTV todayWeatherDisplay;
@@ -107,6 +107,8 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner{
     protected @BindView(R.id.id_surf_height_tide) RTV highTideDisplay;
     protected @BindView(R.id.id_surf_wind_speed) RTV windSpeedDisplay;
 
+    private ShelfDataController controller;
+
     private Unbinder unbinder;
 
     private UnitUpdator unitUpdator;
@@ -120,6 +122,9 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         registry.markState(Lifecycle.State.CREATED);
+        controller = new ShelfDataController(getActivity(), this, this);
+        controller.register();
+        controller.bindWeatherClient(this);
     }
 
     @Override
@@ -139,6 +144,7 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner{
     public void onStart() {
         super.onStart();
         registry.markState(Lifecycle.State.STARTED);
+        controller.register();
     }
 
     @Nullable
@@ -164,11 +170,93 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner{
         return content;
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onCurrentWeatherData(double currentValue, String condition) {
+        fetchChoreographer(todayWeatherDisplay.getId())
+                .bind(new F(currentValue));
+
+        todayWeatherImage.setImageResource(ConditionUiUtility.getRepresentation(condition));
+    }
+
+    @Override
+    public void onForecastWeatherData(int projection, double value, String day) {
+
+        UnitChoreographer c = null;
+        RTV dayDisplay = null;
+
+        if(projection == 1){
+            c = fetchChoreographer(t_WeatherDisplay.getId());  //Tomorrow
+            dayDisplay = t_WeatherLabel;
+        }
+        if(projection == 2){
+            c = fetchChoreographer(t_T_WeatherDisplay.getId()); //Tomorrow Tomorrow
+            dayDisplay = t_T_WeatherLabel;
+        }
+        if(projection == 3){
+            c = fetchChoreographer(t_T_TWeatherDisplay.getId()); //Tomorrow Tomorrow Tomorrow
+            dayDisplay = t_T_TWeatherLabel;
+        }
+        if(c != null)
+            c.bind(new F(value));
+
+        if(dayDisplay != null && day != null)
+            dayDisplay.setText(day);
+
+    }
+
+    @Override
+    public void onDataReceived(ReferenceItem item, @NonNull int changeType) {
+        final String k = item.getReference();
+        final String v = item.getValue();
+
+        if(k.equals(DataSchema.ANCILLIARY_ONE))
+            rentalsOne.setPrice(v);
+
+        if(k.equals(DataSchema.ANCILLIARY_TWO))
+            rentalsTwo.setPrice(v);
+
+        if(k.equals(DataSchema.ANCILLIARY_THREE))
+            rentalsThree.setPrice(v);
+
+
+        if(k.equals(DataSchema.CONTACT_ONE))
+            locationDisplay.setText(v);
+
+        if(k.equals(DataSchema.CONTACT_TWO))
+            phoneNumberDisplay.setText(v);
+
+        if(k.equals(DataSchema.CONTACT_THREE))
+            emailDisplay.setText(v);
+
+        if(k.equals(DataSchema.EXTRAS_BREAKFAST))
+            breakfastDisplay.setText(v);
+
+        if(k.equals(DataSchema.EXTRAS_CHECKIN))
+            checkinDisplay.setText(v);
+
+        if(k.equals(DataSchema.EXTRAS_CHECKOUT))
+            checkoutDisplay.setText(v);
+
+        if(k.equals(DataSchema.SOCIAL_ONE))
+            socialMediaOneDisplay.setText(v);
+
+        if(k.equals(DataSchema.SOCIAL_TWO))
+            socialMediaTwoDisplay.setText(v);
+
+        if(k.equals(DataSchema.SOCIAL_THREE))
+            socialMediaThreeDisplay.setText(v);
+    }
+
+    @Deprecated
     private void registerRegistrator(){
         new CountDownTimer(Long.MAX_VALUE, TimeUnit.MINUTES.toMillis(10)){
             @Override
             public void onTick(long millisUntilFinished) {
-                registerWeatherListener();
                 registerTideDataListener();
                 registerWindSwellListener();
             }
@@ -180,69 +268,6 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner{
         }.start();
     }
 
-    private void registerWeatherListener(){ //Data logic should be held in a controller..
-        WeatherRepo.obtain(this.getActivity())
-                .getWeatherData().observe(this, new Observer<List<WeatherData>>() {
-            @Override
-            public void onChanged(@Nullable List<WeatherData> weatherData) {
-
-                if(weatherData == null || weatherData.size() == 0)
-                    return;
-
-                final WeatherData data = weatherData.get(0);
-
-                final WeatherData.Currently currently;
-                final WeatherData.Daily daily;
-                final WeatherData.Hourly hourly;
-
-                boolean hasCurrent = (currently = data.getCurrently()) != null;
-                boolean hasDaily = (daily = data.getDaily()) !=null;
-                boolean hasHourly = (hourly = data.getHourly()) != null;
-
-                if(hasCurrent) {
-                    fetchChoreographer(todayWeatherDisplay.getId())
-                            .bind(new F(currently.getTemperature()));
-
-                    Log.i("API_TIMING_FIX", "CURRENT WEATHER TIMESTAMP: " + currently.getTimestamp());
-
-                    bindConditionDisplay(currently.getCondition());
-                }
-
-                //If currently is null, try to pluck current data from hourly. Else do so from Daily.
-
-                if(hasDaily)
-                    if(daily.getData() != null)
-                        for(int projection = 1; projection <= 3; projection++){
-                            WeatherData.Daily.DataPoints dP;
-                            if((dP = DateUtils.dailyFromProjection(daily.getData(), projection)) == null) continue;
-                            UnitChoreographer c = null;
-                            RTV dayDisplay = null;
-
-                            final String rep = DateUtils.getDayRep(dP.getTimestamp());
-
-                            if(projection == 1){
-                                c = fetchChoreographer(t_WeatherDisplay.getId());  //Tomorrow
-                                dayDisplay = t_WeatherLabel;
-                            }
-                            if(projection == 2){
-                                c = fetchChoreographer(t_T_WeatherDisplay.getId()); //Tomorrow Tomorrow
-                                dayDisplay = t_T_WeatherLabel;
-                            }
-                            if(projection == 3){
-                                c = fetchChoreographer(t_T_TWeatherDisplay.getId()); //Tomorrow Tomorrow Tomorrow
-                                dayDisplay = t_T_TWeatherLabel;
-                            }
-                            if(c != null)
-                                c.bind(new F(dP.getTemperature()));
-
-                            if(dayDisplay != null && rep != null)
-                                dayDisplay.setText(rep);
-
-                        }
-
-            }
-        });
-    }
     private void registerTideDataListener(){
         TideRepo.obtain(getActivity())
                 .getData().observe(this, new Observer<List<Tide>>() {
@@ -286,7 +311,6 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner{
         });
 
     }
-
 
 
     @Override //Unbinding Butterknife BTDUBS
@@ -345,16 +369,6 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner{
 
 
     }
-
-    private void bindConditionDisplay(@NonNull final String condition){
-        //Condition is coming from darkSky
-
-        final int conditionDrawable = ConditionUiUtility.getRepresentation(condition);
-
-        if(conditionDrawable != ConditionUiUtility.DERP && conditionDrawable  != ConditionUiUtility.NOT_SUPPORTED)
-            todayWeatherImage.setImageResource(conditionDrawable);
-    }
-
 
     private UnitChoreographer newChoreographer(@NonNull TextView subject, ConversionType cT){
         return new UnitChoreographer(subject, cT);

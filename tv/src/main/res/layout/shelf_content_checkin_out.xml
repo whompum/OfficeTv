@@ -40,6 +40,7 @@
 
         <com.californiadreamshostel.officetv.VIEWS.RTV
             app:FONT="MEDIUM"
+            android:id="@id/id_extras_checkin"
             android:layout_marginBottom="4dp"
             android:layout_gravity="center_vertical"
             android:textSize="@dimen/size_text_tiny"
@@ -78,6 +79,7 @@
 
         <com.californiadreamshostel.officetv.VIEWS.RTV
             app:FONT="MEDIUM"
+            android:id="@id/id_extras_checkout"
             android:layout_marginBottom="4dp"
             android:layout_gravity="center_vertical"
             android:textSize="@dimen/size_text_tiny"

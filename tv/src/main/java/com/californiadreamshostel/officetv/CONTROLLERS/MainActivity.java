@@ -3,24 +3,30 @@ package com.californiadreamshostel.officetv.CONTROLLERS;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.util.Log;
 import android.widget.TextView;
 
-import com.californiadreamshostel.officetv.CONTROLLERS.weather$surf.WeatherSurfController;
+import com.californiadreamshostel.officetv.A.Slide;
+import com.californiadreamshostel.officetv.A.SlideFragment;
 import com.californiadreamshostel.officetv.R;
-import com.californiadreamshostel.officetv.Slides.Exchange.Exchanger;
-import com.californiadreamshostel.officetv.Slides.Exchange.OnExchangeListener;
+import com.californiadreamshostel.officetv.A.Exchanger;
+import com.californiadreamshostel.officetv.A.OnExchangeListener;
+import com.californiadreamshostel.officetv.A.Subject;
 
 /******
- *MainActivity class that loads {@link RentalSlideFragment} and {@link ShelfFragment}.
+ *MainActivity class that loads {@link RentalSlideFragmentFragment} and {@link ShelfFragment}.
  ******/
 public class MainActivity extends Activity implements OnExchangeListener {
 
     private Exchanger exchanger;
 
-    private Slide current;
+    private SlideFragment current;
 
-    private Slide rentals;
-    private Slide surfLessons;
+    private RentalSlideFragmentFragment rentalSlideFragment;
+    private SurfLessonSlideFragmentFragment surfLessons;
+
+    private RentalsDataController rentalsController;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,12 +36,12 @@ public class MainActivity extends Activity implements OnExchangeListener {
         getFragmentManager().beginTransaction()
                 .add(R.id.id_shelf_container, ShelfFragment.newInstance(null)).commit();
 
-        rentals = (RentalSlideFragment) RentalSlideFragment.newInstance();
-        surfLessons = (SurfLessonSlideFragment) SurfLessonSlideFragment.newInstance();
+        rentalSlideFragment = (RentalSlideFragmentFragment) RentalSlideFragmentFragment.newInstance();
+
+        surfLessons = (SurfLessonSlideFragmentFragment) SurfLessonSlideFragmentFragment.newInstance();
 
         //Initialize the Weather Surf job service
         //WeatherSurfController.start(this);
-
     }
 
     @Override
@@ -43,20 +49,29 @@ public class MainActivity extends Activity implements OnExchangeListener {
         super.onStart();
 
         this.exchanger = Exchanger.obtain(this);
+        this.rentalsController = RentalsDataController.obtain();
 
-        this.exchanger.addSubject(new Exchanger.Subject(RentalSlideFragment.DEFAULT_TITLE, 15000));
-        this.exchanger.addSubject(new Exchanger.Subject(SurfLessonSlideFragment.DEFAULT_TITLE, 15000));
+        final Slide rentalSlide = new Slide(rentalSlideFragment.getDefaultTitle());
+        rentalSlide.setDuration(15000L); //Real durations resolved from remote server.
 
+        final Slide surfSlide = new Slide(surfLessons.getDefaultTitle());
+        surfSlide.setDuration(15000L);
+
+        //Run @ default timing / positioning's.
+        this.exchanger.addSubject(rentalSlide);
+        this.exchanger.addSubject(surfSlide);
+
+        rentalsController.register();
         exchanger.start();
     }
 
     @Override
-    public boolean onExchange(@NonNull String newId, int newPos) {
+    public boolean onExchange(@NonNull Slide s, @Nullable final Slide oldSlide) {
 
-        if(newId.equals(RentalSlideFragment.DEFAULT_TITLE))
-            current = rentals;
+        if(s.getReference().equals(rentalSlideFragment.getDefaultTitle()))
+            current = rentalSlideFragment;
 
-        if(newId.equals(SurfLessonSlideFragment.DEFAULT_TITLE))
+        if(s.getReference().equals(surfLessons.getDefaultTitle()))
             current = surfLessons;
 
         if(current != null){
@@ -77,6 +92,7 @@ public class MainActivity extends Activity implements OnExchangeListener {
     protected void onStop() {
         super.onStop();
         this.exchanger.stop();
+        rentalsController.unregister();
     }
 
 }

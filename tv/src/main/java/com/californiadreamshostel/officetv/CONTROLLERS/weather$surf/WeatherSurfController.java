@@ -12,7 +12,7 @@ import android.os.ResultReceiver;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.californiadreamshostel.officetv.NETWORKING.DOWNLOADING.DownloadIntent;
+import com.californiadreamshostel.officetv.Networking.DOWNLOADING.DownloadIntent;
 import com.californiadreamshostel.officetv.PARSING.IParsingFinishedObserver;
 import com.californiadreamshostel.officetv.SURF.ENDPOINTS.MagicSeaWeed;
 import com.californiadreamshostel.officetv.SURF.ENDPOINTS.Spitcast;
@@ -35,9 +35,7 @@ import static com.californiadreamshostel.officetv.SURF.ENDPOINTS.MagicSeaWeed.TI
 import static com.californiadreamshostel.officetv.SURF.ENDPOINTS.MagicSeaWeed.WINDSPEED;
 import static com.californiadreamshostel.officetv.SURF.ENDPOINTS.Spitcast.PATH_TIDE;
 import static com.californiadreamshostel.officetv.WEATHER.ENDPOINTS.DarkSky.ALERTS_EXCLUDE;
-import static com.californiadreamshostel.officetv.WEATHER.ENDPOINTS.DarkSky.DAILY_EXCLUDE;
 import static com.californiadreamshostel.officetv.WEATHER.ENDPOINTS.DarkSky.FLAGS_EXCLUDE;
-import static com.californiadreamshostel.officetv.WEATHER.ENDPOINTS.DarkSky.HOURLY_EXCLUDE;
 import static com.californiadreamshostel.officetv.WEATHER.ENDPOINTS.DarkSky.MINUTELY_EXCLUDE;
 
 /**

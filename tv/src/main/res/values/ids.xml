@@ -14,10 +14,15 @@
     <item name="id_social_media_two_display" type="id"/>
     <item name="id_social_media_three_display" type="id"/>
 
-
+    <!-- SHELF RENTAL INFO -->
     <item name="id_rental_icon" type="id"/>
     <item name="id_rental_price" type="id"/>
     <item name="id_rental_title" type="id"/>
+
+    <!-- EXTRAS INFO-->
+    <item name="id_extras_breakfast" type="id"/>
+    <item name="id_extras_checkin" type="id"/>
+    <item name="id_extras_checkout" type="id"/>
 
     <!--WEATHER INFO-->
     <item name="id_weather_container" type="id"/>

@@ -1,9 +1,8 @@
 package com.californiadreamshostel.officetv.SURF;
 
 import android.support.annotation.NonNull;
-import android.util.Log;
 
-import com.californiadreamshostel.officetv.NETWORKING.ContentType;
+import com.californiadreamshostel.officetv.Networking.ContentType;
 import com.californiadreamshostel.officetv.PARSING.AbstractParsingStrategy;
 import com.californiadreamshostel.officetv.PARSING.IParsingFinishedObserver;
 import com.californiadreamshostel.officetv.SURF.MODELS.Tide;

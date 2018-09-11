@@ -9,13 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.californiadreamshostel.officetv.R;
+import com.californiadreamshostel.officetv.A.SlideFragment;
 import com.californiadreamshostel.officetv.VIEWS.RTV;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class SurfLessonSlideFragment extends Slide {
+public class SurfLessonSlideFragmentFragment extends SlideFragment {
 
     public static final String DEFAULT_TITLE = "SurfLessonsSlideFragment.class";
 
@@ -36,7 +37,7 @@ public class SurfLessonSlideFragment extends Slide {
     private Unbinder unbinder;
 
     public static final Fragment newInstance(){
-        final SurfLessonSlideFragment slide = new SurfLessonSlideFragment();
+        final SurfLessonSlideFragmentFragment slide = new SurfLessonSlideFragmentFragment();
         return slide;
     }
 
@@ -57,12 +58,12 @@ public class SurfLessonSlideFragment extends Slide {
     }
 
     @Override
-    String getDefaultTitle() {
+    public String getDefaultTitle() {
         return "Surf Lessons";
     }
 
     @Override
-    String getSlideTitle() {
+    public String getSlideTitle() {
         return getString(R.string.string_surf_lesson);
     }
 }

@@ -59,7 +59,7 @@
         <item>Saturday</item>
     </string-array>
 
-    <!--Rental Slide Title-->
+    <!--Rental SlideFragment Title-->
     <string name="string_slide_title_cali">CALI</string>
     <string name="string_slide_title_dreams">DREAMS</string>
     <string name="string_slide_title_rentals">RENTALS</string>

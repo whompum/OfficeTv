@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.NETWORKING;
+package com.californiadreamshostel.officetv.Networking;
 
 public class ContentType {
 

@@ -7,8 +7,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.californiadreamshostel.officetv.NETWORKING.ContentType;
-import com.californiadreamshostel.officetv.NETWORKING.DOWNLOADING.DataDownloadService;
+import com.californiadreamshostel.officetv.Networking.ContentType;
+import com.californiadreamshostel.officetv.Networking.DOWNLOADING.DataDownloadService;
 
 
 /**
