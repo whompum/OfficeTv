@@ -1,13 +1,13 @@
-package com.californiadreamshostel.officetv.WEATHER.model;
+package com.californiadreamshostel.officetv.Weather.model;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 
-import static com.californiadreamshostel.officetv.WEATHER.model.WeatherProvider.F_CONDITION;
-import static com.californiadreamshostel.officetv.WEATHER.model.WeatherProvider.F_TEMPERATURE;
-import static com.californiadreamshostel.officetv.WEATHER.model.WeatherProvider.F_TIMESTAMP;
-import static com.californiadreamshostel.officetv.WEATHER.model.WeatherProvider.F_WIND_SPEED;
+import static com.californiadreamshostel.officetv.Weather.model.WeatherProvider.F_CONDITION;
+import static com.californiadreamshostel.officetv.Weather.model.WeatherProvider.F_TEMPERATURE;
+import static com.californiadreamshostel.officetv.Weather.model.WeatherProvider.F_TIMESTAMP;
+import static com.californiadreamshostel.officetv.Weather.model.WeatherProvider.F_WIND_SPEED;
 
 public class Utils {
 

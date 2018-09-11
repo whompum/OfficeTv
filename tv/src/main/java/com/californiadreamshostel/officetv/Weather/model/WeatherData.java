@@ -1,12 +1,12 @@
-package com.californiadreamshostel.officetv.WEATHER.model;
+package com.californiadreamshostel.officetv.Weather.model;
 
 import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.TypeConverters;
 
-import com.californiadreamshostel.officetv.WEATHER.Persistence.DailyConverter;
-import com.californiadreamshostel.officetv.WEATHER.Persistence.HourlyConverter;
+import com.californiadreamshostel.officetv.Weather.Persistence.DailyConverter;
+import com.californiadreamshostel.officetv.Weather.Persistence.HourlyConverter;
 
 import java.util.List;
 

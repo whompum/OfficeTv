@@ -1,11 +1,11 @@
-package com.californiadreamshostel.officetv.WEATHER;
+package com.californiadreamshostel.officetv.Weather;
 
 import android.support.annotation.NonNull;
 
 import com.californiadreamshostel.officetv.Parsing.IParsingFinishedObserver;
 import com.californiadreamshostel.officetv.Parsing.AbstractParsingStrategy;
 import com.californiadreamshostel.officetv.Networking.ContentType;
-import com.californiadreamshostel.officetv.WEATHER.model.DarkSkyWeather;
+import com.californiadreamshostel.officetv.Weather.model.DarkSkyWeather;
 import com.google.gson.Gson;
 
 public class DarkSkyParsingStrategy extends AbstractParsingStrategy<DarkSkyWeather> {

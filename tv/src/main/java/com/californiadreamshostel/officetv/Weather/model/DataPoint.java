@@ -1,6 +1,6 @@
-package com.californiadreamshostel.officetv.WEATHER.model;
+package com.californiadreamshostel.officetv.Weather.model;
 
-import static com.californiadreamshostel.officetv.WEATHER.model.WeatherProvider.*;
+import static com.californiadreamshostel.officetv.Weather.model.WeatherProvider.*;
 
 
 import android.support.annotation.NonNull;

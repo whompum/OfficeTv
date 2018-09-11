@@ -1,8 +1,8 @@
-package com.californiadreamshostel.officetv.WEATHER.model;
+package com.californiadreamshostel.officetv.Weather.model;
 
 import android.support.annotation.NonNull;
 
-import static com.californiadreamshostel.officetv.WEATHER.model.WeatherDataProxy.*;
+import static com.californiadreamshostel.officetv.Weather.model.WeatherDataProxy.*;
 
 import java.util.HashSet;
 import java.util.Set;

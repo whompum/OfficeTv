@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.WEATHER.Persistence;
+package com.californiadreamshostel.officetv.Weather.Persistence;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
@@ -6,7 +6,7 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.support.annotation.NonNull;
 
-import com.californiadreamshostel.officetv.WEATHER.model.WeatherData;
+import com.californiadreamshostel.officetv.Weather.model.WeatherData;
 import com.californiadreamshostel.officetv.persistence.DaoCacheContract;
 
 import java.util.List;

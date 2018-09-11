@@ -1,9 +1,9 @@
-package com.californiadreamshostel.officetv.WEATHER.Persistence;
+package com.californiadreamshostel.officetv.Weather.Persistence;
 
 import android.arch.persistence.room.TypeConverter;
 import android.support.annotation.NonNull;
 
-import com.californiadreamshostel.officetv.WEATHER.model.WeatherData.Daily.*;
+import com.californiadreamshostel.officetv.Weather.model.WeatherData.Daily.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

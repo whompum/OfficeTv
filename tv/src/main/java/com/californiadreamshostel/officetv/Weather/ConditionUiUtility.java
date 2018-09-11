@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.WEATHER;
+package com.californiadreamshostel.officetv.Weather;
 
 ;
 import android.support.annotation.NonNull;

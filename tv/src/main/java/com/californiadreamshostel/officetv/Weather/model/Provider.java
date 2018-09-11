@@ -1,6 +1,6 @@
-package com.californiadreamshostel.officetv.WEATHER.model;
+package com.californiadreamshostel.officetv.Weather.model;
 
-import com.californiadreamshostel.officetv.WEATHER.model.Initializer;
+import com.californiadreamshostel.officetv.Weather.model.Initializer;
 
 import java.util.Set;
 

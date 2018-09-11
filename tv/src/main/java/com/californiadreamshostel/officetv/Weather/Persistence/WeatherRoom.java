@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.WEATHER.Persistence;
+package com.californiadreamshostel.officetv.Weather.Persistence;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
@@ -6,7 +6,7 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.californiadreamshostel.officetv.WEATHER.model.WeatherData;
+import com.californiadreamshostel.officetv.Weather.model.WeatherData;
 
 @Database(entities = {WeatherData.class}, version = 1, exportSchema = false)
 public abstract class WeatherRoom extends RoomDatabase {

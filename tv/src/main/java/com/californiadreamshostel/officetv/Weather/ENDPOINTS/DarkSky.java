@@ -1,10 +1,10 @@
-package com.californiadreamshostel.officetv.WEATHER.ENDPOINTS;
+package com.californiadreamshostel.officetv.Weather.ENDPOINTS;
 
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.californiadreamshostel.officetv.WEATHER.API_KEYS;
+import com.californiadreamshostel.officetv.Weather.API_KEYS;
 
 
 public class DarkSky {

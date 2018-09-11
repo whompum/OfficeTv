@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.WEATHER.model;
+package com.californiadreamshostel.officetv.Weather.model;
 
 public class Initializer<T> {
     WeatherDataProxy.DATA_BLOCK type;

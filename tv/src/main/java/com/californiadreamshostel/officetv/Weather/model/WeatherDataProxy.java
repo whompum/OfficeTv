@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.WEATHER.model;
+package com.californiadreamshostel.officetv.Weather.model;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import static com.californiadreamshostel.officetv.WEATHER.model.WeatherData.Currently;
-import static com.californiadreamshostel.officetv.WEATHER.model.WeatherData.Hourly;
-import static com.californiadreamshostel.officetv.WEATHER.model.WeatherData.Daily;
+import static com.californiadreamshostel.officetv.Weather.model.WeatherData.Currently;
+import static com.californiadreamshostel.officetv.Weather.model.WeatherData.Hourly;
+import static com.californiadreamshostel.officetv.Weather.model.WeatherData.Daily;
 
 public class WeatherDataProxy {
 

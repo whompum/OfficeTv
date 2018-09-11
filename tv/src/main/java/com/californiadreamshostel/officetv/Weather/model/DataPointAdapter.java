@@ -1,8 +1,8 @@
-package com.californiadreamshostel.officetv.WEATHER.model;
+package com.californiadreamshostel.officetv.Weather.model;
 
 import android.support.annotation.Nullable;
 
-import com.californiadreamshostel.officetv.WEATHER.model.DataPoint;
+import com.californiadreamshostel.officetv.Weather.model.DataPoint;
 
 import java.util.List;
 
