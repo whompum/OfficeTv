@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.CONTROLLERS;
+package com.californiadreamshostel.officetv.Controllers;
 
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.Observer;
@@ -9,7 +9,7 @@ import android.util.Log;
 
 import com.californiadreamshostel.firebaseclient.DataSchema;
 import com.californiadreamshostel.firebaseclient.FirebaseController;
-import com.californiadreamshostel.officetv.CONTROLLERS.weather$surf.WeatherRepo;
+import com.californiadreamshostel.officetv.Controllers.weather$surf.WeatherRepo;
 import com.californiadreamshostel.officetv.WEATHER.DateUtils;
 import com.californiadreamshostel.officetv.WEATHER.model.WeatherData;
 

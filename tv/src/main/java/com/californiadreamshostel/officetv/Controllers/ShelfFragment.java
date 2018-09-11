@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.CONTROLLERS;
+package com.californiadreamshostel.officetv.Controllers;
 
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleOwner;
@@ -19,8 +19,8 @@ import android.widget.TextView;
 
 import com.californiadreamshostel.firebaseclient.DataSchema;
 import com.californiadreamshostel.firebaseclient.ReferenceItem;
-import com.californiadreamshostel.officetv.CONTROLLERS.weather$surf.TideRepo;
-import com.californiadreamshostel.officetv.CONTROLLERS.weather$surf.WindSwellRepo;
+import com.californiadreamshostel.officetv.Controllers.weather$surf.TideRepo;
+import com.californiadreamshostel.officetv.Controllers.weather$surf.WindSwellRepo;
 import com.californiadreamshostel.officetv.R;
 import com.californiadreamshostel.officetv.SURF.MODELS.Tide;
 import com.californiadreamshostel.officetv.SURF.MODELS.WindAndSwell;

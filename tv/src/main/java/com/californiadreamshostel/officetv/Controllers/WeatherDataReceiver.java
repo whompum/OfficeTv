@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.CONTROLLERS;
+package com.californiadreamshostel.officetv.Controllers;
 
 public interface WeatherDataReceiver {
     void onCurrentWeatherData(final double currentValue, final String condition);

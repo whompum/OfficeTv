@@ -3,7 +3,7 @@ package com.californiadreamshostel.officetv.A;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.californiadreamshostel.officetv.CONTROLLERS.OnHeadChange;
+import com.californiadreamshostel.officetv.Controllers.OnHeadChange;
 
 import java.util.ArrayList;
 import java.util.Collections;

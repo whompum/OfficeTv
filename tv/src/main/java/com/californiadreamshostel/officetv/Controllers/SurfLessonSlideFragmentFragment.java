@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.CONTROLLERS;
+package com.californiadreamshostel.officetv.Controllers;
 
 import android.app.Fragment;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.CONTROLLERS.weather$surf;
+package com.californiadreamshostel.officetv.Controllers.weather$surf;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Room;

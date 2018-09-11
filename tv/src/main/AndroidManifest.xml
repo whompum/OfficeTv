@@ -19,11 +19,11 @@
 
         <service android:name=".Networking.DOWNLOADING.DataDownloadService"
             android:exported="false"/>
-        <service android:name=".CONTROLLERS.weather$surf.WeatherSurfController"
+        <service android:name=".Controllers.weather$surf.WeatherSurfController"
             android:permission="android.permission.BIND_JOB_SERVICE"/>
 
         <activity
-            android:name=".CONTROLLERS.MainActivity"
+            android:name=".Controllers.MainActivity"
             android:label="@string/title_activity_main"
             android:screenOrientation="landscape">
             <intent-filter>

@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.CONTROLLERS.weather$surf;
+package com.californiadreamshostel.officetv.Controllers.weather$surf;
 
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;

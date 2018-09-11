@@ -6,7 +6,7 @@ import android.util.Log;
 import com.californiadreamshostel.firebaseclient.DataSchema;
 import com.californiadreamshostel.firebaseclient.FirebaseController;
 import com.californiadreamshostel.firebaseclient.SimpleEventListener;
-import com.californiadreamshostel.officetv.CONTROLLERS.OnHeadChange;
+import com.californiadreamshostel.officetv.Controllers.OnHeadChange;
 
 public class ExchangerController implements OnHeadChange{
 
