@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.UTILITIES.ANIMATIONS;
+package com.californiadreamshostel.officetv.Utilities.ANIMATIONS;
 
 import android.animation.Animator;
 

@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.UTILITIES;
+package com.californiadreamshostel.officetv.Utilities;
 
 import android.os.CountDownTimer;
 
