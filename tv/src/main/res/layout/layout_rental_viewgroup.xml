@@ -4,7 +4,7 @@
 
     <!-- IS A RELATIVE LAYOUT -->
 
-    <com.californiadreamshostel.officetv.VIEWS.RTV
+    <com.californiadreamshostel.officetv.Views.RTV
         android:id="@id/id_rental_price"
         android:textColor="@color/color_special"
         android:textSize="@dimen/size_text_small"
@@ -20,7 +20,7 @@
         android:scaleType="fitCenter"
         android:layout_width="26dp"
         android:layout_height="26dp"/>
-    <com.californiadreamshostel.officetv.VIEWS.RTV
+    <com.californiadreamshostel.officetv.Views.RTV
         app:FONT="MEDIUM"
         android:id="@id/id_rental_title"
         android:textColor="@color/color_dark"

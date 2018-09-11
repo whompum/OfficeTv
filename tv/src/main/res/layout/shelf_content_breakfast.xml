@@ -19,7 +19,7 @@
         android:layout_width="26dp"
         android:layout_height="26dp" />
 
-    <com.californiadreamshostel.officetv.VIEWS.RTV
+    <com.californiadreamshostel.officetv.Views.RTV
         app:FONT="MEDIUM"
         android:id="@id/id_extras_breakfast"
         android:text="@string/string_breakfast_time"

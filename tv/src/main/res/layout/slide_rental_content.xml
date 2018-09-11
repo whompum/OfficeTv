@@ -24,7 +24,7 @@
 
 
     <!--Three Hour label-->
-    <com.californiadreamshostel.officetv.VIEWS.RTV
+    <com.californiadreamshostel.officetv.Views.RTV
         app:FONT="REGULAR"
         app:layout_constraintStart_toStartOf="@id/local_three_hour_label_guideline"
         app:layout_constraintEnd_toEndOf="@id/local_full_day_label_guideline"
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content" />
 
     <!--Full Day Label-->
-    <com.californiadreamshostel.officetv.VIEWS.RTV
+    <com.californiadreamshostel.officetv.Views.RTV
         app:FONT="MEDIUM"
         app:layout_constraintStart_toStartOf="@id/local_full_day_label_guideline"
         app:layout_constraintEnd_toEndOf="parent"

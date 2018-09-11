@@ -10,7 +10,7 @@
 
 
     <!--Main Content-->
-    <com.californiadreamshostel.officetv.VIEWS.SplitLayout
+    <com.californiadreamshostel.officetv.Views.SplitLayout
         app:layout_orientation="orientation_vertical"
         app:view_spacing_position="0.52"
         app:view_spacing_size="@dimen/size_padding_ver"
@@ -28,7 +28,7 @@
 
 
         <!--EXTRAS LAYOUTS-->
-        <com.californiadreamshostel.officetv.VIEWS.SplitLayout
+        <com.californiadreamshostel.officetv.Views.SplitLayout
             app:view_spacing_position=".5"
             app:layout_orientation="orientation_vertical"
             app:view_spacing_size="@dimen/size_padding_ver"
@@ -51,15 +51,15 @@
                 <include layout="@layout/shelf_content_extras_base"/>
             </FrameLayout>
 
-        </com.californiadreamshostel.officetv.VIEWS.SplitLayout>
+        </com.californiadreamshostel.officetv.Views.SplitLayout>
 
-    </com.californiadreamshostel.officetv.VIEWS.SplitLayout>
+    </com.californiadreamshostel.officetv.Views.SplitLayout>
 
 
 
 
     <!--Phone Number Display-->
-    <com.californiadreamshostel.officetv.VIEWS.RTV
+    <com.californiadreamshostel.officetv.Views.RTV
         style="@style/StyleContactTextAppearance"
         android:layout_marginTop="@dimen/size_padding_ver_large"
         android:layout_above="@id/id_email_display"
@@ -67,7 +67,7 @@
         android:id="@id/id_phone_number_display"
         android:text="@string/string_phone_number" />
     <!--Email Address Display-->
-    <com.californiadreamshostel.officetv.VIEWS.RTV
+    <com.californiadreamshostel.officetv.Views.RTV
         style="@style/StyleContactTextAppearance"
         android:layout_alignParentBottom="true"
         android:drawableStart="@drawable/icon_contact_email"

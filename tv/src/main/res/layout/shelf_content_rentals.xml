@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <com.californiadreamshostel.officetv.VIEWS.RentalView
+        <com.californiadreamshostel.officetv.Views.RentalView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -21,7 +21,7 @@
             app:rentalIcon="@drawable/icon_rentals_lock"
             app:rentalPrice="$3"
             app:rentalTitle="@string/string_lock" />
-        <com.californiadreamshostel.officetv.VIEWS.RentalView
+        <com.californiadreamshostel.officetv.Views.RentalView
             app:rentalIcon="@drawable/icon_rentals_laundry"
             app:rentalPrice="$5"
             app:rentalTitle="@string/string_laundry"
@@ -31,7 +31,7 @@
             android:layout_marginEnd="@dimen/size_padding_hor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-        <com.californiadreamshostel.officetv.VIEWS.RentalView
+        <com.californiadreamshostel.officetv.Views.RentalView
             app:rentalIcon="@drawable/icon_rentals_towel"
             app:rentalPrice="$2"
             app:rentalTitle="@string/string_towel"

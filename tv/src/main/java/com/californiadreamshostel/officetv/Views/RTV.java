@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.VIEWS;
+package com.californiadreamshostel.officetv.Views;
 
 import android.content.Context;
 import android.content.res.AssetManager;

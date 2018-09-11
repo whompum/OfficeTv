@@ -18,7 +18,8 @@
         android:layout_width="14dp"
         android:layout_height="14dp"/>
 
-    <com.californiadreamshostel.officetv.VIEWS.RTV style="@style/StyleSocialMediaTextAppearance"
+    <com.californiadreamshostel.officetv.Views.RTV
+        style="@style/StyleSocialMediaTextAppearance"
         android:id="@id/id_social_media_one_display"
         android:text="@string/string_instagram" />
     </LinearLayout>
@@ -30,7 +31,8 @@
             android:src="@drawable/icon_social_facebook"
             android:layout_width="14dp"
             android:layout_height="14dp"/>
-        <com.californiadreamshostel.officetv.VIEWS.RTV style="@style/StyleSocialMediaTextAppearance"
+        <com.californiadreamshostel.officetv.Views.RTV
+            style="@style/StyleSocialMediaTextAppearance"
         android:text="@string/string_facebook"
         android:id="@id/id_social_media_two_display"
         android:layout_marginTop="@dimen/size_padding_ver"
@@ -46,7 +48,8 @@
         android:src="@drawable/icon_social_world"
         android:layout_width="14dp"
         android:layout_height="14dp"/>
-    <com.californiadreamshostel.officetv.VIEWS.RTV style="@style/StyleSocialMediaTextAppearance"
+    <com.californiadreamshostel.officetv.Views.RTV
+        style="@style/StyleSocialMediaTextAppearance"
         android:text="@string/string_facebook_group"
         android:id="@id/id_social_media_three_display" />
 

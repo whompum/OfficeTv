@@ -30,7 +30,7 @@
         android:layout_height="wrap_content" />
 
     <!--Rental Title-->
-    <com.californiadreamshostel.officetv.VIEWS.RTV
+    <com.californiadreamshostel.officetv.Views.RTV
         app:FONT="MEDIUM"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/local_rental_title_guideline"
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content" />
 
     <!--Three Hour Value-->
-    <com.californiadreamshostel.officetv.VIEWS.RTV
+    <com.californiadreamshostel.officetv.Views.RTV
         app:FONT="REGULAR"
         app:layout_constraintEnd_toEndOf="@id/local_full_day_value_guide"
         app:layout_constraintStart_toStartOf="@id/local_three_hour_value_guideline"
@@ -55,7 +55,7 @@
         android:layout_height="wrap_content" />
 
     <!--Full Day Value-->
-    <com.californiadreamshostel.officetv.VIEWS.RTV
+    <com.californiadreamshostel.officetv.Views.RTV
         app:FONT="MEDIUM"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/local_full_day_value_guide"

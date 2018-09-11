@@ -41,7 +41,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <!--Rental SlideFragment Title-->
-    <com.californiadreamshostel.officetv.VIEWS.RTV
+    <com.californiadreamshostel.officetv.Views.RTV
         tools:text="Title"
         app:FONT="MEDIUM"
         app:layout_constraintTop_toTopOf="parent"
@@ -69,7 +69,7 @@
         android:background="@drawable/background_rounded_rect_shadow"
         android:layout_width="match_parent"
         android:layout_height="0dp">
-    <com.californiadreamshostel.officetv.VIEWS.ClipFrame
+    <com.californiadreamshostel.officetv.Views.ClipFrame
         app:TOP_RIGHT_RADII="@dimen/corner_radius_small"
         app:TOP_LEFT_RADII="@dimen/corner_radius_small"
         app:BOTTOM_LEFT_RADII="@dimen/corner_radius_small"

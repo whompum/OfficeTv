@@ -64,13 +64,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <com.californiadreamshostel.officetv.VIEWS.RTV
+        <com.californiadreamshostel.officetv.Views.RTV
             style="@style/StyleSurfLessonIncludeLabel"
             android:id="@+id/local_include_zero_label"
             android:text="@string/string_professional_lesson_include"
             android:textColor="@color/color_tertiary"/>
 
-        <com.californiadreamshostel.officetv.VIEWS.RTV
+        <com.californiadreamshostel.officetv.Views.RTV
             style="@style/StyleSurfLessonIncludeDesc"
             android:id="@+id/local_include_zero_desc"
             android:text="@string/string_professional_lesson_include_desc" />
@@ -85,13 +85,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <com.californiadreamshostel.officetv.VIEWS.RTV
+        <com.californiadreamshostel.officetv.Views.RTV
             style="@style/StyleSurfLessonIncludeLabel"
             android:id="@+id/local_include_one_label"
             android:text="@string/string_surfboard_include"
             android:textColor="@color/color_main"/>
 
-        <com.californiadreamshostel.officetv.VIEWS.RTV
+        <com.californiadreamshostel.officetv.Views.RTV
             style="@style/StyleSurfLessonIncludeDesc"
             android:id="@+id/local_include_one_desc"
             android:text="@string/string_surfboard_include_desc" />
@@ -106,13 +106,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <com.californiadreamshostel.officetv.VIEWS.RTV
+        <com.californiadreamshostel.officetv.Views.RTV
             style="@style/StyleSurfLessonIncludeLabel"
             android:id="@+id/local_include_two_label"
             android:text="@string/string_wetsuit_include"
             android:textColor="@color/color_secondary"/>
 
-        <com.californiadreamshostel.officetv.VIEWS.RTV
+        <com.californiadreamshostel.officetv.Views.RTV
             style="@style/StyleSurfLessonIncludeDesc"
             android:id="@+id/local_include_two_desc"
             android:text="@string/string_wetsuit_include_desc" />
@@ -127,20 +127,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <com.californiadreamshostel.officetv.VIEWS.RTV
+        <com.californiadreamshostel.officetv.Views.RTV
             style="@style/StyleSurfLessonIncludeLabel"
             android:id="@+id/local_include_three_label"
             android:text="@string/string_lesson_length_include"
             android:textColor="@color/color_special"/>
 
-        <com.californiadreamshostel.officetv.VIEWS.RTV
+        <com.californiadreamshostel.officetv.Views.RTV
             style="@style/StyleSurfLessonIncludeDesc"
             android:id="@+id/local_include_three_desc"
             android:text="@string/string_lesson_length_include_desc" />
 
     </LinearLayout>
 
-    <com.californiadreamshostel.officetv.VIEWS.RTV
+    <com.californiadreamshostel.officetv.Views.RTV
         app:FONT="MEDIUM"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -152,7 +152,7 @@
         android:textColor="@color/color_dark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    <com.californiadreamshostel.officetv.VIEWS.RTV
+    <com.californiadreamshostel.officetv.Views.RTV
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/local_surf_lesson_times"

@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.VIEWS;
+package com.californiadreamshostel.officetv.Views;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 
 import com.californiadreamshostel.officetv.R;
 
-import static com.californiadreamshostel.officetv.VIEWS.SplitLayout.ATTRS.*;
+import static com.californiadreamshostel.officetv.Views.SplitLayout.ATTRS.*;
 
 /**
  * Splits two views between a Spacing object
