@@ -47,9 +47,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * TODO Decouple Weather$Surf data handling from this object into a ViewModel object
  * Desc: This class filters the data received for Weather$Surf when it shouldn't even have that responsibility.
- *
  */
 public final class ShelfFragment extends Fragment implements LifecycleOwner,
         WeatherDataReceiver, RemoteDataReceiver{
@@ -166,7 +164,7 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner,
          * weather and the SURF
          */
 
-        registerRegistrator();
+        registerSurfListeners();
         return content;
     }
 
@@ -223,7 +221,6 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner,
         if(k.equals(DataSchema.ANCILLIARY_THREE))
             rentalsThree.setPrice(v);
 
-
         if(k.equals(DataSchema.CONTACT_ONE))
             locationDisplay.setText(v);
 
@@ -252,8 +249,7 @@ public final class ShelfFragment extends Fragment implements LifecycleOwner,
             socialMediaThreeDisplay.setText(v);
     }
 
-    @Deprecated
-    private void registerRegistrator(){
+    private void registerSurfListeners(){
         new CountDownTimer(Long.MAX_VALUE, TimeUnit.MINUTES.toMillis(10)){
             @Override
             public void onTick(long millisUntilFinished) {

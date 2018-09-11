@@ -3,6 +3,8 @@ package com.californiadreamshostel.officetv.Surf.ENDPOINTS;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 
+import com.californiadreamshostel.officetv.Weather.API_KEYS;
+
 public class Spitcast {
 
     public static final String SCHEME = "http";
@@ -26,7 +28,7 @@ public class Spitcast {
              .appendPath(PATH_API)
              .appendPath(PATH_COUNTY)
              .appendPath(dataType)
-             .appendPath(PATH_COUNTY_NAME);
+             .appendPath(PATH_COUNTY_NAME).appendPath(API_KEYS.spitcast_api_key());
 
         return b.build();
         }

@@ -41,7 +41,7 @@
     <com.californiadreamshostel.officetv.Views.RTV
         app:FONT="REGULAR"
         android:id="@id/id_today_weather_value"
-        android:text="0"
+        android:text="@string/string_default_temperature"
         android:layout_marginTop="-6dp"
         android:layout_marginEnd="@dimen/size_padding_hor"
         android:layout_marginBottom="@dimen/size_padding_ver_small"
@@ -59,6 +59,7 @@
     <com.californiadreamshostel.officetv.Views.RTV
         style="@style/StyleWeatherValueTextAppearance"
         android:id="@id/id_tomorrow_weather_value"
+        android:text="@string/string_default_temperature"
         android:layout_alignStart="@id/id_tomorrow_weather_label"
         android:layout_below="@id/id_tomorrow_weather_label"/>
 
@@ -129,7 +130,7 @@
         <com.californiadreamshostel.officetv.Views.RTV
             style="@style/StyleSurfWeatherValue"
             android:id="@id/id_surf_wave_height"
-            android:text="3 FT"/>
+            android:text="@string/string_default_height"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -148,7 +149,7 @@
         <com.californiadreamshostel.officetv.Views.RTV
             style="@style/StyleSurfWeatherValue"
             android:id="@id/id_surf_height_tide"
-            android:text="9 AM"/>
+            android:text="@string/string_default_time"/>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout style="@style/StyleVerLinearLayout">
@@ -164,7 +165,7 @@
         <com.californiadreamshostel.officetv.Views.RTV
             style="@style/StyleSurfWeatherValue"
             android:id="@id/id_surf_wind_speed"
-            android:text="8 KT"/>
+            android:text="@string/string_default_speed"/>
         </LinearLayout>
 
     </LinearLayout>

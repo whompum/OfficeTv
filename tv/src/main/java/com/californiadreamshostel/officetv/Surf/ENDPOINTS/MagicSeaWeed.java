@@ -52,7 +52,7 @@ public class MagicSeaWeed {
             builder.scheme(SCHEME)
                     .authority(HOST)
                     .appendPath(ROOT_PATH)
-                    .appendPath(API_KEYS.API_KEY_MSW)
+                    .appendPath(API_KEYS.magic_sea_weed_api())
                     .appendPath(FORECAST_PATH)
                     .appendQueryParameter(SPOT_QUERY, LOCATION_PATH);
 

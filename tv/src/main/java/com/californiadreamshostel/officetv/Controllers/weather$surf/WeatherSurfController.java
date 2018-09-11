@@ -20,6 +20,7 @@ import com.californiadreamshostel.officetv.Surf.MODELS.Tide;
 import com.californiadreamshostel.officetv.Surf.MODELS.WindAndSwell;
 import com.californiadreamshostel.officetv.Surf.TideParsingStrategy;
 import com.californiadreamshostel.officetv.Surf.WindSwellParsingStrategy;
+import com.californiadreamshostel.officetv.Weather.API_KEYS;
 import com.californiadreamshostel.officetv.Weather.model.DarkSKyDataPointAdapter;
 import com.californiadreamshostel.officetv.Weather.DarkSkyParsingStrategy;
 import com.californiadreamshostel.officetv.Weather.ENDPOINTS.DarkSky;
@@ -72,39 +73,30 @@ public class WeatherSurfController extends JobService{
     private final Uri TIDE_URI = new Spitcast.UriBuilder().getUri(PATH_TIDE);
     private final Uri WIND_WAVE_URI = new MagicSeaWeed.UriBuilder().getUri(TIMESTAMP, SWELL_MAXIMUM, SWELL_MINIMUM, WINDSPEED);
 
-    private final ResultReceiver WEATHER_RECEIVER = new DarkSkyParsingStrategy(new IParsingFinishedObserver() {
-        @Override
-        public void onDataParsed(Object data) {
-
+    private final ResultReceiver WEATHER_RECEIVER = new DarkSkyParsingStrategy((Object data) -> {
             WeatherRepo.obtain(WeatherSurfController.this).renewCache(new WeatherDataProxy().addProvider(
                             new WeatherProvider().setAdapter(new DarkSKyDataPointAdapter((DarkSkyWeather)data))
                     ).getWeatherData());
 
             TimestampSaverUtils.saveTimestamp(BULK_WEATHER.toString(),
                     getSharedPreferences(TimestampSaverUtils.NAME, Context.MODE_PRIVATE).edit());
-        }
+
     });
 
-    private final ResultReceiver TIDE_RECEIVER = new TideParsingStrategy(new IParsingFinishedObserver() {
-        @Override
-        public void onDataParsed(Object data) {
+    private final ResultReceiver TIDE_RECEIVER = new TideParsingStrategy((Object data) -> {
             TideRepo.obtain(WeatherSurfController.this)
             .renewCache( (Tide[])data );
 
             TimestampSaverUtils.saveTimestamp(TIDE_URI.toString(),
                     getSharedPreferences(TimestampSaverUtils.NAME, Context.MODE_PRIVATE).edit());
-        }
     });
 
-    private final ResultReceiver WIND_WAVE_RECEIVER = new WindSwellParsingStrategy(new IParsingFinishedObserver() {
-        @Override
-        public void onDataParsed(Object data) {
+    private final ResultReceiver WIND_WAVE_RECEIVER = new WindSwellParsingStrategy((Object data) -> {
             WindSwellRepo.obtain(WeatherSurfController.this)
                     .renewCache( (WindAndSwell[]) data );
 
             TimestampSaverUtils.saveTimestamp(WIND_WAVE_URI.toString(),
                     getSharedPreferences(TimestampSaverUtils.NAME, Context.MODE_PRIVATE).edit());
-        }
     });
 
     private DownloadIntent[] downloads;
@@ -116,7 +108,7 @@ public class WeatherSurfController extends JobService{
             prepareDownloadIntents();
 
         for(int a = 0; a  < downloads.length; a++)
-            if(shouldUpdate(downloads[a].getUri()))
+            if (shouldUpdate(downloads[a].getUri()) && API_KEYS.hasKey(downloads[a].getUri()))
                 startService(downloads[a]);
 
         start(this);  // Reschedules the Job.
@@ -131,7 +123,7 @@ public class WeatherSurfController extends JobService{
      * NOTE: Grace period serves to decrease the volume of the interval.
      * This should help us with regression bugs caused by slow time-leaks.
      * (Time leaks occur because we're trying to run our updates around a clock, but
-     * are NOT gauranteed they're ran that way)
+     * are NOT guaranteed they're ran at concrete intervals)
      *
      * @param key The value we want to check to update for
      * @return si o no
@@ -152,13 +144,11 @@ public class WeatherSurfController extends JobService{
         //If the current time is greater or equal to the lastupdate plus its interval minus the grace
         final boolean shouldUpdate = System.currentTimeMillis() >= ( (lastUpdate+interval) - grace);
 
-        Log.i("API_TIMING_FIX", "SHOULD UPDATE: " + key.toString() + " : " + String.valueOf(shouldUpdate));
         return shouldUpdate;
     }
 
     @Override
     public boolean onStopJob(JobParameters params) {
-        Log.i("WEATHER_SURF_JOB", "JOB STOPPED");
         return false;
     }
 

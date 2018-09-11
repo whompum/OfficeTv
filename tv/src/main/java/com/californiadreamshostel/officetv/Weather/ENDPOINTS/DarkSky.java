@@ -49,11 +49,10 @@ public class DarkSky {
 
             final Uri.Builder b = new Uri.Builder();
 
-
             b.scheme(SCHEME)
              .authority(HOST)
              .appendPath(ROOT_PATH)
-             .appendPath(API_KEYS.API_KEY_WEATHER_DARK_SKY)
+             .appendPath(API_KEYS.dark_sky_api())
              .appendPath(longLat);
 
             if(excludes != null)

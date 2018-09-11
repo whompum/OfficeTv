@@ -91,6 +91,9 @@ certified in both CPR and First Aid</string>
 
     <string name="string_lesson_length_include_desc">90 minutes of pure fun. The perfect amount
     of time to take you from beginner to pro.</string>
-
-
+    
+    <string name="string_default_temperature">0\u2109</string>
+    <string name="string_default_height">0.0FT</string>
+    <string name="string_default_speed">0.0MPH</string>
+    <string name="string_default_time">0PM</string>
 </resources>
