@@ -5,9 +5,9 @@ import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.californiadreamshostel.officetv.WEATHER.Persistence.WeatherDaoInterface;
-import com.californiadreamshostel.officetv.WEATHER.Persistence.WeatherRoom;
-import com.californiadreamshostel.officetv.WEATHER.model.WeatherData;
+import com.californiadreamshostel.officetv.Weather.Persistence.WeatherDaoInterface;
+import com.californiadreamshostel.officetv.Weather.Persistence.WeatherRoom;
+import com.californiadreamshostel.officetv.Weather.model.WeatherData;
 
 import java.util.List;
 

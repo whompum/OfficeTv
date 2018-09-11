@@ -14,29 +14,29 @@ import android.util.Log;
 
 import com.californiadreamshostel.officetv.Networking.Downloading.DownloadIntent;
 import com.californiadreamshostel.officetv.Parsing.IParsingFinishedObserver;
-import com.californiadreamshostel.officetv.SURF.ENDPOINTS.MagicSeaWeed;
-import com.californiadreamshostel.officetv.SURF.ENDPOINTS.Spitcast;
-import com.californiadreamshostel.officetv.SURF.MODELS.Tide;
-import com.californiadreamshostel.officetv.SURF.MODELS.WindAndSwell;
-import com.californiadreamshostel.officetv.SURF.TideParsingStrategy;
-import com.californiadreamshostel.officetv.SURF.WindSwellParsingStrategy;
-import com.californiadreamshostel.officetv.WEATHER.model.DarkSKyDataPointAdapter;
-import com.californiadreamshostel.officetv.WEATHER.DarkSkyParsingStrategy;
-import com.californiadreamshostel.officetv.WEATHER.ENDPOINTS.DarkSky;
-import com.californiadreamshostel.officetv.WEATHER.model.DarkSkyWeather;
-import com.californiadreamshostel.officetv.WEATHER.model.WeatherDataProxy;
-import com.californiadreamshostel.officetv.WEATHER.model.WeatherProvider;
+import com.californiadreamshostel.officetv.Surf.ENDPOINTS.MagicSeaWeed;
+import com.californiadreamshostel.officetv.Surf.ENDPOINTS.Spitcast;
+import com.californiadreamshostel.officetv.Surf.MODELS.Tide;
+import com.californiadreamshostel.officetv.Surf.MODELS.WindAndSwell;
+import com.californiadreamshostel.officetv.Surf.TideParsingStrategy;
+import com.californiadreamshostel.officetv.Surf.WindSwellParsingStrategy;
+import com.californiadreamshostel.officetv.Weather.model.DarkSKyDataPointAdapter;
+import com.californiadreamshostel.officetv.Weather.DarkSkyParsingStrategy;
+import com.californiadreamshostel.officetv.Weather.ENDPOINTS.DarkSky;
+import com.californiadreamshostel.officetv.Weather.model.DarkSkyWeather;
+import com.californiadreamshostel.officetv.Weather.model.WeatherDataProxy;
+import com.californiadreamshostel.officetv.Weather.model.WeatherProvider;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.californiadreamshostel.officetv.SURF.ENDPOINTS.MagicSeaWeed.SWELL_MAXIMUM;
-import static com.californiadreamshostel.officetv.SURF.ENDPOINTS.MagicSeaWeed.SWELL_MINIMUM;
-import static com.californiadreamshostel.officetv.SURF.ENDPOINTS.MagicSeaWeed.TIMESTAMP;
-import static com.californiadreamshostel.officetv.SURF.ENDPOINTS.MagicSeaWeed.WINDSPEED;
-import static com.californiadreamshostel.officetv.SURF.ENDPOINTS.Spitcast.PATH_TIDE;
-import static com.californiadreamshostel.officetv.WEATHER.ENDPOINTS.DarkSky.ALERTS_EXCLUDE;
-import static com.californiadreamshostel.officetv.WEATHER.ENDPOINTS.DarkSky.FLAGS_EXCLUDE;
-import static com.californiadreamshostel.officetv.WEATHER.ENDPOINTS.DarkSky.MINUTELY_EXCLUDE;
+import static com.californiadreamshostel.officetv.Surf.ENDPOINTS.MagicSeaWeed.SWELL_MAXIMUM;
+import static com.californiadreamshostel.officetv.Surf.ENDPOINTS.MagicSeaWeed.SWELL_MINIMUM;
+import static com.californiadreamshostel.officetv.Surf.ENDPOINTS.MagicSeaWeed.TIMESTAMP;
+import static com.californiadreamshostel.officetv.Surf.ENDPOINTS.MagicSeaWeed.WINDSPEED;
+import static com.californiadreamshostel.officetv.Surf.ENDPOINTS.Spitcast.PATH_TIDE;
+import static com.californiadreamshostel.officetv.Weather.ENDPOINTS.DarkSky.ALERTS_EXCLUDE;
+import static com.californiadreamshostel.officetv.Weather.ENDPOINTS.DarkSky.FLAGS_EXCLUDE;
+import static com.californiadreamshostel.officetv.Weather.ENDPOINTS.DarkSky.MINUTELY_EXCLUDE;
 
 /**
  * Central class responsible for handling the downloading and caching of

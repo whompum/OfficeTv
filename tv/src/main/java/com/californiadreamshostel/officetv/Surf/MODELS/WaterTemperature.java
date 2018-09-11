@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.SURF.MODELS;
+package com.californiadreamshostel.officetv.Surf.MODELS;
 
 
 import android.arch.persistence.room.Entity;

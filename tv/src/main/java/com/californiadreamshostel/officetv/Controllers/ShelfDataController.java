@@ -10,8 +10,8 @@ import android.util.Log;
 import com.californiadreamshostel.firebaseclient.DataSchema;
 import com.californiadreamshostel.firebaseclient.FirebaseController;
 import com.californiadreamshostel.officetv.Controllers.weather$surf.WeatherRepo;
-import com.californiadreamshostel.officetv.WEATHER.DateUtils;
-import com.californiadreamshostel.officetv.WEATHER.model.WeatherData;
+import com.californiadreamshostel.officetv.Weather.DateUtils;
+import com.californiadreamshostel.officetv.Weather.model.WeatherData;
 
 import java.util.HashSet;
 import java.util.List;

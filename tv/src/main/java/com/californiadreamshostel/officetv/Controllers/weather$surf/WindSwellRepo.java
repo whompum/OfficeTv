@@ -5,9 +5,9 @@ import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.californiadreamshostel.officetv.SURF.MODELS.WindAndSwell;
-import com.californiadreamshostel.officetv.SURF.persistence.WindAndSwellDaoInterface;
-import com.californiadreamshostel.officetv.SURF.persistence.WindAndSwellRoomDatabase;
+import com.californiadreamshostel.officetv.Surf.MODELS.WindAndSwell;
+import com.californiadreamshostel.officetv.Surf.persistence.WindAndSwellDaoInterface;
+import com.californiadreamshostel.officetv.Surf.persistence.WindAndSwellRoomDatabase;
 
 import java.util.List;
 

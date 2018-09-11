@@ -1,9 +1,9 @@
-package com.californiadreamshostel.officetv.SURF.ENDPOINTS;
+package com.californiadreamshostel.officetv.Surf.ENDPOINTS;
 
 import android.net.Uri;
 import android.support.annotation.Nullable;
 
-import com.californiadreamshostel.officetv.WEATHER.API_KEYS;
+import com.californiadreamshostel.officetv.Weather.API_KEYS;
 
 public class MagicSeaWeed {
 

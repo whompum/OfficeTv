@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.SURF.persistence;
+package com.californiadreamshostel.officetv.Surf.persistence;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
@@ -6,7 +6,7 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.support.annotation.NonNull;
 
-import com.californiadreamshostel.officetv.SURF.MODELS.WindAndSwell;
+import com.californiadreamshostel.officetv.Surf.MODELS.WindAndSwell;
 import com.californiadreamshostel.officetv.persistence.DaoCacheContract;
 
 import java.util.List;

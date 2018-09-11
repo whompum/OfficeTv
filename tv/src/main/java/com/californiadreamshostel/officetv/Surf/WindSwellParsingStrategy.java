@@ -1,11 +1,11 @@
-package com.californiadreamshostel.officetv.SURF;
+package com.californiadreamshostel.officetv.Surf;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.californiadreamshostel.officetv.Parsing.AbstractParsingStrategy;
 import com.californiadreamshostel.officetv.Parsing.IParsingFinishedObserver;
-import com.californiadreamshostel.officetv.SURF.MODELS.WindAndSwell;
+import com.californiadreamshostel.officetv.Surf.MODELS.WindAndSwell;
 import com.google.gson.Gson;
 
 /**

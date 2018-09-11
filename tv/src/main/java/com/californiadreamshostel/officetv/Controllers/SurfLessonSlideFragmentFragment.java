@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.californiadreamshostel.officetv.R;
 import com.californiadreamshostel.officetv.A.SlideFragment;
-import com.californiadreamshostel.officetv.VIEWS.RTV;
+import com.californiadreamshostel.officetv.Views.RTV;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

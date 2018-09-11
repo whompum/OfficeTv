@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.SURF.ENDPOINTS;
+package com.californiadreamshostel.officetv.Surf.ENDPOINTS;
 
 import android.net.Uri;
 import android.support.annotation.NonNull;
