@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.A;
+package com.californiadreamshostel.officetv.TvSlides;
 
 import android.os.Handler;
 import android.os.Message;

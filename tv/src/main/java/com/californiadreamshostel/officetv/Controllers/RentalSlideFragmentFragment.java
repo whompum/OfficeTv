@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.californiadreamshostel.firebaseclient.DataSchema;
 import com.californiadreamshostel.firebaseclient.ReferenceItem;
 import com.californiadreamshostel.firebaseclient.SimpleEventListener;
-import com.californiadreamshostel.officetv.A.SlideFragment;
+import com.californiadreamshostel.officetv.TvSlides.SlideFragment;
 import com.californiadreamshostel.officetv.R;
 
 import java.util.List;
