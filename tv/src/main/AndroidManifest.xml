@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Leanback">
 
-        <service android:name=".Networking.DOWNLOADING.DataDownloadService"
+        <service android:name=".Networking.Downloading.DataDownloadService"
             android:exported="false"/>
         <service android:name=".Controllers.weather$surf.WeatherSurfController"
             android:permission="android.permission.BIND_JOB_SERVICE"/>

@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.Networking.DOWNLOADING;
+package com.californiadreamshostel.officetv.Networking.Downloading;
 
 import android.app.IntentService;
 import android.content.Intent;
