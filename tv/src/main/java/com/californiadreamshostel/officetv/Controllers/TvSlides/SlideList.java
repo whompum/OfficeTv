@@ -1,10 +1,9 @@
-package com.californiadreamshostel.officetv.TvSlides;
+package com.californiadreamshostel.officetv.Controllers.TvSlides;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.californiadreamshostel.officetv.Controllers.OnHeadChange;
-import com.californiadreamshostel.officetv.TvSlides.Slide;
 
 import java.util.ArrayList;
 import java.util.Collections;

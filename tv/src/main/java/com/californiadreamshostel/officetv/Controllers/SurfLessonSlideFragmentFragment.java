@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.californiadreamshostel.officetv.R;
-import com.californiadreamshostel.officetv.TvSlides.SlideFragment;
+import com.californiadreamshostel.officetv.Controllers.TvSlides.SlideFragment;
 import com.californiadreamshostel.officetv.Views.RTV;
 
 import butterknife.BindView;

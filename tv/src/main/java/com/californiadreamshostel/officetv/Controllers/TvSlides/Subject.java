@@ -1,10 +1,10 @@
-package com.californiadreamshostel.officetv.TvSlides;
+package com.californiadreamshostel.officetv.Controllers.TvSlides;
 
 import android.support.annotation.NonNull;
 
 import com.californiadreamshostel.firebaseclient.DataSchema;
 
-import static com.californiadreamshostel.officetv.TvSlides.Exchanger.DEFAULT_LIFECYCLE;
+import static com.californiadreamshostel.officetv.Controllers.TvSlides.Exchanger.DEFAULT_LIFECYCLE;
 
 public class Subject {
     int position = -1;

@@ -6,11 +6,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.widget.TextView;
 
-import com.californiadreamshostel.officetv.TvSlides.Slide;
-import com.californiadreamshostel.officetv.TvSlides.SlideFragment;
+import com.californiadreamshostel.officetv.Controllers.TvSlides.Slide;
+import com.californiadreamshostel.officetv.Controllers.TvSlides.SlideFragment;
 import com.californiadreamshostel.officetv.R;
-import com.californiadreamshostel.officetv.TvSlides.Exchanger;
-import com.californiadreamshostel.officetv.TvSlides.OnExchangeListener;
+import com.californiadreamshostel.officetv.Controllers.TvSlides.Exchanger;
+import com.californiadreamshostel.officetv.Controllers.TvSlides.OnExchangeListener;
 
 /******
  *MainActivity class that loads {@link RentalSlideFragmentFragment} and {@link ShelfFragment}.
