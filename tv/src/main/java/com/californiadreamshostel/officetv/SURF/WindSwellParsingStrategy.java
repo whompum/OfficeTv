@@ -3,8 +3,8 @@ package com.californiadreamshostel.officetv.SURF;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.californiadreamshostel.officetv.PARSING.AbstractParsingStrategy;
-import com.californiadreamshostel.officetv.PARSING.IParsingFinishedObserver;
+import com.californiadreamshostel.officetv.Parsing.AbstractParsingStrategy;
+import com.californiadreamshostel.officetv.Parsing.IParsingFinishedObserver;
 import com.californiadreamshostel.officetv.SURF.MODELS.WindAndSwell;
 import com.google.gson.Gson;
 

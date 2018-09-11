@@ -13,7 +13,7 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.californiadreamshostel.officetv.Networking.Downloading.DownloadIntent;
-import com.californiadreamshostel.officetv.PARSING.IParsingFinishedObserver;
+import com.californiadreamshostel.officetv.Parsing.IParsingFinishedObserver;
 import com.californiadreamshostel.officetv.SURF.ENDPOINTS.MagicSeaWeed;
 import com.californiadreamshostel.officetv.SURF.ENDPOINTS.Spitcast;
 import com.californiadreamshostel.officetv.SURF.MODELS.Tide;

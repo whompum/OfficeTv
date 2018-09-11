@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.PARSING;
+package com.californiadreamshostel.officetv.Parsing;
 
 import android.os.Bundle;
 import android.os.Handler;

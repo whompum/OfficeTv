@@ -2,8 +2,8 @@ package com.californiadreamshostel.officetv.WEATHER;
 
 import android.support.annotation.NonNull;
 
-import com.californiadreamshostel.officetv.PARSING.IParsingFinishedObserver;
-import com.californiadreamshostel.officetv.PARSING.AbstractParsingStrategy;
+import com.californiadreamshostel.officetv.Parsing.IParsingFinishedObserver;
+import com.californiadreamshostel.officetv.Parsing.AbstractParsingStrategy;
 import com.californiadreamshostel.officetv.Networking.ContentType;
 import com.californiadreamshostel.officetv.WEATHER.model.DarkSkyWeather;
 import com.google.gson.Gson;

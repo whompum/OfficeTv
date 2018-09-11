@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.PARSING;
+package com.californiadreamshostel.officetv.Parsing;
 
 /**
  * Interface callback, called when the data coming in from the network
