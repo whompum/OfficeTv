@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.UNIT.CONVERTER;
+package com.californiadreamshostel.officetv.Unit.CONVERTER;
 
 public enum ConversionType {
     TEMPERATURE,

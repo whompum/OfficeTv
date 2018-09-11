@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.UNIT.UNITS;
+package com.californiadreamshostel.officetv.Unit.UNITS;
 
 public abstract class Unit{
 

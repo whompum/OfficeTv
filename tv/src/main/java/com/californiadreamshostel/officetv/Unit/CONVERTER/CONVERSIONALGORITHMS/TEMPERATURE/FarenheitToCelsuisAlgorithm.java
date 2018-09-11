@@ -1,8 +1,8 @@
-package com.californiadreamshostel.officetv.UNIT.CONVERTER.CONVERSIONALGORITHMS.TEMPERATURE;
+package com.californiadreamshostel.officetv.Unit.CONVERTER.CONVERSIONALGORITHMS.TEMPERATURE;
 
 import android.util.Log;
 
-import com.californiadreamshostel.officetv.UNIT.CONVERTER.CONVERSIONALGORITHMS.ConversionAlgorithm;
+import com.californiadreamshostel.officetv.Unit.CONVERTER.CONVERSIONALGORITHMS.ConversionAlgorithm;
 
 public class FarenheitToCelsuisAlgorithm implements ConversionAlgorithm {
 

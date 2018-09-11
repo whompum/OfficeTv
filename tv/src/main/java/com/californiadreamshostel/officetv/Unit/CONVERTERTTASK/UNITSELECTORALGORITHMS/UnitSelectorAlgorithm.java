@@ -1,6 +1,6 @@
-package com.californiadreamshostel.officetv.UNIT.CONVERTERTTASK.UNITSELECTORALGORITHMS;
+package com.californiadreamshostel.officetv.Unit.CONVERTERTTASK.UNITSELECTORALGORITHMS;
 
-import com.californiadreamshostel.officetv.UNIT.UNITS.Unit;
+import com.californiadreamshostel.officetv.Unit.UNITS.Unit;
 
 public interface UnitSelectorAlgorithm {
     Unit newUnit(final Unit currentUnit);

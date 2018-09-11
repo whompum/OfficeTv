@@ -1,10 +1,10 @@
-package com.californiadreamshostel.officetv.UNIT.CONVERTERTTASK.UNITSELECTORALGORITHMS;
+package com.californiadreamshostel.officetv.Unit.CONVERTERTTASK.UNITSELECTORALGORITHMS;
 
 import android.util.Log;
 
-import com.californiadreamshostel.officetv.UNIT.UNITS.TEMPERATURE.C;
-import com.californiadreamshostel.officetv.UNIT.UNITS.TEMPERATURE.F;
-import com.californiadreamshostel.officetv.UNIT.UNITS.Unit;
+import com.californiadreamshostel.officetv.Unit.UNITS.TEMPERATURE.C;
+import com.californiadreamshostel.officetv.Unit.UNITS.TEMPERATURE.F;
+import com.californiadreamshostel.officetv.Unit.UNITS.Unit;
 
 public class TemperatureSelectionSelectorAlgorithm implements UnitSelectorAlgorithm {
 

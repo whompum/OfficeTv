@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.UNIT.CONVERTER.CONVERSIONALGORITHMS;
+package com.californiadreamshostel.officetv.Unit.CONVERTER.CONVERSIONALGORITHMS;
 
 public interface ConversionAlgorithm {
 

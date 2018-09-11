@@ -1,15 +1,15 @@
-package com.californiadreamshostel.officetv.UNIT.CONVERTERTTASK;
+package com.californiadreamshostel.officetv.Unit.CONVERTERTTASK;
 
 import android.support.annotation.NonNull;
 
-import com.californiadreamshostel.officetv.UNIT.CONVERTER.ConversionType;
-import com.californiadreamshostel.officetv.UNIT.CONVERTERTTASK.UNITSELECTORALGORITHMS.SizeSelectorAlgorithm;
-import com.californiadreamshostel.officetv.UNIT.CONVERTERTTASK.UNITSELECTORALGORITHMS.TemperatureSelectionSelectorAlgorithm;
-import com.californiadreamshostel.officetv.UNIT.CONVERTERTTASK.UNITSELECTORALGORITHMS.UnitSelectorAlgorithm;
-import com.californiadreamshostel.officetv.UNIT.CONVERTERTTASK.UNITSELECTORALGORITHMS.VelocitySelectorAlgorithm;
-import com.californiadreamshostel.officetv.UNIT.UNITS.Unit;
-import com.californiadreamshostel.officetv.UNIT.UnitChoreographer;
-import com.californiadreamshostel.officetv.UTILITIES.TickTockerTasker;
+import com.californiadreamshostel.officetv.Unit.CONVERTER.ConversionType;
+import com.californiadreamshostel.officetv.Unit.CONVERTERTTASK.UNITSELECTORALGORITHMS.SizeSelectorAlgorithm;
+import com.californiadreamshostel.officetv.Unit.CONVERTERTTASK.UNITSELECTORALGORITHMS.TemperatureSelectionSelectorAlgorithm;
+import com.californiadreamshostel.officetv.Unit.CONVERTERTTASK.UNITSELECTORALGORITHMS.UnitSelectorAlgorithm;
+import com.californiadreamshostel.officetv.Unit.CONVERTERTTASK.UNITSELECTORALGORITHMS.VelocitySelectorAlgorithm;
+import com.californiadreamshostel.officetv.Unit.UNITS.Unit;
+import com.californiadreamshostel.officetv.Unit.UnitChoreographer;
+import com.californiadreamshostel.officetv.Utilities.TickTockerTasker;
 
 import java.util.HashSet;
 

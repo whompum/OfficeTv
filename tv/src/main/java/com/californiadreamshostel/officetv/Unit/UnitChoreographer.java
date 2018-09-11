@@ -1,16 +1,15 @@
-package com.californiadreamshostel.officetv.UNIT;
+package com.californiadreamshostel.officetv.Unit;
 
 import android.animation.Animator;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.californiadreamshostel.officetv.UNIT.CONVERTER.CONVERSIONALGORITHMS.ConversionAlgorithm;
-import com.californiadreamshostel.officetv.UNIT.CONVERTER.ConversionType;
-import com.californiadreamshostel.officetv.UNIT.CONVERTER.UnitConvertorFactory;
-import com.californiadreamshostel.officetv.UNIT.UNITS.Unit;
-import com.californiadreamshostel.officetv.UTILITIES.ANIMATIONS.OnAnimationEnd;
-import com.californiadreamshostel.officetv.UTILITIES.ANIMATIONS.TextAnimator;
+import com.californiadreamshostel.officetv.Unit.CONVERTER.ConversionType;
+import com.californiadreamshostel.officetv.Unit.CONVERTER.UnitConvertorFactory;
+import com.californiadreamshostel.officetv.Unit.UNITS.Unit;
+import com.californiadreamshostel.officetv.Utilities.ANIMATIONS.OnAnimationEnd;
+import com.californiadreamshostel.officetv.Utilities.ANIMATIONS.TextAnimator;
 
 import java.util.Locale;
 

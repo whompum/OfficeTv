@@ -1,6 +1,6 @@
-package com.californiadreamshostel.officetv.UNIT.CONVERTER.CONVERSIONALGORITHMS.VELOCITY;
+package com.californiadreamshostel.officetv.Unit.CONVERTER.CONVERSIONALGORITHMS.VELOCITY;
 
-import com.californiadreamshostel.officetv.UNIT.CONVERTER.CONVERSIONALGORITHMS.ConversionAlgorithm;
+import com.californiadreamshostel.officetv.Unit.CONVERTER.CONVERSIONALGORITHMS.ConversionAlgorithm;
 
 public class Kts$Mph implements ConversionAlgorithm {
 

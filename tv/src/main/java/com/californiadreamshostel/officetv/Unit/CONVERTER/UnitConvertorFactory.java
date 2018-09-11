@@ -1,29 +1,29 @@
-package com.californiadreamshostel.officetv.UNIT.CONVERTER;
+package com.californiadreamshostel.officetv.Unit.CONVERTER;
 
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.californiadreamshostel.officetv.UNIT.CONVERTER.CONVERSIONALGORITHMS.ConversionAlgorithm;
-import com.californiadreamshostel.officetv.UNIT.CONVERTER.CONVERSIONALGORITHMS.SIZE.Ft$M;
-import com.californiadreamshostel.officetv.UNIT.CONVERTER.CONVERSIONALGORITHMS.SIZE.M$Ft;
-import com.californiadreamshostel.officetv.UNIT.CONVERTER.CONVERSIONALGORITHMS.TEMPERATURE.CelsuisToFarenheitAlgorithm;
-import com.californiadreamshostel.officetv.UNIT.CONVERTER.CONVERSIONALGORITHMS.TEMPERATURE.FarenheitToCelsuisAlgorithm;
-import com.californiadreamshostel.officetv.UNIT.CONVERTER.CONVERSIONALGORITHMS.VELOCITY.Kph$Kts;
-import com.californiadreamshostel.officetv.UNIT.CONVERTER.CONVERSIONALGORITHMS.VELOCITY.Kph$Mph;
-import com.californiadreamshostel.officetv.UNIT.CONVERTER.CONVERSIONALGORITHMS.VELOCITY.Kts$Kph;
-import com.californiadreamshostel.officetv.UNIT.CONVERTER.CONVERSIONALGORITHMS.VELOCITY.Kts$Mph;
-import com.californiadreamshostel.officetv.UNIT.CONVERTER.CONVERSIONALGORITHMS.VELOCITY.Mph$Kph;
-import com.californiadreamshostel.officetv.UNIT.CONVERTER.CONVERSIONALGORITHMS.VELOCITY.Mph$Kts;
-import com.californiadreamshostel.officetv.UNIT.UNITS.TEMPERATURE.C;
-import com.californiadreamshostel.officetv.UNIT.UNITS.TEMPERATURE.F;
-import com.californiadreamshostel.officetv.UNIT.UNITS.SIZE.Ft;
-import com.californiadreamshostel.officetv.UNIT.UNITS.SIZE.Km;
-import com.californiadreamshostel.officetv.UNIT.UNITS.VELOCITY.Kph;
-import com.californiadreamshostel.officetv.UNIT.UNITS.VELOCITY.Kts;
-import com.californiadreamshostel.officetv.UNIT.UNITS.SIZE.M;
-import com.californiadreamshostel.officetv.UNIT.UNITS.VELOCITY.Mph;
-import com.californiadreamshostel.officetv.UNIT.UNITS.Unit;
+import com.californiadreamshostel.officetv.Unit.CONVERTER.CONVERSIONALGORITHMS.ConversionAlgorithm;
+import com.californiadreamshostel.officetv.Unit.CONVERTER.CONVERSIONALGORITHMS.SIZE.Ft$M;
+import com.californiadreamshostel.officetv.Unit.CONVERTER.CONVERSIONALGORITHMS.SIZE.M$Ft;
+import com.californiadreamshostel.officetv.Unit.CONVERTER.CONVERSIONALGORITHMS.TEMPERATURE.CelsuisToFarenheitAlgorithm;
+import com.californiadreamshostel.officetv.Unit.CONVERTER.CONVERSIONALGORITHMS.TEMPERATURE.FarenheitToCelsuisAlgorithm;
+import com.californiadreamshostel.officetv.Unit.CONVERTER.CONVERSIONALGORITHMS.VELOCITY.Kph$Kts;
+import com.californiadreamshostel.officetv.Unit.CONVERTER.CONVERSIONALGORITHMS.VELOCITY.Kph$Mph;
+import com.californiadreamshostel.officetv.Unit.CONVERTER.CONVERSIONALGORITHMS.VELOCITY.Kts$Kph;
+import com.californiadreamshostel.officetv.Unit.CONVERTER.CONVERSIONALGORITHMS.VELOCITY.Kts$Mph;
+import com.californiadreamshostel.officetv.Unit.CONVERTER.CONVERSIONALGORITHMS.VELOCITY.Mph$Kph;
+import com.californiadreamshostel.officetv.Unit.CONVERTER.CONVERSIONALGORITHMS.VELOCITY.Mph$Kts;
+import com.californiadreamshostel.officetv.Unit.UNITS.TEMPERATURE.C;
+import com.californiadreamshostel.officetv.Unit.UNITS.TEMPERATURE.F;
+import com.californiadreamshostel.officetv.Unit.UNITS.SIZE.Ft;
+import com.californiadreamshostel.officetv.Unit.UNITS.SIZE.Km;
+import com.californiadreamshostel.officetv.Unit.UNITS.VELOCITY.Kph;
+import com.californiadreamshostel.officetv.Unit.UNITS.VELOCITY.Kts;
+import com.californiadreamshostel.officetv.Unit.UNITS.SIZE.M;
+import com.californiadreamshostel.officetv.Unit.UNITS.VELOCITY.Mph;
+import com.californiadreamshostel.officetv.Unit.UNITS.Unit;
 
 import java.util.HashSet;
 import java.util.Set;

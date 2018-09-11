@@ -1,8 +1,8 @@
-package com.californiadreamshostel.officetv.UNIT.CONVERTERTTASK.UNITSELECTORALGORITHMS;
+package com.californiadreamshostel.officetv.Unit.CONVERTERTTASK.UNITSELECTORALGORITHMS;
 
-import com.californiadreamshostel.officetv.UNIT.UNITS.SIZE.Ft;
-import com.californiadreamshostel.officetv.UNIT.UNITS.SIZE.M;
-import com.californiadreamshostel.officetv.UNIT.UNITS.Unit;
+import com.californiadreamshostel.officetv.Unit.UNITS.SIZE.Ft;
+import com.californiadreamshostel.officetv.Unit.UNITS.SIZE.M;
+import com.californiadreamshostel.officetv.Unit.UNITS.Unit;
 
 public class SizeSelectorAlgorithm implements UnitSelectorAlgorithm {
 

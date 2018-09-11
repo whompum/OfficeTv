@@ -1,6 +1,6 @@
-package com.californiadreamshostel.officetv.UNIT.UNITS.VELOCITY;
+package com.californiadreamshostel.officetv.Unit.UNITS.VELOCITY;
 
-import com.californiadreamshostel.officetv.UNIT.UNITS.Unit;
+import com.californiadreamshostel.officetv.Unit.UNITS.Unit;
 
 public class Mph extends Unit {
     public static final String TYPE = "MPH";

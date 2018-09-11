@@ -1,9 +1,9 @@
-package com.californiadreamshostel.officetv.UNIT.CONVERTERTTASK.UNITSELECTORALGORITHMS;
+package com.californiadreamshostel.officetv.Unit.CONVERTERTTASK.UNITSELECTORALGORITHMS;
 
-import com.californiadreamshostel.officetv.UNIT.UNITS.Unit;
-import com.californiadreamshostel.officetv.UNIT.UNITS.VELOCITY.Kph;
-import com.californiadreamshostel.officetv.UNIT.UNITS.VELOCITY.Kts;
-import com.californiadreamshostel.officetv.UNIT.UNITS.VELOCITY.Mph;
+import com.californiadreamshostel.officetv.Unit.UNITS.Unit;
+import com.californiadreamshostel.officetv.Unit.UNITS.VELOCITY.Kph;
+import com.californiadreamshostel.officetv.Unit.UNITS.VELOCITY.Kts;
+import com.californiadreamshostel.officetv.Unit.UNITS.VELOCITY.Mph;
 
 
 //TODO Implement a differing selection rather than a sequential selection

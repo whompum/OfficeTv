@@ -1,6 +1,6 @@
-package com.californiadreamshostel.officetv.UNIT.CONVERTER.CONVERSIONALGORITHMS.SIZE;
+package com.californiadreamshostel.officetv.Unit.CONVERTER.CONVERSIONALGORITHMS.SIZE;
 
-import com.californiadreamshostel.officetv.UNIT.CONVERTER.CONVERSIONALGORITHMS.ConversionAlgorithm;
+import com.californiadreamshostel.officetv.Unit.CONVERTER.CONVERSIONALGORITHMS.ConversionAlgorithm;
 
 public class Ft$M implements ConversionAlgorithm{
 
