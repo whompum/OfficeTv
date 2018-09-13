@@ -19,7 +19,7 @@ import com.californiadreamshostel.officetv.R;
 import java.util.List;
 
 
-public class RentalSlideFragmentFragment extends SlideFragment implements RemoteDataReceiver{
+public class RentalSlideFragment extends SlideFragment implements RemoteDataReceiver{
 
     public static final String DEFAULT_TITLE = "RentalsSlideFragment.class";
 
@@ -27,7 +27,7 @@ public class RentalSlideFragmentFragment extends SlideFragment implements Remote
     public static final int LAYOUT = R.layout.slide_rental_content;
 
     public static Fragment newInstance(){
-        return new RentalSlideFragmentFragment();
+        return new RentalSlideFragment();
     }
 
     private RentalsDataController controller;

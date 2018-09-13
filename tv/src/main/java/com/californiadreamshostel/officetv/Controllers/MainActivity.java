@@ -14,7 +14,7 @@ import com.californiadreamshostel.officetv.Controllers.TvSlides.Exchanger;
 import com.californiadreamshostel.officetv.Controllers.TvSlides.OnExchangeListener;
 
 /******
- *MainActivity class that loads {@link RentalSlideFragmentFragment} and {@link ShelfFragment}.
+ *MainActivity class that loads {@link RentalSlideFragment} and {@link ShelfFragment}.
  ******/
 public class MainActivity extends Activity implements OnExchangeListener {
 
@@ -22,7 +22,7 @@ public class MainActivity extends Activity implements OnExchangeListener {
 
     private SlideFragment current;
 
-    private RentalSlideFragmentFragment rentalSlideFragment;
+    private RentalSlideFragment rentalSlideFragment;
     private SurfLessonSlideFragmentFragment surfLessons;
 
     private RentalsDataController rentalsController;
@@ -35,7 +35,7 @@ public class MainActivity extends Activity implements OnExchangeListener {
         getFragmentManager().beginTransaction()
                 .add(R.id.id_shelf_container, ShelfFragment.newInstance(null)).commit();
 
-        rentalSlideFragment = (RentalSlideFragmentFragment) RentalSlideFragmentFragment.newInstance();
+        rentalSlideFragment = (RentalSlideFragment) RentalSlideFragment.newInstance();
 
         surfLessons = (SurfLessonSlideFragmentFragment) SurfLessonSlideFragmentFragment.newInstance();
 
