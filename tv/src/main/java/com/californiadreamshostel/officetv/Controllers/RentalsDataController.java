@@ -41,18 +41,27 @@ public class RentalsDataController implements RemoteDataReceiver{
 
     @Override
     public void onDataReceived(ReferenceItem item, int changeType) {
+
+        Log.i("RENTAL_FIX", "RECEIVED ITEM: " + item.getReference() +
+        " THE ITEM HAS " + String.valueOf(item.getChildren().size()) + " CHILDREN");
+
+        for(ReferenceItem child : item.getChildren())
+            Log.i("RENTAL_FIX", "FOUND A CHILD ITEM FOR PARENT: " + item.getReference()
+            + " THE CHILD IS: " + child.getReference() + " AND HAS VALUE: " + child.getValue());
+
         //Store in List
         if(changeType == SimpleEventListener.CHANGE){
 
+            int changedItemIndex = -1;
 
             //Find the item that changed in our rentals
-            for(ReferenceItem a: data)
-                if(a.getReference().equals(item.getReference())) //Now find the differences between children
-                    for(ReferenceItem child: a.getChildren()){
-                        final ReferenceItem changedChild = item.findChildBy(child.getReference());
-                        if(changedChild == null) continue;
-                        child.setValue(changedChild.getValue());
-                    }
+            for(int i =0; i < data.size(); i++)
+                if(data.get(i).getReference().equals(item.getReference()))
+                    changedItemIndex = i;
+
+            if(changedItemIndex > -1)
+                data.set(changedItemIndex, item);
+
             if(client != null)
                 client.onDataReceived(item, changeType);
         }
