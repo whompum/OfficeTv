@@ -19,8 +19,8 @@ import android.widget.TextView;
 
 import com.californiadreamshostel.firebaseclient.DataSchema;
 import com.californiadreamshostel.firebaseclient.ReferenceItem;
-import com.californiadreamshostel.officetv.Controllers.weather$surf.TideRepo;
-import com.californiadreamshostel.officetv.Controllers.weather$surf.WindSwellRepo;
+import com.californiadreamshostel.officetv.Controllers.WeatherSurf.TideRepo;
+import com.californiadreamshostel.officetv.Controllers.WeatherSurf.WindSwellRepo;
 import com.californiadreamshostel.officetv.R;
 import com.californiadreamshostel.officetv.Surf.MODELS.Tide;
 import com.californiadreamshostel.officetv.Surf.MODELS.WindAndSwell;

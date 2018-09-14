@@ -10,6 +10,8 @@ import com.californiadreamshostel.firebaseclient.ReferenceItem;
 import com.californiadreamshostel.firebaseclient.SimpleEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class RentalsDataController implements RemoteDataReceiver{
@@ -62,6 +64,8 @@ public class RentalsDataController implements RemoteDataReceiver{
             if(changedItemIndex > -1)
                 data.set(changedItemIndex, item);
 
+            TEMPorder();
+
             if(client != null)
                 client.onDataReceived(item, changeType);
         }
@@ -75,6 +79,10 @@ public class RentalsDataController implements RemoteDataReceiver{
 
         if(changeType == SimpleEventListener.ADDED && !dataExists) {
             data.add(item);
+
+            TEMPorder();
+
+
             if(client != null)
                 client.onDataReceived(item, changeType);
         }
@@ -89,6 +97,8 @@ public class RentalsDataController implements RemoteDataReceiver{
 
             if(itemToRemove != null) data.remove(itemToRemove);
 
+            TEMPorder();
+
             if(client != null)
                 client.onDataReceived(item, changeType);
         }
@@ -98,6 +108,26 @@ public class RentalsDataController implements RemoteDataReceiver{
 
     public List<ReferenceItem> fetchData(){
         return data;
+    }
+
+    private void TEMPorder(){
+        Collections.sort(data, (ReferenceItem itemOne, ReferenceItem itemTwo) -> {
+            final String fullDayOne = itemOne.findChildBy(DataSchema.RENTAL_FULL_DAY).getValue();
+            final String fullDayTwo = itemTwo.findChildBy(DataSchema.RENTAL_FULL_DAY).getValue();
+
+            int order = 0;
+
+            try{
+
+                order = Integer.parseInt(fullDayTwo.replaceAll("[^\\d]", "")) -
+                        Integer.parseInt(fullDayOne.replaceAll("[^\\d]", ""));
+
+            }catch (ClassCastException e){
+                Log.i("ORDER_TEST", "Rental Full Day Values aren't integers");
+            }
+
+            return order;
+        });
     }
 
 
@@ -116,9 +146,4 @@ public class RentalsDataController implements RemoteDataReceiver{
     public void unregister(){
         controller.unRegister();
     }
-
-    public interface OnDataReady{
-        void onDataReady();
-    }
-
 }

@@ -19,7 +19,7 @@
 
         <service android:name=".Networking.Downloading.DataDownloadService"
             android:exported="false"/>
-        <service android:name=".Controllers.weather$surf.WeatherSurfController"
+        <service android:name=".Controllers.WeatherSurf.WeatherSurfController"
             android:permission="android.permission.BIND_JOB_SERVICE"/>
 
         <activity

@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.californiadreamshostel.officetv.Controllers.TvSlides.Slide;
 import com.californiadreamshostel.officetv.Controllers.TvSlides.SlideFragment;
-import com.californiadreamshostel.officetv.Controllers.weather$surf.WeatherSurfController;
+import com.californiadreamshostel.officetv.Controllers.WeatherSurf.WeatherSurfController;
 import com.californiadreamshostel.officetv.R;
 import com.californiadreamshostel.officetv.Controllers.TvSlides.Exchanger;
 import com.californiadreamshostel.officetv.Controllers.TvSlides.OnExchangeListener;
@@ -30,6 +32,10 @@ public class MainActivity extends Activity implements OnExchangeListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.display_root_wireframe);
 
         getFragmentManager().beginTransaction()

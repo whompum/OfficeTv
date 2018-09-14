@@ -1,7 +1,6 @@
-package com.californiadreamshostel.officetv.Controllers.weather$surf;
+package com.californiadreamshostel.officetv.Controllers.WeatherSurf;
 
 import android.arch.lifecycle.LiveData;
-import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.support.annotation.NonNull;
 

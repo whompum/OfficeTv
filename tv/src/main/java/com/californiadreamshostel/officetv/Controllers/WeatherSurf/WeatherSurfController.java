@@ -1,4 +1,4 @@
-package com.californiadreamshostel.officetv.Controllers.weather$surf;
+package com.californiadreamshostel.officetv.Controllers.WeatherSurf;
 
 import android.app.job.JobInfo;
 import android.app.job.JobParameters;
@@ -13,7 +13,6 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.californiadreamshostel.officetv.Networking.Downloading.DownloadIntent;
-import com.californiadreamshostel.officetv.Parsing.IParsingFinishedObserver;
 import com.californiadreamshostel.officetv.Surf.ENDPOINTS.MagicSeaWeed;
 import com.californiadreamshostel.officetv.Surf.ENDPOINTS.Spitcast;
 import com.californiadreamshostel.officetv.Surf.MODELS.Tide;
@@ -107,9 +106,15 @@ public class WeatherSurfController extends JobService{
         if(downloads == null)
             prepareDownloadIntents();
 
+        Log.i("WEATHER_FIX", "On Start Job");
+
         for(int a = 0; a  < downloads.length; a++)
-            if (shouldUpdate(downloads[a].getUri()) && API_KEYS.hasKey(downloads[a].getUri()))
+            if (shouldUpdate(downloads[a].getUri()) && API_KEYS.hasKey(downloads[a].getUri())) {
                 startService(downloads[a]);
+
+                Log.i("WEATHER_FIX", "FETCHING WEATHER DATA: " + downloads[a].getUri().toString());
+
+            }
 
         start(this);  // Reschedules the Job.
         return false;
@@ -179,6 +184,7 @@ public class WeatherSurfController extends JobService{
     }
 
     private static JobInfo makeJobInfo(@NonNull final Context context){
+
         return new JobInfo.Builder(ID, new ComponentName(context, WeatherSurfController.class))
                 .setMinimumLatency(MAXIMUM_XECUTE_DELAY)
                 .setOverrideDeadline(LAUNCH_INTERVAL)
